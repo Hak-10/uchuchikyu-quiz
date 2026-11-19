@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="artifact-type" content="tool">
+<meta name="design-style" content="nocturne">
+<title>宇宙地球科学Ⅰ 試験対策プラットフォーム（全140問）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..500&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.2/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.18.2/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.18.2/dist/contrib/auto-render.min.js"></script>
+<style>
+:root {
+  color-scheme: dark;
+  --background: #0a101d;
+  --surface-container-low: #0e1626;
+  --surface-container: #111b2e;
+  --surface-container-high: #17243c;
+  --on-surface: #f2ece1;
+  --on-surface-variant: #9ba8bf;
+  --outline: #384d73;
+  --outline-variant: #21304d;
+  --primary: #dfaa5b;
+  --on-primary: #0a101d;
+  --primary-container: #2b261c;
+  --on-primary-container: #f5dcb0;
+  --secondary: #687a99;
+  --tertiary: #7cc4e8;
+  --error: #f27474;
+  --on-error: #1a0606;
+  --positive: #52d19c;
+  --on-positive: #061c13;
+  --warning: #e6b85c;
+  --focus: #dfaa5b;
+
+  --data-1: #dfaa5b;
+  --data-2: #7cc4e8;
+  --data-3: #52d19c;
+  --data-4: #e07a5f;
+  --data-context: #4a5d80;
+
+  --font-headline: 'EB Garamond', 'Noto Serif JP', serif;
+  --font-body: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+  --font-label: 'JetBrains Mono', 'Noto Sans JP', monospace;
+
+  --rounded: 0.25rem;
+  --rounded-lg: 0.375rem;
+  --rounded-full: 9999px;
+
+  --hairline: 1px solid var(--outline-variant);
+  --hairline-strong: 1px solid var(--outline);
+  --panel-highlight: inset 0 1px 0 rgba(242, 236, 225, 0.05);
+  --brass-glow: radial-gradient(circle at 88% 12%, rgba(223, 170, 91, 0.09), transparent 46%);
+  --heading-tracking: -0.015em;
+  --label-tracking: 0.06em;
+  --sky-tint: color-mix(in srgb, var(--tertiary) 12%, transparent);
+  --brass-tint: color-mix(in srgb, var(--primary) 14%, transparent);
+  --pos-tint: color-mix(in srgb, var(--positive) 13%, transparent);
+  --err-tint: color-mix(in srgb, var(--error) 13%, transparent);
+
+  --display-size: clamp(1.75rem, 1.35rem + 1.2vw, 2.25rem);
+  --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --subhead-size: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+  --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+  --label-size: 0.75rem;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #f6f2e9;
+  --surface-container-low: #f1ecdf;
+  --surface-container: #efe9dc;
+  --surface-container-high: #e5decb;
+  --on-surface: #101829;
+  --on-surface-variant: #4a5568;
+  --outline: #8c826d;
+  --outline-variant: #d5ccb8;
+  --primary: #9c6514;
+  --on-primary: #f6f2e9;
+  --primary-container: #ebe0c9;
+  --on-primary-container: #3d2605;
+  --secondary: #5c677d;
+  --tertiary: #1b5e8a;
+  --error: #b83232;
+  --on-error: #fff5f5;
+  --positive: #15734b;
+  --on-positive: #f2fbf7;
+  --warning: #9c6514;
+  --focus: #9c6514;
+  --panel-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --brass-glow: radial-gradient(circle at 88% 12%, rgba(156, 101, 20, 0.08), transparent 46%);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  overflow-x: clip;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+header { position: static !important; }
+button, input, select, textarea { font-family: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.app-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  display: grid;
+  gap: var(--space-lg);
+}
+.app-shell * { min-width: 0; }
+
+.hero-header {
+  background-color: var(--background);
+  background-image: var(--brass-glow);
+  border-bottom: var(--hairline);
+  padding-bottom: var(--space-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-md);
+}
+.coord-label {
+  font-family: var(--font-label);
+  font-size: var(--label-size);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--tertiary);
+  margin: 0 0 var(--space-xs) 0;
+}
+.title {
+  font-family: var(--font-headline);
+  font-weight: 500;
+  font-size: var(--display-size);
+  letter-spacing: var(--heading-tracking);
+  line-height: 1.12;
+  margin: 0;
+  color: var(--on-surface);
+}
+.title em {
+  font-style: italic;
+  color: var(--primary);
+  font-weight: 400;
+}
+.deck-brass {
+  font-family: var(--font-label);
+  font-size: var(--label-size);
+  letter-spacing: var(--label-tracking);
+  color: var(--primary);
+  margin: var(--space-xs) 0 0 0;
+}
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.panel {
+  background: var(--surface-container);
+  border: var(--hairline);
+  box-shadow: var(--panel-highlight);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-lg);
+}
+.observation-well {
+  background: var(--background);
+  border: var(--hairline);
+  border-radius: var(--rounded);
+  padding: var(--space-md);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  padding: 0 var(--space-md);
+  border-radius: var(--rounded);
+  font-family: var(--font-label);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: var(--hairline-strong);
+  background: transparent;
+  color: var(--on-surface);
+  transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+}
+.btn:hover:not(:disabled) { background: var(--surface-container-high); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+}
+.btn-primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--primary) 88%, var(--on-surface));
+}
+.btn-sky {
+  background: var(--sky-tint);
+  color: var(--tertiary);
+  border-color: color-mix(in srgb, var(--tertiary) 40%, transparent);
+}
+.btn-danger {
+  background: var(--err-tint);
+  color: var(--error);
+  border-color: color-mix(in srgb, var(--error) 45%, transparent);
+}
+.btn-sm {
+  min-height: 36px;
+  padding: 0 var(--space-sm);
+  font-size: var(--label-size);
+}
+
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  border-bottom: var(--hairline);
+  padding-bottom: var(--space-md);
+}
+.nav-tab {
+  min-height: 44px;
+  padding: 0 var(--space-md);
+  border-radius: var(--rounded);
+  border: var(--hairline);
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+  font-family: var(--font-label);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+}
+.nav-tab:hover { color: var(--on-surface); background: var(--surface-container-high); }
+.nav-tab.active {
+  background: var(--brass-tint);
+  color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+  gap: var(--space-md);
+}
+.kpi-tile {
+  background: var(--surface-container);
+  border: var(--hairline);
+  box-shadow: var(--panel-highlight);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-md);
+  display: grid;
+  gap: var(--space-xs);
+}
+.kpi-label {
+  font-family: var(--font-label);
+  font-size: var(--label-size);
+  letter-spacing: var(--label-tracking);
+  color: var(--on-surface-variant);
+}
+.kpi-val {
+  font-family: var(--font-headline);
+  font-size: 2rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  color: var(--on-surface);
+}
+.kpi-note {
+  font-family: var(--font-label);
+  font-size: var(--label-size);
+  color: var(--tertiary);
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: var(--space-md);
+  align-items: end;
+}
+.field-group {
+  display: grid;
+  gap: var(--space-xs);
+}
+.field-label {
+  font-family: var(--font-label);
+  font-size: var(--label-size);
+  letter-spacing: var(--label-tracking);
+  color: var(--on-surface-variant);
+}
+.field-control {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--background);
+  color: var(--on-surface);
+  border: var(--hairline-strong);
+  border-radius: var(--rounded);
+  font-size: 0.875rem;
+}
+select.field-control { padding-right: 2rem; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--rounded);
+  font-family: var(--font-label);
+  font-size: var(--label-size);
+  border: 1px solid color-mix(in srgb, var(--tertiary) 35%, transparent);
+  background: var(--sky-tint);
+  color: var(--tertiary);
+}
+.badge-brass {
+  background: var(--brass-tint);
+  color: var(--primary);
+  border-color: color-mix(in srgb, var(--primary) 35%, transparent);
+}
+.badge-pos {
+  background: var(--pos-tint);
+  color: var(--positive);
+  border-color: color-mix(in srgb, var(--positive) 35%, transparent);
+}
+.badge-err {
+  background: var(--err-tint);
+  color: var(--error);
+  border-color: color-mix(in srgb, var(--error) 35%, transparent);
+}
+
+.lecture-bars {
+  display: grid;
+  gap: var(--space-sm);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr) auto;
+  gap: var(--space-md);
+  align-items: center;
+  padding: var(--space-xs) 0;
+  border-bottom: var(--hairline);
+}
+.bar-track {
+  height: 10px;
+  background: var(--background);
+  border: var(--hairline);
+  border-radius: var(--rounded-full);
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: var(--data-1);
+  transition: width var(--dur-short) var(--ease-out);
+}
+.bar-stat {
+  font-family: var(--font-label);
+  font-size: var(--label-size);
+  font-variant-numeric: tabular-nums;
+  color: var(--on-surface-variant);
+  min-width: 96px;
+  text-align: right;
+}
+
+.quiz-header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-md);
+  border-bottom: var(--hairline);
+}
+.question-stem {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin: var(--space-md) 0;
+  color: var(--on-surface);
+  max-width: 72ch;
+}
+.choices-list {
+  display: grid;
+  gap: var(--space-sm);
+}
+.choice-btn {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: var(--space-sm);
+  align-items: start;
+  text-align: left;
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-md);
+  border-radius: var(--rounded-lg);
+  border: var(--hairline-strong);
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  cursor: pointer;
+  transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+}
+.choice-btn:hover:not(:disabled) { background: var(--surface-container-high); }
+.choice-btn.selected {
+  background: var(--brass-tint);
+  box-shadow: inset 0 0 0 2px var(--primary);
+}
+.choice-btn.correct {
+  background: var(--pos-tint);
+  box-shadow: inset 0 0 0 2px var(--positive);
+}
+.choice-btn.wrong {
+  background: var(--err-tint);
+  box-shadow: inset 0 0 0 2px var(--error);
+}
+.choice-key {
+  font-family: var(--font-label);
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.explanation-box {
+  margin-top: var(--space-md);
+  background: var(--background);
+  border: var(--hairline);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--rounded);
+  padding: var(--space-md);
+  display: grid;
+  gap: var(--space-xs);
+}
+.explanation-box.is-correct { border-left-color: var(--positive); }
+.explanation-box.is-wrong { border-left-color: var(--error); }
+
+.nav-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.q-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--rounded);
+  border: var(--hairline);
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+  font-family: var(--font-label);
+  font-size: var(--label-size);
+  cursor: pointer;
+}
+.q-dot.current { box-shadow: inset 0 0 0 2px var(--primary); color: var(--primary); }
+.q-dot.answered { background: var(--brass-tint); color: var(--on-surface); }
+.q-dot.dot-ok { background: var(--pos-tint); color: var(--positive); border-color: var(--positive); }
+.q-dot.dot-ng { background: var(--err-tint); color: var(--error); border-color: var(--error); }
+
+.bank-list {
+  display: grid;
+  gap: var(--space-md);
+}
+.bank-card {
+  background: var(--surface-container);
+  border: var(--hairline);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-md);
+  display: grid;
+  gap: var(--space-sm);
+}
+.red-sheet-masked {
+  filter: blur(5px);
+  user-select: none;
+  cursor: pointer;
+}
+
+.status-banner {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--rounded);
+  border: var(--hairline);
+  background: var(--surface-container-high);
+  font-family: var(--font-label);
+  font-size: 0.8125rem;
+  color: var(--tertiary);
+}
+.hidden { display: none !important; }
+
+.katex { font-size: 1.02em; }
+
+@media (max-width: 640px) {
+  .app-shell { padding: var(--space-sm); gap: var(--space-md); }
+  .panel { padding: var(--space-md); }
+  .bar-row { grid-template-columns: 1fr; gap: var(--space-xs); }
+  .bar-stat { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <header class="hero-header">
+    <div>
+      <p class="coord-label">OSAKA UNIV. / SPACE &amp; EARTH SCIENCE I / 140 QUESTIONS BANK</p>
+      <h1 class="title">宇宙地球科学Ⅰ <em>試験対策</em>プラットフォーム</h1>
+      <p class="deck-brass">第1回〜第7回（宇宙編 1–4回・地球編 5–7回）完全準拠・難関4択演習システム</p>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="btn btn-sm" id="theme-toggle-btn" onclick="toggleTheme()">ライト表示に切替</button>
+      <button type="button" class="btn btn-sm btn-sky" onclick="switchView('backup')">進捗バックアップ</button>
+    </div>
+  </header>
+
+  <nav class="nav-bar" aria-label="メインナビゲーション">
+    <button type="button" class="nav-tab active" data-view="dashboard" onclick="switchView('dashboard')">弱点分析・出題設定</button>
+    <button type="button" class="nav-tab" data-view="quiz" onclick="switchView('quiz')">演習画面</button>
+    <button type="button" class="nav-tab" data-view="bank" onclick="switchView('bank')">全140問一覧（赤シート）</button>
+    <button type="button" class="nav-tab" data-view="backup" onclick="switchView('backup')">JSON入出力・管理</button>
+  </nav>
+
+  <div id="global-toast" class="status-banner hidden" role="status" aria-live="polite"></div>
+
+  <!-- VIEW 1: DASHBOARD & LAUNCHER -->
+  <section id="view-dashboard" style="display:grid; gap:var(--space-lg);">
+    <div class="kpi-grid">
+      <div class="kpi-tile">
+        <span class="kpi-label">全140問 解答済み</span>
+        <span class="kpi-val" id="kpi-answered">0 / 140</span>
+        <span class="kpi-note" id="kpi-coverage">網羅率 0.0%</span>
+      </div>
+      <div class="kpi-tile">
+        <span class="kpi-label">通算正答率</span>
+        <span class="kpi-val" id="kpi-accuracy">—</span>
+        <span class="kpi-note" id="kpi-correct-count">累計 0 問正解 / 0 回解答</span>
+      </div>
+      <div class="kpi-tile">
+        <span class="kpi-label">要復習（誤答タグ）</span>
+        <span class="kpi-val" id="kpi-wrong">0 問</span>
+        <span class="kpi-note">正解するまで自動保持</span>
+      </div>
+      <div class="kpi-tile">
+        <span class="kpi-label">ブックマーク</span>
+        <span class="kpi-val" id="kpi-bookmarks">0 問</span>
+        <span class="kpi-note">重点チェック登録済み</span>
+      </div>
+    </div>
+
+    <div class="panel" style="display:grid; gap:var(--space-md);">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+        <div>
+          <p class="coord-label">MISSION CONFIGURATOR</p>
+          <h2 style="font-family:var(--font-headline); font-size:var(--headline-size); margin:0;">出題設定とモード選択</h2>
+        </div>
+        <button type="button" class="btn btn-danger btn-sm" id="quick-weak-btn" onclick="startWeakQuick()">苦手問題のみ一括演習</button>
+      </div>
+
+      <div class="controls-grid">
+        <div class="field-group">
+          <label class="field-label" for="filter-part">領域フィルタ</label>
+          <select id="filter-part" class="field-control" onchange="onFilterChange()">
+            <option value="all">全範囲（第1回〜第7回 / 140問）</option>
+            <option value="space">宇宙編のみ（第1回〜第4回 / 80問）</option>
+            <option value="earth">地球編のみ（第5回〜第7回 / 60問）</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="filter-lecture">講義回別フィルタ</label>
+          <select id="filter-lecture" class="field-control" onchange="onFilterChange()">
+            <option value="all">すべての講義回</option>
+            <option value="1">第1回：宇宙のスケールと階層構造</option>
+            <option value="2">第2回：宇宙の誕生・ビッグバン・DM/DE</option>
+            <option value="3">第3回：恒星の進化と元素の起源</option>
+            <option value="4">第4回：太陽系・惑星系の誕生</option>
+            <option value="5">第5回：構成物質・化学分別・内部構造</option>
+            <option value="6">第6回：地球のダイナミクス・地震・火山</option>
+            <option value="7">第7回：地球表層環境と生命の進化</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="filter-status">習熟状態フィルタ</label>
+          <select id="filter-status" class="field-control" onchange="onFilterChange()">
+            <option value="all">すべての問題</option>
+            <option value="wrong">要復習（間違えた問題）</option>
+            <option value="bookmarked">ブックマーク済み</option>
+            <option value="unanswered">未解答の問題</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="opt-shuffle">選択肢シャッフル</label>
+          <select id="opt-shuffle" class="field-control">
+            <option value="on">有効（位置暗記を防止）</option>
+            <option value="off">無効（固定順序）</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="observation-well" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-md);">
+        <div>
+          <span class="coord-label">MATCHED POOL</span>
+          <div style="font-family:var(--font-label); font-size:0.9375rem;">該当問題数：<strong id="matched-count" style="color:var(--primary);">140</strong> 問</div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm);">
+          <button type="button" class="btn btn-primary" onclick="startQuiz('exam')">本番テストモード（ランダム20問・一括採点）</button>
+          <button type="button" class="btn btn-sky" onclick="startQuiz('drill')">一問一答モード（即時判定・解説）</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="display:grid; gap:var(--space-md);">
+      <div>
+        <p class="coord-label">WEAKNESS TELEMETRY</p>
+        <h2 style="font-family:var(--font-headline); font-size:var(--headline-size); margin:0;">講義回別 習得状況・正答率</h2>
+      </div>
+      <div id="lecture-bars" class="lecture-bars"></div>
+    </div>
+
+    <div class="panel" style="display:grid; gap:var(--space-sm);">
+      <p class="coord-label">RECENT LOGBOOK</p>
+      <h2 style="font-family:var(--font-headline); font-size:var(--headline-size); margin:0;">本番テスト履歴（最新5件）</h2>
+      <div id="exam-history-list" style="display:grid; gap:var(--space-xs);"></div>
+    </div>
+  </section>
+
+  <!-- VIEW 2: ACTIVE QUIZ -->
+  <section id="view-quiz" class="hidden" style="display:grid; gap:var(--space-lg);">
+    <div id="quiz-empty-state" class="panel hidden" style="display:grid; gap:var(--space-md);">
+      <p class="coord-label">NO ACTIVE SESSION</p>
+      <h2 style="font-family:var(--font-headline); margin:0;">演習セッションが開始されていません</h2>
+      <p style="margin:0; color:var(--on-surface-variant);">ダッシュボードで講義回や習熟状態を選び、「本番テストモード」または「一問一答モード」を開始してください。</p>
+      <div>
+        <button type="button" class="btn btn-primary" onclick="switchView('dashboard')">出題設定へ戻る</button>
+      </div>
+    </div>
+
+    <div id="quiz-active-box" class="panel hidden" style="display:grid; gap:var(--space-md);">
+      <div class="quiz-header-meta">
+        <div style="display:flex; flex-wrap:wrap; gap:var(--space-xs); align-items:center;">
+          <span class="badge badge-brass" id="q-mode-badge">MODE</span>
+          <span class="badge" id="q-lecture-badge">第1回</span>
+          <span class="badge" id="q-id-badge">Q001</span>
+          <span class="badge badge-err hidden" id="q-wrong-badge">要復習</span>
+        </div>
+        <div style="display:flex; gap:var(--space-xs); align-items:center;">
+          <span style="font-family:var(--font-label); font-size:0.875rem; color:var(--on-surface-variant);" id="q-progress-text">1 / 20</span>
+          <button type="button" class="btn btn-sm" id="q-bookmark-btn" onclick="toggleCurrentBookmark()">★ ブックマーク</button>
+        </div>
+      </div>
+
+      <div id="q-nav-dots" class="nav-dots"></div>
+
+      <div id="q-stem" class="question-stem"></div>
+      <div id="q-choices" class="choices-list"></div>
+
+      <div id="q-explanation" class="explanation-box hidden"></div>
+
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm); padding-top:var(--space-md); border-top:var(--hairline);">
+        <div style="display:flex; gap:var(--space-sm);">
+          <button type="button" class="btn" id="q-prev-btn" onclick="moveQuestion(-1)">← 前の問題</button>
+          <button type="button" class="btn" id="q-next-btn" onclick="moveQuestion(1)">次の問題 →</button>
+        </div>
+        <div style="display:flex; gap:var(--space-sm);">
+          <button type="button" class="btn btn-primary hidden" id="q-grade-btn" onclick="gradeExam()">本番テストを一括採点する</button>
+          <button type="button" class="btn btn-sky hidden" id="q-retry-wrong-btn" onclick="retrySessionWrong()">この回の誤答のみ再挑戦</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="exam-result-summary" class="panel hidden" style="display:grid; gap:var(--space-md);"></div>
+  </section>
+
+  <!-- VIEW 3: ALL 140 QUESTIONS BANK & RED SHEET -->
+  <section id="view-bank" class="hidden" style="display:grid; gap:var(--space-lg);">
+    <div class="panel" style="display:grid; gap:var(--space-md);">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+        <div>
+          <p class="coord-label">COMPLETE ARCHIVE / 140 ITEMS</p>
+          <h2 style="font-family:var(--font-headline); font-size:var(--headline-size); margin:0;">全140問 問題一覧・赤シート検索</h2>
+        </div>
+        <button type="button" class="btn btn-danger btn-sm" id="red-sheet-btn" onclick="toggleRedSheet()">赤シート：OFF（タップで正解・解説を隠す）</button>
+      </div>
+      <div class="controls-grid">
+        <div class="field-group">
+          <label class="field-label" for="bank-search">キーワード検索（問題文・用語・解説）</label>
+          <input type="text" id="bank-search" class="field-control" oninput="renderBank()" placeholder="例：ブリッジマナイト、ppチェイン、スノーライン">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="bank-lecture">講義回絞り込み</label>
+          <select id="bank-lecture" class="field-control" onchange="renderBank()">
+            <option value="all">全講義回（140問）</option>
+            <option value="1">第1回（20問）</option>
+            <option value="2">第2回（20問）</option>
+            <option value="3">第3回（20問）</option>
+            <option value="4">第4回（20問）</option>
+            <option value="5">第5回（20問）</option>
+            <option value="6">第6回（20問）</option>
+            <option value="7">第7回（20問）</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="bank-status">状態絞り込み</label>
+          <select id="bank-status" class="field-control" onchange="renderBank()">
+            <option value="all">すべて</option>
+            <option value="wrong">要復習（誤答タグ）のみ</option>
+            <option value="bookmarked">ブックマークのみ</option>
+          </select>
+        </div>
+      </div>
+      <div style="font-family:var(--font-label); font-size:var(--label-size); color:var(--on-surface-variant);">
+        表示件数：<span id="bank-count">140</span> 問（赤シートON時はマスク部分をクリックで個別表示）
+      </div>
+    </div>
+    <div id="bank-list" class="bank-list"></div>
+  </section>
+
+  <!-- VIEW 4: JSON BACKUP & DATA MANAGEMENT -->
+  <section id="view-backup" class="hidden" style="display:grid; gap:var(--space-lg);">
+    <div class="panel" style="display:grid; gap:var(--space-md);">
+      <p class="coord-label">CROSS-DEVICE SYNC / JSON BACKUP</p>
+      <h2 style="font-family:var(--font-headline); font-size:var(--headline-size); margin:0;">学習進捗の保存とPC・スマホ間引き継ぎ</h2>
+      <p style="margin:0; color:var(--on-surface-variant); max-width:68ch;">学習履歴はアプリ実行環境へ自動保存されます。さらに端末間（PCとスマートフォン等）で進捗・誤答タグ・ブックマークを引き継ぐには、下のJSON書き出し／読み込み機能をご利用ください。</p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm);">
+        <button type="button" class="btn btn-primary" onclick="exportBackupFile()">JSONファイルをダウンロード</button>
+        <button type="button" class="btn btn-sky" onclick="copyBackupJson()">JSON文字列を欄に出力</button>
+        <button type="button" class="btn btn-danger" id="reset-progress-btn" onclick="resetAllProgress(this)">学習データを初期化</button>
+      </div>
+
+      <div class="controls-grid">
+        <div class="field-group">
+          <label class="field-label" for="import-file-input">JSONファイルから復元</label>
+          <input type="file" id="import-file-input" class="field-control" accept=".json,.txt" onchange="importFromFile(event)">
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="json-text-area">JSONテキストのコピー／貼り付け復元</label>
+        <textarea id="json-text-area" class="field-control" rows="6" style="font-family:var(--font-label); font-size:0.75rem;"></textarea>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary" onclick="importFromTextarea()">貼り付けたJSONをインポート</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<api-shim></api-shim>
+<script>
+const LECTURE_META = {
+  1: { title: `第1回：宇宙のスケールと天体の階層構造`, part: `space` },
+  2: { title: `第2回：宇宙の誕生・ビッグバンとDM/DE`, part: `space` },
+  3: { title: `第3回：恒星の進化と元素の起源`, part: `space` },
+  4: { title: `第4回：太陽系・惑星系の誕生`, part: `space` },
+  5: { title: `第5回：構成物質・化学分別・内部構造`, part: `earth` },
+  6: { title: `第6回：地球のダイナミクス・地震・火山`, part: `earth` },
+  7: { title: `第7回：地球表層環境と生命の進化`, part: `earth` }
+};
+
+function makeQ(id, lec, q, opts, ans, exp) {
+  return { id, lec, part: lec <= 4 ? `space` : `earth`, q, opts, ans, exp };
+}
+
+const QUESTIONS = [
+  // ===== 第1回（1〜20） =====
+  makeQ(`Q001`, 1,
+    `宇宙地球科学における「天文学・宇宙物理学」と「地球惑星科学（惑星科学）」の対象範囲の違いに関する記述として、講義資料の説明に最も合致するものはどれか。`,
+    [
+      `両者に厳密な境界は存在せず、惑星科学は主に太陽系まで、天文学・宇宙物理学は太陽系外を対象とするイメージで捉えられる。`,
+      `天文学は観測データのみを扱う記述科学であり、物理法則を用いて現象を理論的に解明するのは宇宙物理学と地球科学に限られる。`,
+      `地球惑星科学は地球の内部構造と大気のみに限定され、月や彗星・小惑星などの太陽系小天体は天文学の専管対象と定義される。`,
+      `宇宙科学は人工衛星を用いた太陽系探査だけを指し、地上望遠鏡による銀河や恒星の観測は宇宙地球科学の範疇に含まれない。`
+    ], 0,
+    `正解は1番目。講義資料では「明確な違いはない。惑星科学は太陽系まで、天文学・宇宙物理学は太陽系より外の宇宙、ぐらいのイメージ」と整理されています。また宇宙地球科学は地球・月・彗星・惑星・恒星・銀河など宇宙が含む全てを対象とし、物理学・数学・化学・生物学を駆使します。`),
+  makeQ(`Q002`, 1,
+    `国際単位系（SI Units）とcgs単位系に関する記述として、正しいものはどれか。`,
+    [
+      `SI単位系では長さ・質量・時間の基本単位としてそれぞれ $\\text{m}$・$\\text{kg}$・$\\text{s}$ を用いるため、MKS単位系とも呼ばれる。`,
+      `cgs単位系は天文学で広く使われる単位系であり、長さ・質量・時間にそれぞれ $\\text{km}$・$\\text{g}$・$\\text{s}$ を基本として採用している。`,
+      `SI単位系（Système International d'unités）では、天体間の距離を扱う場合に限り $\\text{au}$ と $\\text{pc}$ が基本単位に指定されている。`,
+      `MKS単位系とcgs単位系は質量と時間の定義が共通であり、長さのみ $1\\text{ m} = 100\\text{ cm}$ の換算係数で異なる。`
+    ], 0,
+    `正解は1番目。SI単位系は metre($\\text{m}$), kilogram($\\text{kg}$), second($\\text{s}$) を用いるためMKS単位系とも呼ばれます。cgs単位系は cm, g, s であり、km や g と kg の混同は誤りです。auやpcはSI基本単位ではありません。`),
+  makeQ(`Q003`, 1,
+    `講義で強調された物理量表記の「お作法」および天文学特有の距離単位に関する記述として、正しいものはどれか。`,
+    [
+      `数値と単位の間には必ず半角スペースを挿入し、$1\\text{ au} \\approx 1.5 \\times 10^{8}\\text{ km}$、$1\\text{ pc} = 3.26\\text{ ly}$ と定義される。`,
+      `数値と単位の間のスペースは省略が推奨され、$1\\text{ ly} \\approx 9.5 \\times 10^{12}\\text{ km}$ は $1\\text{ au}$ の約 $1,000$ 倍に相当する。`,
+      `パーセク（$\\text{pc}$）は光が1年間に進む距離の $3.26$ 分の1と定義されており、$1\\text{ pc} \\approx 2.9 \\times 10^{12}\\text{ km}$ となる。`,
+      `天文単位（$\\text{au}$）は地球の赤道半径を基準に定義されており、太陽から地球までの距離はその約 $100$ 倍に等しい。`
+    ], 0,
+    `正解は1番目。講義では「数字と単位の間には必ず半角スペースを入れる」ことがお作法として示され、$1\\text{ au} \\approx 1.5 \\times 10^{8}\\text{ km}$、$1\\text{ ly} \\approx 9.5 \\times 10^{12}\\text{ km}$（約6.3万au）、$1\\text{ pc} = 3.26\\text{ ly} = 3.086 \\times 10^{13}\\text{ km}$ と定義されています。`),
+  makeQ(`Q004`, 1,
+    `太陽に最も近い恒星であるプロキシマ・ケンタウリ（Proxima Centauri）までの距離と、パーセク換算のオーダー感として最も適切なものはどれか。`,
+    [
+      `約 $4.4\\text{ ly}$（約 $1.3\\text{ pc}$）であり、$1\\text{ au}$ の約 $2.8 \\times 10^{5}$ 倍の距離に位置する。`,
+      `約 $4.4\\text{ pc}$（約 $14.3\\text{ ly}$）であり、太陽から海王星までの距離の約 $100$ 倍に相当する。`,
+      `約 $0.44\\text{ ly}$（約 $0.13\\text{ pc}$）であり、光速で移動しても約5か月しかかからない。`,
+      `約 $44\\text{ ly}$（約 $13.5\\text{ pc}$）であり、天の川銀河の中心付近に位置する赤色矮星である。`
+    ], 0,
+    `正解は1番目。講義資料に「太陽の次に地球に近い恒星（Proxima Centauri） $\\sim 4.4\\text{ ly}$」と記載されています。$1\\text{ pc} = 3.26\\text{ ly}$ より約 $1.3\\text{ pc}$、$1\\text{ ly} \\approx 6.3 \\times 10^{4}\\text{ au}$ なので約 $2.8 \\times 10^{5}\\text{ au}$ となります。`),
+  makeQ(`Q005`, 1,
+    `地球・月・太陽の半径の比較に関する記述として、講義資料の数値に照らし合わせて正しいものはどれか。`,
+    [
+      `地球半径は約 $6,400\\text{ km}$、月は地球の約 $1/4$（約 $1,740\\text{ km}$）、太陽は地球の約 $100$ 倍（約 $7 \\times 10^{5}\\text{ km}$）である。`,
+      `地球半径は約 $6,400\\text{ km}$、月は地球の約 $1/10$（約 $640\\text{ km}$）、太陽は地球の約 $1,000$ 倍（約 $7 \\times 10^{6}\\text{ km}$）である。`,
+      `地球半径は約 $12,800\\text{ km}$、月は地球の約 $1/4$（約 $3,200\\text{ km}$）、太陽は地球の約 $100$ 倍（約 $1.4 \\times 10^{6}\\text{ km}$）である。`,
+      `地球半径は約 $6,400\\text{ km}$、月は地球の約 $1/2$（約 $3,480\\text{ km}$）、太陽は地球の約 $50$ 倍（約 $3.5 \\times 10^{5}\\text{ km}$）である。`
+    ], 0,
+    `正解は1番目。講義資料の数値は地球半径 $\\sim 6,400\\text{ km}$、月半径 $\\sim 1,740\\text{ km}$（地球の約 $1/4$）、太陽半径 $\\sim 7 \\times 10^{5}\\text{ km}$（地球の約 $100$ 倍）です。直径 $12,800\\text{ km}$ との混同に注意してください。`),
+  makeQ(`Q006`, 1,
+    `太陽の紫外線（UV）画像と可視光（Visible）画像を比較した際、講義資料で示される観測的特徴の違いとして最も適切なものはどれか。`,
+    [
+      `可視光では光球の黒点や粒状斑が主に捉えられる一方、紫外線では彩層やコロナの活動領域やフレアなど高温プラズマ構造が明瞭に映る。`,
+      `可視光では太陽中心核の核融合反応領域が直接観測でき、紫外線では太陽最外層のダスト円盤の反射光のみが検出される。`,
+      `紫外線画像では太陽半径が可視光画像の約 $1/10$ に収縮して見えるため、太陽の正確な半径測定には可視光のみが用いられる。`,
+      `可視光では磁場活動に伴う高温領域が最も明るく輝き、紫外線では温度が低い黒点周辺のみが選択的に発光して見える。`
+    ], 0,
+    `正解は1番目。講義資料では太陽の可視光画像と紫外線画像を対比しており、可視光は比較的低温（約 $6,000\\text{ K}$）の光球面、紫外線は彩層・コロナの高温（数万〜数百万 $\\text{K}$）の活動領域やループ構造を捉えます。`),
+  makeQ(`Q007`, 1,
+    `国際天文学連合（IAU）の分類に基づく太陽系の「5つの準惑星（Dwarf Planets）」の組み合わせとして正しいものはどれか。`,
+    [
+      `ケレス（セレス）・冥王星・ハウメア・マケマケ・エリス`,
+      `ケレス（セレス）・冥王星・イオ・タイタン・エリス`,
+      `冥王星・カロン・ハウメア・マケマケ・セドナ`,
+      `ベスタ・パラス・ケレス（セレス）・冥王星・エリス`
+    ], 0,
+    `正解は1番目。太陽系の準惑星として講義資料に明記されている5つは、小惑星帯の「セレス（ケレス）」と、海王星以遠天体（TNO）の「冥王星・ハウメア・マケマケ・エリス」です。イオやタイタンは衛星、ベスタやパラスは小惑星です。`),
+  makeQ(`Q008`, 1,
+    `系外惑星系「TRAPPIST-1系」が天文学史上画期的とされる理由として、講義資料の説明に合致するものはどれか。`,
+    [
+      `太陽系外において、地球サイズの惑星が複数（7個）まとめて発見された初の例である。`,
+      `太陽系外において、木星サイズの巨大ガス惑星が中心星のすぐ近くを公転する姿が初めて直接撮像された例である。`,
+      `太陽と同等の質量・光度を持つG型主系列星のハビタブルゾーンに、液体の海を持つ惑星が初めて確認された例である。`,
+      `太陽系からわずか $1\\text{ ly}$ 未満の距離にあり、将来の恒星間探査機の到達が現実的に計画されている系である。`
+    ], 0,
+    `正解は1番目。TRAPPIST-1系は「太陽系外で『地球サイズ惑星が複数まとめて発見された』初の例」として紹介されています。中心星は低温の赤色矮星であり、距離は約40光年です。`),
+  makeQ(`Q009`, 1,
+    `天体の階層構造において、地球から宇宙の大規模構造へスケールを拡大する際の正しい順序はどれか。`,
+    [
+      `太陽系 $\\rightarrow$ 恒星・星団 $\\rightarrow$ 天の川銀河 $\\rightarrow$ 銀河群（局部銀河群） $\\rightarrow$ 銀河団・超銀河団 $\\rightarrow$ 宇宙の大規模構造`,
+      `太陽系 $\\rightarrow$ 銀河群 $\\rightarrow$ 天の川銀河 $\\rightarrow$ 散開星団 $\\rightarrow$ 超銀河団 $\\rightarrow$ 宇宙の大規模構造`,
+      `太陽系 $\\rightarrow$ 惑星系円盤 $\\rightarrow$ 銀河団 $\\rightarrow$ 天の川銀河 $\\rightarrow$ 局部銀河群 $\\rightarrow$ フィラメント構造`,
+      `地球・月系 $\\rightarrow$ 太陽系 $\\rightarrow$ 局部銀河群 $\\rightarrow$ 球状星団 $\\rightarrow$ 天の川銀河 $\\rightarrow$ 超銀河団`
+    ], 0,
+    `正解は1番目。太陽系（約数千 $\\text{au}$）$\\rightarrow$ 恒星・星団（数〜数十 $\\text{ly}$）$\\rightarrow$ 銀河（約10万 $\\text{ly}$）$\\rightarrow$ 銀河群（数百万 $\\text{ly}$）$\\rightarrow$ 銀河団・超銀河団（数千万〜数億 $\\text{ly}$）$\\rightarrow$ 泡状の宇宙大規模構造へと階層的に広がります。`),
+  makeQ(`Q010`, 1,
+    `宇宙の距離単位に関する換算計算として、正しい数値関係はどれか。`,
+    [
+      `$1\\text{ pc} \\approx 3.26\\text{ ly} \\approx 3.086 \\times 10^{13}\\text{ km} \\approx 2.06 \\times 10^{5}\\text{ au}$`,
+      `$1\\text{ pc} \\approx 3.26\\text{ au} \\approx 4.9 \\times 10^{8}\\text{ km} \\approx 5.2 \\times 10^{-5}\\text{ ly}$`,
+      `$1\\text{ ly} \\approx 3.26\\text{ pc} \\approx 3.086 \\times 10^{13}\\text{ km} \\approx 6.3 \\times 10^{4}\\text{ au}$`,
+      `$1\\text{ au} \\approx 1.5 \\times 10^{11}\\text{ km} \\approx 1.6 \\times 10^{-2}\\text{ ly} \\approx 5.0 \\times 10^{-3}\\text{ pc}$`
+    ], 0,
+    `正解は1番目。$1\\text{ au} \\approx 1.5 \\times 10^{8}\\text{ km}$（$1.5 \\times 10^{11}\\text{ m}$）、$1\\text{ ly} \\approx 9.5 \\times 10^{12}\\text{ km}$、$1\\text{ pc} = 3.26\\text{ ly} = 3.086 \\times 10^{13}\\text{ km}$ より、$3.086 \\times 10^{13} / (1.5 \\times 10^{8}) \\approx 2.06 \\times 10^{5}\\text{ au}$ となります。`),
+  makeQ(`Q011`, 1,
+    `天の川銀河の直径と、最も近い大銀河であるアンドロメダ銀河（M31）までの実際の距離の組み合わせとして正しいものはどれか。`,
+    [
+      `天の川銀河の直径は約 $10\\text{ 万光年}$、アンドロメダ銀河までの実際の距離は約 $250\\text{ 万光年}$ である。`,
+      `天の川銀河の直径は約 $100\\text{ 万光年}$、アンドロメダ銀河までの実際の距離は約 $250\\text{ 万光年}$ である。`,
+      `天の川銀河の直径は約 $10\\text{ 万光年}$、アンドロメダ銀河までの実際の距離は約 $90\\text{ 万光年}$ である。`,
+      `天の川銀河の直径は約 $1\\text{ 万光年}$、アンドロメダ銀河までの実際の距離は約 $25\\text{ 万光年}$ である。`
+    ], 0,
+    `正解は1番目。第2回資料でも確認される通り、天の川銀河の直径は約10万光年、アンドロメダ銀河までの距離をハッブルは1924年に約90万光年と推定しましたが、実際の距離は約250万光年です。`),
+  makeQ(`Q012`, 1,
+    `10のべき乗（指数表記）とSI接頭辞・宇宙スケールの対応に関する記述として、誤っているものはどれか。`,
+    [
+      `宇宙の規模を表す際、$1\\text{ Mly}$（メガ光年）は $10^{9}\\text{ 光年}$、$1\\text{ Gpc}$（ギガパーセク）は $10^{12}\\text{ パーセク}$ を意味する。`,
+      `天文単位 $1\\text{ au} \\approx 1.5 \\times 10^{8}\\text{ km}$ を $\\text{m}$ で表すと、$1.5 \\times 10^{11}\\text{ m}$ となる。`,
+      `観測可能な宇宙の半径はおおよそ数百億光年（$10^{10}\\text{ ly}$ オーダー）であり、地球半径の約 $10^{20}$ 倍程度にあたる。`,
+      `海王星の公転軌道半径は約 $30\\text{ au}$ であり、地球軌道の30倍の広がりを持つ。`
+    ], 0,
+    `誤っているのは1番目（これが正解）。SI接頭辞のメガ（$\\text{M}$）は $10^{6}$、ギガ（$\\text{G}$）は $10^{9}$ です。したがって $1\\text{ Mly} = 10^{6}\\text{ 光年}$、$1\\text{ Gpc} = 10^{9}\\text{ パーセク}$ であり、$10^{9}$ や $10^{12}$ とするのは誤りです。`),
+  makeQ(`Q013`, 1,
+    `宇宙地球科学の目標として、講義第1回の冒頭で強調された基本姿勢に最も合致する記述はどれか。`,
+    [
+      `物理学・数学・化学・生物学などの自然科学を総合的に駆使して宇宙の現象を理解し、その「過去と未来を知る」こと。`,
+      `宗教的・哲学的思弁を排し、天体の位置座標の精密測定とカタロギングのみに研究手法を限定すること。`,
+      `太陽系内の惑星資源開発に特化し、系外惑星や遠方銀河など産業応用に直結しない領域を除外すること。`,
+      `地球の現在の気象変動のみを単体で解析し、他の惑星や恒星進化との比較研究を行わないこと。`
+    ], 0,
+    `正解は1番目。第1回資料に「物理学・数学・化学・生物学などを駆使して、宇宙における現象を理解し、その『過去と未来を知る』」と明記されています。`),
+  makeQ(`Q014`, 1,
+    `太陽系内の「地球型惑星」「巨大ガス惑星」「巨大氷惑星」および「準惑星」の配列と構成物質の特徴に関する記述として、正しいものはどれか。`,
+    [
+      `内側から岩石と金属を主成分とする地球型惑星、水素とヘリウム主体の巨大ガス惑星、氷や揮発性物質を多く含む巨大氷惑星が並び、その外縁部などに準惑星が存在する。`,
+      `太陽に最も近い領域に氷を主体とする準惑星が分布し、外側にいくほど高温で凝縮した金属鉄が豊富な地球型惑星が配置されている。`,
+      `木星と土星は主に水・メタン・アンモニアの氷で構成される巨大氷惑星に分類され、天王星と海王星が水素・ヘリウムの巨大ガス惑星である。`,
+      `準惑星であるセレスは海王星軌道の外側に位置し、冥王星は火星と木星の間の小惑星帯を公転している。`
+    ], 0,
+    `正解は1番目。太陽系は内側から岩石惑星（水・金・地・火）、巨大ガス惑星（木・土）、巨大氷惑星（天・海）と並びます。セレスは小惑星帯（火星と木星の間）、冥王星は海王星外縁です。`),
+  makeQ(`Q015`, 1,
+    `ハビタブルゾーン（生命居住可能領域）やTRAPPIST-1系の特徴を考える上で重要となる「系外惑星の多様性」に関する記述として、正しいものはどれか。`,
+    [
+      `TRAPPIST-1系では7つの地球サイズ惑星が中心星の極めて近い軌道を公転しており、そのうち複数個が液体の水を保持しうる領域にある。`,
+      `系外惑星はすべて太陽系と同じく「内側に小型岩石惑星、外側に巨大ガス惑星」という配置をとることが観測で確認されている。`,
+      `系外惑星のほとんどは中心星と同一成分の純粋な水素ガスから成り、岩石や鉄からなる固体惑星は太陽系以外に存在しない。`,
+      `地球サイズ惑星は巨大ガス惑星より重力と光度が大きいため、望遠鏡による直接撮像が最も容易な天体種別である。`
+    ], 0,
+    `正解は1番目。TRAPPIST-1系は低温の赤色矮星の周りにコンパクトに7つの地球サイズ惑星が並んでいます。太陽系とは全く異なる配置（ホットジュピターやコンパクト系）が系外惑星では多数見つかっています。`),
+  makeQ(`Q016`, 1,
+    `星団に関する基礎知識として、散開星団と球状星団の比較で正しいものはどれか。`,
+    [
+      `散開星団は銀河円盤面に多く分布する比較的若い星の集まりであり、球状星団は銀河ハローに分布する非常に古い数万〜数百万個の星の密集集団である。`,
+      `散開星団は数百万個の年老いた星が球対称に密集した天体であり、球状星団は数十個の若い星が銀河面上で緩く集まった天体である。`,
+      `散開星団も球状星団もすべて同じ時期のビッグバン直後に形成されたため、構成する恒星の年齢や重元素量に差は見られない。`,
+      `散開星団は太陽系内のカイパーベルト天体の別称であり、球状星団はオールトの雲を取り巻く彗星群を指す。`
+    ], 0,
+    `正解は1番目。散開星団は分子雲から生まれたばかりの若い星々（数十〜数千個）で銀河面に多く、球状星団は宇宙初期に近い古い星々（数万〜数百万個）が銀河ハローに分布します。`),
+  makeQ(`Q017`, 1,
+    `「光年（ly）」の物理的定義と、太陽—地球間の光の到達時間に関する記述として正しいものはどれか。`,
+    [
+      `$1\\text{ ly}$ は光が真空中を1年間に進む距離（約 $9.5 \\times 10^{12}\\text{ km}$）であり、太陽から地球までの光行時間は約 $8\\text{ 分}20\\text{ 秒}$ である。`,
+      `$1\\text{ ly}$ は光が太陽と地球の間を1往復する距離であり、太陽光が地球に届くまでには約 $1\\text{ 年}$ を要する。`,
+      `$1\\text{ ly}$ は時間の単位であり、地球が太陽の周りを1公転する周期（$3.15 \\times 10^{7}\\text{ s}$）と完全に同義である。`,
+      `$1\\text{ ly}$ は約 $1.5 \\times 10^{8}\\text{ km}$ に等しく、年周視差が1秒角となる天体までの距離から定義されている。`
+    ], 0,
+    `正解は1番目。光年（$\\text{ly}$）は距離の単位（約 $9.5 \\times 10^{12}\\text{ km}$）です。$1\\text{ au} \\approx 1.5 \\times 10^{8}\\text{ km}$ を光速 $c \\approx 3 \\times 10^{5}\\text{ km/s}$ で割ると約 $500\\text{ s} \\approx 8\\text{ 分}20\\text{ 秒}$ になります。年周視差1秒角から定義されるのはパーセクです。`),
+  makeQ(`Q018`, 1,
+    `パーセク（$\\text{pc}$）の定義とその幾何学的意味として、正しいものはどれか。`,
+    [
+      `地球の公転軌道半径（$1\\text{ au}$）を見込む角度（年周視差）が $1\\text{ 秒角}$（$1/3600\\text{ 度}$）となる距離であり、$1\\text{ pc} \\approx 3.26\\text{ ly}$ に相当する。`,
+      `太陽の直径を見込む角度が $1\\text{ 度}$ となる距離として定義されており、約 $3.086 \\times 10^{8}\\text{ km}$ に等しい。`,
+      `月と地球の距離（約 $38\\text{ 万}\\text{ km}$）を基準とし、年周視差が $1\\text{ 分角}$ となる距離を $1\\text{ pc}$ と定めている。`,
+      `アンドロメダ銀河までの距離の $1/1000$ を基準として定められた単位であり、地球近傍の惑星距離の表記に用いられる。`
+    ], 0,
+    `正解は1番目。parsec（parallax + second）は年周視差が1秒角になる距離で、$1\\text{ pc} = 3.26\\text{ ly} = 3.086 \\times 10^{13}\\text{ km}$ です。`),
+  makeQ(`Q019`, 1,
+    `銀河群と銀河団、および天の川銀河が属する階層に関する記述として正しいものはどれか。`,
+    [
+      `天の川銀河とアンドロメダ銀河など数十個の銀河は「局部銀河群」を形成しており、さらに大きな数百〜数千個の集団である「おとめ座銀河団」や超銀河団へ連なる。`,
+      `天の川銀河は孤立した銀河であり、アンドロメダ銀河とは異なる独立した宇宙領域に存在し重力相互作用を持たない。`,
+      `銀河群とは数万個の銀河が密集した最大規模の構造を指し、銀河団はその中に含まれる数個の小規模な銀河の集まりである。`,
+      `局部銀河群の中心には太陽系が位置しており、天の川銀河のすべての恒星は太陽系の重力によって公転している。`
+    ], 0,
+    `正解は1番目。銀河群（数十個規模、例：局部銀河群）$\\rightarrow$ 銀河団（数百〜数千個規模）$\\rightarrow$ 超銀河団 $\\rightarrow$ 大規模構造（フィラメントとボイド）という階層構造をとります。`),
+  makeQ(`Q020`, 1,
+    `講義で紹介された電磁波（波長）による太陽観測の意義に関する記述として、最も適切なものはどれか。`,
+    [
+      `可視光だけでなく紫外線やX線など多波長で観測することで、光球から彩層・コロナに至る温度や物理状態の異なる層構造を立体的に把握できる。`,
+      `紫外線は可視光よりも波長が長いため、太陽の分厚い対流層を透過して中心核の鉄の分布を直接撮影できる。`,
+      `太陽から放射されるエネルギーの99%以上はガンマ線であるため、可視光観測は太陽のエネルギー収支の理解には寄与しない。`,
+      `波長が異なる光を用いても太陽の見かけの姿は完全に同一であり、多波長観測は画像の解像度を上げるためだけに行われる。`
+    ], 0,
+    `正解は1番目。紫外線は可視光より短波長（高エネルギー）であり、高温の彩層・コロナのプラズマを捉えます。多波長観測によって太陽大気の異なる温度層が明らかになります。`),
+
+  // ===== 第2回（21〜40） =====
+  makeQ(`Q021`, 2,
+    `エドウィン・ハッブルが1924年にウィルソン山天文台の $2.5\\text{ m}$ 望遠鏡を用いて成し遂げた歴史的発見として正しいものはどれか。`,
+    [
+      `アンドロメダ銀河（当時アンドロメダ星雲）までの距離を約 $90\\text{ 万光年}$（実際は約 $250\\text{ 万光年}$）と推定し、天の川銀河の直径（約 $10\\text{ 万光年}$）より遠い「別の星系（銀河）」であることを証明した。`,
+      `アンドロメダ銀河が天の川銀河の内部にあるガス星雲であることを突き止め、宇宙全体が天の川銀河ただ一つから成ることを実証した。`,
+      `宇宙マイクロ波背景放射（CMB）を偶然検出し、初期宇宙が約 $3,000\\text{ K}$ の高温プラズマ状態であった証拠を得た。`,
+      `遠方のIa型超新星の観測から、宇宙の膨張が重力のブレーキに逆らって現在加速していることを初めて発見した。`
+    ], 0,
+    `正解は1番目。ハッブルは1924年、ウィルソン山天文台の $2.5\\text{ m}$ 望遠鏡でセファイド変光星を観測し、アンドロメダ銀河までの距離を約90万光年と推定して銀河系外の独立した銀河であることを示しました。`),
+  makeQ(`Q022`, 2,
+    `1929年にハッブルが発表した「ハッブルの法則（$v = H_0 d$）」の内容と、その解釈として正しいものはどれか。`,
+    [
+      `遠くにある銀河ほど我々から速く遠ざかっており（後退速度が距離に比例）、これは空間そのものが一様に膨張していることを示唆する。`,
+      `遠くにある銀河ほど我々に速く近づいており、宇宙全体が共通の中心点に向かって重力収縮していることを示している。`,
+      `天の川銀河だけが宇宙で唯一特別な静止中心であり、他のすべての銀河は地球からの反発力によって放射状に吹き飛ばされている。`,
+      `銀河の後退速度は銀河の質量に比例するため、重い銀河ほど太陽系から遠くへ移動しやすいという力学的法則である。`
+    ], 0,
+    `正解は1番目。ハッブルの法則は銀河の後退速度 $v$ が距離 $d$ に比例すること（遠くの銀河ほど速く遠ざかる）を示し、膨張宇宙モデル（空間の一様膨張）の根拠となりました。`),
+  makeQ(`Q023`, 2,
+    `膨張宇宙を説明する「レーズンパンモデル」において、焼く前に $1\\text{ cm}$・$2\\text{ cm}$・$3\\text{ cm}$ の距離にあったレーズンが、1時間後にそれぞれ $3\\text{ cm}$・$6\\text{ cm}$・$9\\text{ cm}$ になった場合、このモデルが教える最も本質的な結論はどれか。`,
+    [
+      `それぞれの遠ざかる速度は $2\\text{ cm/hr}$・$4\\text{ cm/hr}$・$6\\text{ cm/hr}$ と距離に比例し、しかもどのレーズンを基準に見ても全く同じ結果（一様等方な膨張）になる。`,
+      `パン生地は膨張してもレーズン自身の大きさも同じ比率で3倍に膨らむため、銀河や原子の内部サイズも宇宙膨張とともに拡大する。`,
+      `中心にある特定のレーズンだけは速度がゼロで静止しており、他のレーズンとの違いから宇宙の絶対的な中心位置を特定できる。`,
+      `レーズン3（速度 $6\\text{ cm/hr}$）はレーズン1の3倍の推進力を受けているため、遠くの銀河ほど重力から解放されて加速している。`
+    ], 0,
+    `正解は1番目。レーズンパンモデル（講義資料の表）は「遠くのレーズンほど速く遠ざかる」こと、そして「どのレーズンから見ても同じ結果になる（宇宙に中心はない）」ことを示しています。なお膨張するのは空間であり、重力で束縛された銀河自体や原子は膨張しません。`),
+  makeQ(`Q024`, 2,
+    `ビッグバン膨張宇宙論を支える「3つの観測的根拠（ビッグバン3大根拠）」の正しい組み合わせはどれか。`,
+    [
+      `ハッブルの法則（宇宙膨張）・宇宙マイクロ波背景放射（CMB）・ビッグバン元素合成（軽元素の組成比）`,
+      `ケプラーの法則・太陽ニュートリノ観測・鉄隕石の放射性同位体年代`,
+      `ハッブルの法則・銀河の回転曲線・地球磁場の逆転記録`,
+      `宇宙マイクロ波背景放射（CMB）・超新星r過程元素合成・プレートテクトニクス`
+    ], 0,
+    `正解は1番目。講義資料で明示されているビッグバン膨張宇宙論の3大根拠は「1. ハッブルの法則」「2. 宇宙背景放射」「3. 元素合成」です。`),
+  makeQ(`Q025`, 2,
+    `「ビッグバン元素合成（BBN）」の考え方と物理的プロセスに関する記述として、正しいものはどれか。`,
+    [
+      `超高温の素粒子のスープが宇宙膨張によって冷える過程でクォーク等から陽子・中性子が作られ、さらに冷えて原子核（主に水素とヘリウム）が合成された。`,
+      `ビッグバン直後の超高温状態において、鉄やウランを含む周期表上のすべての重元素が一挙に合成された後に空間が冷却した。`,
+      `初期宇宙ではまず巨大な恒星が数秒で形成され、その中心核で起こった核融合反応がビッグバン元素合成の正体である。`,
+      `宇宙が冷却して温度が $3,000\\text{ K}$ まで下がった「宇宙の晴れ上がり」の直後に、中性子が初めて生成されて水素が合成され始めた。`
+    ], 0,
+    `正解は1番目。初期宇宙は素粒子（クォークやレプトン、光など）の超高温・高密度スープであり、宇宙膨張に伴う冷却過程で陽子・中性子が生まれ、数分間のうちに核融合反応（$n + p \\rightarrow D + \\gamma$ 等）で重水素やヘリウム($^{4}\\text{He}$)などの軽元素が形成されました。`),
+  makeQ(`Q026`, 2,
+    `ビッグバン元素合成で進行した主要な核反応連鎖として、講義資料に記載されている反応と矛盾しないものはどれか。`,
+    [
+      `$n + p \\rightarrow D + \\gamma$ により重水素（$D$）が作られた後、$D + D \\rightarrow \${}^{3}\\text{H} + p$ や \${}^{3}\\text{He} + n$ などを経て最終的に安定な \${}^{4}\\text{He}$ が合成される。`,
+      `$p + p \\rightarrow \${}^{2}\\text{He} + \\gamma$ が直接起こり、そのまま炭素 \${}^{12}\\text{C}$ まで連鎖的に合成されるため、宇宙初期に炭素が大量に残った。`,
+      `中性子は宇宙初期に存在せず、電子と陽子が結合して水素原子ができた後に恒星風によって供給された。`,
+      `重水素（$D$）は極めて不安定なためビッグバン元素合成では一切生成されず、鉄の核分裂によってのみ供給された。`
+    ], 0,
+    `正解は1番目。講義資料の式にある通り $n + p \\rightarrow D + \\gamma$ を出発点として、$D + D \\rightarrow \${}^{3}\\text{H} + p$ または \${}^{3}\\text{He} + n$、そして \${}^{3}\\text{H} + D \\rightarrow \${}^{4}\\text{He} + n$ などの反応で \${}^{4}\\text{He}$ までが作られました。質量数5や8の安定核がないためそれ以上はほぼ進みません。`),
+  makeQ(`Q027`, 2,
+    `ビッグバン元素合成によって作られた宇宙の標準的なバリオン（原子）の個数比・質量比として最も適切なものはどれか。`,
+    [
+      `原子の個数比で水素が約 $90\\%$・ヘリウムが約 $10\\%$（質量比では水素約 $75\\%$・ヘリウム約 $25\\%$）であり、重元素はごくわずか（リチウム等が微量）である。`,
+      `質量比で水素約 $50\\%$・ヘリウム約 $45\\%$・酸素と炭素が約 $5\\%$ であり、これが現在の太陽系の組成と完全に一致する。`,
+      `ビッグバンでは重水素とリチウムのみが約 $50\\%$ ずつ合成され、水素とヘリウムは後の超新星爆発によって供給された。`,
+      `質量比でヘリウムが約 $90\\%$・水素が約 $10\\%$ であり、宇宙膨張の過程でヘリウムが崩壊して水素が増加した。`
+    ], 0,
+    `正解は1番目。第3回引き継ぎ資料にもある通り「宇宙の原子の約90%（個数比）は水素」、残りの約10%がヘリウム（質量比で75%：25%）です。リチウムより重い元素はほぼ作られません。`),
+  makeQ(`Q028`, 2,
+    `宇宙マイクロ波背景放射（CMB）の起源と「宇宙の晴れ上がり」に関する説明として、正しいものはどれか。`,
+    [
+      `宇宙誕生後約38万年に温度が約 $3,000\\text{ K}$ まで下がって電子と原子核が結合し（中性化）、光子が電子に散乱されずに直進できるようになった名残の光が、宇宙膨張で引き伸ばされて約 $2.7\\text{ K}$ のマイクロ波として観測される。`,
+      `宇宙誕生から約3分後に発生した超新星爆発の残光であり、現在も銀河中心のブラックホールから約 $3,000\\text{ K}$ の可視光として放射され続けている。`,
+      `宇宙の晴れ上がりとは、宇宙空間を満たしていた暗黒物質がすべて恒星に変化して宇宙が透明になった出来事を指し、X線領域で観測される。`,
+      `CMBは天の川銀河の太陽系近傍からのみ到来する局所的な電波ノイズであり、全天で数倍もの強度差を持つ異方性放射である。`
+    ], 0,
+    `正解は1番目。約38万年後、約 $3,000\\text{ K}$ でプラズマが中性原子になり、光子が散乱されず直進できるようになりました（宇宙の晴れ上がり）。その黒体放射の波長が宇宙膨張で約1,100倍に引き伸ばされ、現在は絶対温度約 $2.7\\text{ K}$ のマイクロ波（CMB）として全天から一様に観測されます。`),
+  makeQ(`Q029`, 2,
+    `ダークマター（暗黒物質）の存在を裏付ける主要な観測的証拠の組み合わせとして、最も適切なものはどれか。`,
+    [
+      `渦巻銀河の外縁部における星の回転速度がケプラー回転のように低下せず平坦である（銀河の回転曲線）こと、および銀河団による強い重力レンズ効果。`,
+      `宇宙が加速膨張していることを示す遠方Ia型超新星の暗さの観測、および太陽黒点の11年周期活動。`,
+      `水星の近日点移動の観測、および地球の内核が固体であることを示す地震波P波の解析。`,
+      `すべての銀河が同じ明るさを持つように見えること、および大気中の酸素濃度が21%に保たれていること。`
+    ], 0,
+    `正解は1番目。銀河の回転曲線（外側の星ほど遅くなるはずが平坦なまま＝目に見えない巨大な質量ハローがある）、重力レンズ効果（光の曲がり具合から推定される質量が可視物質より遥かに大きい）、銀河団の衝突やCMBの揺らぎ解析がダークマターの証拠です。`),
+  makeQ(`Q030`, 2,
+    `「ダークマター」と「ダークエネルギー」の本質的な性質および役割の違いとして、正しいものはどれか。`,
+    [
+      `ダークマターは重力を及ぼして銀河や大規模構造の形成（物質の集積）を促す未知の物質であるのに対し、ダークエネルギーは宇宙空間の膨張を加速させる斥力的なエネルギーである。`,
+      `ダークマターは宇宙の加速膨張を引き起こす反重力源であり、ダークエネルギーは銀河回転曲線を平坦に保つ高密度のブラックホール群を指す。`,
+      `ダークマターは電磁波のうち紫外線のみを強く放射する物質であり、ダークエネルギーは恒星内部の核融合から生じる熱エネルギーである。`,
+      `両者は同一の物理現象の別名であり、ビッグバンから38万年後まではダークマターと呼ばれ、現在ではダークエネルギーと改称されている。`
+    ], 0,
+    `正解は1番目。ダークマターは光では見えないが重力（引力）を持ち、構造形成の骨格を作ります。ダークエネルギーは空間全体を満たし、負の圧力（斥力のような振る舞い）によって現在の宇宙膨張を加速させています。`),
+  makeQ(`Q031`, 2,
+    `現在の精密観測（プランク衛星等）によって明らかにされた宇宙のエネルギー・物質組成比として、最も適切な組み合わせはどれか。`,
+    [
+      `ダークエネルギー約 $68\\%$、ダークマター約 $27\\%$、通常の物質（バリオン）約 $5\\%$`,
+      `通常の物質（バリオン）約 $68\\%$、ダークマター約 $27\\%$、ダークエネルギー約 $5\\%$`,
+      `ダークマター約 $73\\%$、通常の物質（バリオン）約 $23\\%$、ダークエネルギー約 $4\\%$`,
+      `ダークエネルギー約 $95\\%$、通常の物質（バリオン）約 $5\\%$、ダークマター $0\\%$`
+    ], 0,
+    `正解は1番目。宇宙のエネルギー組成は約68%がダークエネルギー、約27%がダークマターであり、私たちが知る通常の原子（バリオン）は全体のわずか約5%に過ぎません。`),
+  makeQ(`Q032`, 2,
+    `宇宙の加速膨張とダークエネルギーの存在が1990年代後半に発見された際、宇宙論的距離指標（「標準光源」）として決定的な役割を果たした天体現象はどれか。`,
+    [
+      `遠方銀河で発生した Ia型超新星爆発`,
+      `太陽系外縁部の短周期彗星の回帰`,
+      `木星型惑星のトランジット現象`,
+      `中性子星連星の合体に伴う可視光残光`
+    ], 0,
+    `正解は1番目。白色矮星が連星からの質量降着でチャンドラセカール限界に達して爆発するIa型超新星は、ピーク光度がほぼ一定（標準光源）であるため遠方銀河の精密な距離測定に用いられ、期待より暗く遠い＝宇宙膨張が加速していることが発見されました。`),
+  makeQ(`Q033`, 2,
+    `風船の表面に銀河に見立てた点を描き、風船を膨らませるアナロジーで宇宙膨張を説明する場合、注意すべき点として正しいものはどれか。`,
+    [
+      `風船の表面（2次元空間）上には「膨張の中心」が存在しないのと同様に、3次元宇宙空間の膨張にも特別な中心や外側の縁は存在しない。`,
+      `風船が割れるように宇宙空間も膨張限界に達すると必ず消滅することがこのモデルから数学的に証明される。`,
+      `風船の内側の空洞が天の川銀河の中心に対応し、風船を吹く口の位置がビッグバンの発生地点を表している。`,
+      `風船を膨らませると点そのものの直径も膨張するため、宇宙膨張によって地球の半径も年々拡大していると解釈する。`
+    ], 0,
+    `正解は1番目。風船表面の点はすべて互いに遠ざかり、どの点から見ても他の点が距離に比例して遠ざかります。膨張の中心は風船の表面上にはなく、宇宙のどこにいても同じ膨張が見えます。`),
+  makeQ(`Q034`, 2,
+    `銀河の回転曲線において、中心から遠い円盤外縁部の星々が予想（ケプラー回転）よりも速く公転している理由を数式的な関係から説明するとどうなるか。`,
+    [
+      `円運動の遠心力と重力の釣り合い $v^2/r = GM(r)/r^2$ より、もし質量が中心部に集中していれば $v \\propto r^{-1/2}$ で減少するはずが、外縁部まで巨大なダークマターハローが分布して $M(r) \\propto r$ となるため速度 $v$ がほぼ一定になる。`,
+      `中心ブラックホールの磁場が外縁部の星々を直接押し出すため、距離 $r$ に反比例して速度 $v$ が無限大に増加し続ける。`,
+      `宇宙膨張によるハッブルの法則が銀河内部にも働くため、銀河中心から離れた星ほど外向きに加速して高速回転に見える。`,
+      `銀河円盤のガス摩擦が星を外側で加速させるため、目に見える星の総質量が理論値より少なくとも高速回転が維持される。`
+    ], 0,
+    `正解は1番目。力学平衡 $v = \\sqrt{GM(r)/r}$ において、外縁部に可視物質がほぼないなら $M(r)$ が一定となり $v \\propto 1/\\sqrt{r}$ で低下するはずです。しかし観測では $v$ が平坦（一定）であるため、目に見えない質量 $M(r)$ がハロー状に広がっている（ダークマター）ことが導かれます。`),
+  makeQ(`Q035`, 2,
+    `ビッグバン初期の宇宙において、陽子（$p$）と中性子（$n$）の個数比が最終的に約 $7 : 1$ 程度に凍結し、それが現在のヘリウム存在比を決めるメカニズムとして正しいものはどれか。`,
+    [
+      `中性子は陽子よりわずかに質量が大きいため熱平衡では少なく、宇宙が冷えて弱い相互作用による相互変換が止まった後、自由中性子のベータ崩壊も進んで約 $7 : 1$ となり、その中性子がほぼすべて \${}^{4}\\text{He}$ に組み込まれたため質量比約 $25\\%$ となった。`,
+      `ビッグバン直後は中性子のみが存在し、そのすべてが100%陽子に崩壊し終えた後に核融合が始まったためヘリウムが $25\\%$ 生じた。`,
+      `陽子は負の電荷、中性子は正の電荷を持つため電磁気的反発によって $7 : 1$ の空間密度に分離し、鉄を経由してヘリウムへ崩壊した。`,
+      `宇宙の晴れ上がり（38万年後）まで陽子と中性子は一切結合できず、太陽が誕生してから太陽内部で初めて $7 : 1$ の比に調整された。`
+    ], 0,
+    `正解は1番目。陽子2個と中性子2個で \${}^{4}\\text{He}$ 原子核1個（質量数4）ができます。$p:n = 7:1 = 14:2$ と考えると、16核子のうち $2p+2n=4$ 個が \${}^{4}\\text{He}$ になり残りの $12p$ が水素になるため、質量比で $4/16 = 25\\%$ がヘリウムになります。`),
+  makeQ(`Q036`, 2,
+    `ダークマターの候補と性質に関する現代宇宙論の基本的な理解として、正しいものはどれか。`,
+    [
+      `光子（電磁波）と相互作用せず電磁気的に見えないが、重力相互作用を行い、陽子や中性子などの通常のバリオンとは異なる未知の素粒子（冷たい暗黒物質など）が有力視されている。`,
+      `太陽のような主系列星のうち、表面温度が $3,000\\text{ K}$ 以下で暗く見える赤色矮星だけがダークマターの正体として確定している。`,
+      `地球の空気中に大量に含まれる窒素分子が宇宙空間に漏れ出したものであり、紫外線のみを吸収するため黒く観測される。`,
+      `重力を一切持たず光速で宇宙空間を飛び回る光子そのものであり、宇宙背景放射のエネルギーと完全に等しい。`
+    ], 0,
+    `正解は1番目。CMBの揺らぎと元素合成の制約から、通常のバリオン物質は宇宙全体の約5%しかなく、約27%を占めるダークマターは非バリオン的な未知の粒子（電磁相互作用せず重力のみ作用）と考えられています。`),
+  makeQ(`Q037`, 2,
+    `初期宇宙の高温高密度状態を検証する上で、宇宙マイクロ波背景放射（CMB）の温度ゆらぎ（約10万分の1のわずかな温度差）の観測が重要である理由はどれか。`,
+    [
+      `宇宙の晴れ上がり時点における物質密度のわずかな濃淡を記録しており、その後の重力成長によって銀河や大規模構造が形成された「種」や宇宙の組成比（バリオン・ダークマター・曲率等）を精密に決定できるため。`,
+      `CMBのゆらぎは現在の地球の大気水蒸気によるノイズそのものであり、地球温暖化の進行度を宇宙規模で測定する指標となるため。`,
+      `10万分の1のゆらぎは天の川銀河内の太陽系の公転運動だけが生み出しているため、太陽の公転速度の測定のみに利用されるため。`,
+      `温度ゆらぎが大きい領域ほどブラックホールが蒸発している証拠であり、宇宙が膨張ではなく収縮している証明になるため。`
+    ], 0,
+    `正解は1番目。CMBの微小な温度ゆらぎ（$\\Delta T/T \\sim 10^{-5}$）は初期宇宙の密度ゆらぎを反映しており、音響振動のピーク解析等から宇宙の組成比や平坦性、構造形成の種が解き明かされました。`),
+  makeQ(`Q038`, 2,
+    `ハッブル定数 $H_0$ の物理的意味と、宇宙年齢の大まかな見積もりに関する記述として正しいものはどれか。`,
+    [
+      `後退速度 $v = H_0 d$ の比例定数 $H_0$ は現在の膨張率を表し、その逆数 $1/H_0$（ハッブル時間）は宇宙がほぼ一定速度で膨張したと仮定したときの宇宙年齢の目安（約138億年オーダー）を与える。`,
+      `ハッブル定数 $H_0$ は光速をプランク定数で割った普遍物理定数であり、単位は無次元（単位なし）の純粋な数値である。`,
+      `ハッブル定数 $H_0$ が大きいほど宇宙の膨張速度は遅く、宇宙の年齢は現在より100倍以上古い数兆年と計算される。`,
+      `ハッブル定数 $H_0$ は太陽から地球までの距離 $1\\text{ au}$ を基準に定義されており、毎年太陽質量に応じて減少する定数ではない。`
+    ], 0,
+    `正解は1番目。$v = H_0 d$ より時間 $t \\sim d/v = 1/H_0$ が宇宙年齢のオーダーを与えます（現在の精密測定による宇宙年齢は約138億年）。`),
+  makeQ(`Q039`, 2,
+    `宇宙の膨張に伴う光の「宇宙論的赤方偏移」のメカニズムとして正しいものはどれか。`,
+    [
+      `遠方の銀河から放たれた光が地球に届くまでの間に空間そのものが膨張するため、光の波長も空間とともに引き伸ばされて赤い側（長波長側）へずれて観測される。`,
+      `遠方の銀河の周囲には濃い赤色の鉄ダスト雲が必ず存在しており、光が散乱されることで波長が短波長側へ変化して赤く見える。`,
+      `光子が宇宙空間を長距離移動すると重力が弱まり、光速が徐々に低下して振動数が増加する現象を指す。`,
+      `銀河が自転する際のドップラー効果のみが原因であり、宇宙膨張が止まったとしても遠方銀河の赤方偏移は同じ値のまま変化しない。`
+    ], 0,
+    `正解は1番目。空間の膨張に合わせて光の波長 $\\lambda$ もスケール因子 $a(t)$ に比例して引き伸ばされます（$1+z = a_0/a$）。これが遠方銀河の赤方偏移や、$3,000\\text{ K}$ のCMBが $2.7\\text{ K}$ まで冷えて観測される理由です。`),
+  makeQ(`Q040`, 2,
+    `銀河団の衝突現象（弾丸銀河団など）がダークマターの存在証拠として極めて強力である理由はどれか。`,
+    [
+      `通常のガス同士は衝突時に電磁相互作用・圧力で減速して中央に取り残される一方、重力レンズで測った質量中心（ダークマター）はガスを素通りして銀河とともに先行しており、通常のガスとは別個の無衝突物質の存在が可視化されたため。`,
+      `衝突した銀河団からは通常の可視光が一切消滅し、すべてのガスが瞬時にダークエネルギーへ変換される瞬間が撮影されたため。`,
+      `衝突によって新しく大量の水素原子が生成され、ビッグバン元素合成が銀河団衝突のみで説明できることが判明したため。`,
+      `通常のガスは衝突によって光速を超えて飛び散るのに対し、ダークマターは摩擦で完全に静止してブラックホール化する様子が観測されたため。`
+    ], 0,
+    `正解は1番目。衝突する銀河団では、バリオンの大部分を占める高温ガス（X線で観測）が衝突摩擦で減速し中央に残るのに対し、重力レンズマップ（全質量の分布）は銀河群とともに通り抜けていることから、無衝突のダークマターが実在することが直接示されました。`),
+
+  // ===== 第3回（41〜60） =====
+  makeQ(`Q041`, 3,
+    `宇宙における恒星の誕生プロセスと、誕生の舞台となる「分子雲」の物理的条件として正しいものはどれか。`,
+    [
+      `星間ガスのうち「低温・高密度」な分子雲が自己重力によって収縮（重力崩壊）することで原始星が誕生する。`,
+      `星間ガスのうち「超高温（数百万 $\\text{K}$）・超低密度」なコロナガスが化学結合して固体塊となることで恒星が誕生する。`,
+      `宇宙全体の原子の約 $90\\%$ は炭素と酸素であり、これらが結晶化して太陽のような主系列星が直接形成される。`,
+      `恒星の誕生には外部からのレーザー照射が不可欠であり、自己重力によるガス収縮は物理的に不可能である。`
+    ], 0,
+    `正解は1番目。第3回引き継ぎ資料に「宇宙の原子の約90%は水素。星間ガスのうち『低温・高密度』な分子雲が自己重力で集まって誕生する」と明記されています。低温だとガス圧による支えが弱く、高密度だと自己重力が勝って収縮しやすくなります。`),
+  makeQ(`Q042`, 3,
+    `恒星が主系列星として安定に輝く「水素燃焼（核融合）」における ppチェイン と CNOサイクル の比較として正しいものはどれか。`,
+    [
+      `ppチェインは太陽のような軽い星で主に働き4個の陽子から1個のヘリウムを合成するのに対し、CNOサイクルは中心温度が約 $1,500\\text{ 万}\\text{ K}$ 以上の重い星で卓越し、C・N・Oを触媒としてヘリウムを合成する。`,
+      `ppチェインは炭素・窒素・酸素を完全に消費して消滅させる反応であり、CNOサイクルは鉄を分解して水素を生成する逆反応である。`,
+      `CNOサイクルは中心温度が約 $100\\text{ 万}\\text{ K}$ 以下の褐色矮星や木星内部で主に起こり、太陽のような恒星では ppチェイン のみが全質量範囲で働く。`,
+      `ppチェインでは最終生成物として炭素 \${}^{12}\\text{C}$ が合成され、CNOサイクルでは重水素 \${}^{2}\\text{H}$ しか作られない。`
+    ], 0,
+    `正解は1番目。第3回資料の通り、ppチェインは太陽程度の軽い星で優勢、CNOサイクルは中心温度約1,500万 $\\text{K}$ 以上の重い星で C・N・O を触媒として4つの陽子からヘリウムを合成する反応です。`),
+  makeQ(`Q043`, 3,
+    `恒星の質量 $M$ と光度 $L$、および主系列星としての寿命 $\\tau$ の関係式として、講義資料で示された比例関係はどれか。`,
+    [
+      `光度 $L \\propto M^{3.5}$ であり、寿命 $\\tau \\propto M / L \\propto M^{-2.5}$ となるため、重い星ほど燃料を急速に消費し寿命が圧倒的に短い。`,
+      `光度 $L \\propto M^{1.0}$ であり、寿命 $\\tau \\propto M^{0}$ で質量によらずすべての恒星の寿命は約100億年で一定である。`,
+      `光度 $L \\propto M^{-2.5}$ であり、寿命 $\\tau \\propto M^{3.5}$ となるため、重い星ほど暗く省エネで数千億年以上輝き続ける。`,
+      `光度 $L \\propto M^{2.0}$ であり、寿命 $\\tau \\propto M^{1.5}$ となるため、太陽より10倍重い星は太陽の約30倍の寿命を持つ。`
+    ], 0,
+    `正解は1番目。講義資料に「光度 $L$ は質量の約3.5乗に比例する（$L \\propto M^{3.5}$）。寿命は質量に反比例するため（$\\text{寿命} \\propto 1/M^{2.5}$）、重い星ほど燃料を急速に消費し、寿命が圧倒的に短い」と明記されています。`),
+  makeQ(`Q044`, 3,
+    `太陽の10倍の質量（$10\\,M_\\odot$）を持つ大質量星と太陽（$1\\,M_\\odot$、寿命約100億年）を比べると、この大質量星の主系列星としての寿命はおよそどの程度か。`,
+    [
+      `約 $3,000\\text{ 万年}$（太陽の約 $1/300$、すなわち $10^{-2.5} \\approx 0.00316$ 倍）程度である。`,
+      `約 $10\\text{ 億年}$（太陽の約 $1/10$）程度である。`,
+      `約 $1,000\\text{ 億年}$（太陽の約 $10$ 倍）程度である。`,
+      `約 $3\\text{ 兆年}$（太陽の約 $300$ 倍）程度である。`
+    ], 0,
+    `正解は1番目。$\\tau \\propto M^{-2.5}$ を適用すると、$M=10$ のとき $10^{-2.5} = 1 / (100 \\times \\sqrt{10}) \\approx 1/316$ となり、$100\\text{ 億年} / 316 \\approx 3.16 \\times 10^{7}\\text{ 年}$（約3,000万年）となります。`),
+  makeQ(`Q045`, 3,
+    `太陽程度の小〜中質量星の進化の末期と、大質量星（太陽質量の約8倍以上）の進化の末期の比較として正しいものはどれか。`,
+    [
+      `小〜中質量星は赤色巨星を経て外層を放出し（惑星状星雲）中心に白色矮星を残すのに対し、大質量星は中心に鉄のコアを形成した後に重力崩壊型の超新星爆発を起こし、中性子星またはブラックホールを残す。`,
+      `小〜中質量星はすべて重力崩壊型超新星爆発を起こしてブラックホールとなり、大質量星は穏やかにガスを放出して白色矮星になる。`,
+      `太陽程度の星は中心核で鉄を超える金やウランまで核融合を進めた後に爆発し、大質量星はヘリウム燃焼の段階で進化を停止する。`,
+      `小〜中質量星も大質量星も寿命の最後に必ず中性子星同士の合体を起こし、銀河系内の水素のすべてを供給する。`
+    ], 0,
+    `正解は1番目。太陽のような軽い星は炭素・酸素コア（白色矮星）で止まり惑星状星雲として質量放出します。一方、8倍以上の大質量星は鉄コアまで核融合が進み、鉄が吸熱反応・重力崩壊を起こしてII型等の超新星爆発に至ります。`),
+  makeQ(`Q046`, 3,
+    `第3回資料の周期表「原子の起源（Origins of Elements）」において、ビッグバン元素合成で主に作られた元素と、恒星内部の核融合で作られる元素の範囲として正しいものはどれか。`,
+    [
+      `ビッグバンでは主に $\\text{H}$・$\\text{He}$（およびごく微量の $\\text{Li}$）が作られ、炭素〜鉄付近までの元素は主として星内部の核融合や爆発的核融合で合成される。`,
+      `ビッグバンでは炭素・窒素・酸素のすべてが作られ、恒星内部の核融合では水素とヘリウムのみが作られる。`,
+      `恒星内部の静かな核融合反応だけで、周期表の鉄からウランまでの全元素がバランスよく発熱反応によって合成される。`,
+      `鉄とニッケルはビッグバン直後の3分間に宇宙全体で合成され、リチウムとベリリウムは存在しない仮想元素である。`
+    ], 0,
+    `正解は1番目。鉄(\${}^{56}\\text{Fe}$周辺)は核子あたりの結合エネルギーが最も高いため、それより軽い元素の核融合は発熱反応ですが、鉄より重い元素の合成には中性子捕獲（s過程・r過程）など別の機構が必要になります。`),
+  makeQ(`Q047`, 3,
+    `周期表のうち、原子番号の小さい軽元素であるリチウム（$\\text{Li}$）・ベリリウム（$\\text{Be}$）・ホウ素（$\\text{B}$）の主な起源として、講義資料で示されているものはどれか。`,
+    [
+      `宇宙線による核破砕（星間空間を飛び交う高エネルギー宇宙線が $\\text{C}$・$\\text{N}$・$\\text{O}$ などの原子核に衝突して破壊する反応）`,
+      `太陽のような主系列星における ppチェイン の副産物としての大量合成`,
+      `Ia型超新星爆発における白色矮星の暴走核融合`,
+      `中性子星合体における急速な中性子捕獲（r過程）`
+    ], 0,
+    `正解は1番目。第3回資料「原子の起源」図で $\\text{Li}$・$\\text{Be}$・$\\text{B}$ は「宇宙線による核破砕」に分類されています（$\\text{Li}$ の一部はビッグバンや小質量星も寄与しますが、$\\text{Be}, \\text{B}$ は星の中ですぐ燃えてしまうため宇宙線核破砕が主起源です）。`),
+  makeQ(`Q048`, 3,
+    `鉄（$\\text{Fe}$）〜亜鉛（$\\text{Zn}$）付近の鉄族元素を大量に合成して宇宙空間へ供給する天体現象として、第3回講義資料の注釈で特に解説されているものはどれか。`,
+    [
+      `白色矮星が伴星などから物質を受け取るなどして炭素や酸素の核融合が暴走し爆発する「Ia型超新星（白色矮星の爆発）」`,
+      `太陽程度の単独の星が主系列星を離れる際に静かに外層を吹き飛ばす「小質量星末期の質量放出」`,
+      `宇宙誕生後数分間に起こった素粒子スープの冷却反応である「ビッグバン元素合成」`,
+      `太陽風が地球の磁気圏と衝突して大気上層で起こる「オーロラ発光現象」`
+    ], 0,
+    `正解は1番目。講義資料に「※白色矮星は、伴星などから物質を受け取るなどして炭素や酸素の核融合が暴走（融'）し、爆発することがある（Ia型超新星）。この爆発（暴走核融合）で、Fe〜Znが合成される」と明記されています。`),
+  makeQ(`Q049`, 3,
+    `鉄より重い元素を合成する中性子捕獲過程における「S過程（S-process）」と「R過程（R-process）」の違いとして、正しいものはどれか。`,
+    [
+      `S過程（Slow）はベータ崩壊より遅いペースで中性子を捕獲する過程で主に小〜中質量星末期（AGB星等）で起こり、R過程（Rapid）はベータ崩壊より速いペースで一気に中性子を捕獲する過程で中性子星の合体等で起こる。`,
+      `S過程は中性子星合体などの爆発現象で1秒未満に進行する反応であり、R過程は太陽などの主系列星の中心核で数十億年かけて鉄を合成する反応である。`,
+      `S過程では陽子のみを連続して捕獲して軽元素を作り、R過程では電子のみを捕獲して中性子星の表面に水素を蓄積する。`,
+      `S過程とR過程はいずれもビッグバンから3分以内に完了しており、現在の宇宙では全く発生していない。`
+    ], 0,
+    `正解は1番目。S-process（Slow）は小質量星末期などでゆっくり中性子を捕獲しベータ崩壊しながら安定線に沿って重い元素を作ります。R-process（Rapid）は中性子星合体など極限的に中性子密度が高い環境で一気に中性子を取り込み、金や白金・ウランなどを合成します。`),
+  makeQ(`Q050`, 3,
+    `第3回講義資料（Wanajo et al., 2013, 2014 および Jennifer Johnsonの周期表）で示された、金（$\\text{Au}$）・白金（$\\text{Pt}$）・ウラン（$\\text{U}$）などの極めて重いR過程元素の主な起源天体として重視されているものはどれか。`,
+    [
+      `中性子星の合体（連星中性子星合体）`,
+      `白色矮星からの穏やかな恒星風放出`,
+      `宇宙線による炭素・窒素原子核の核破砕`,
+      `太陽程度の主系列星におけるCNOサイクル`
+    ], 0,
+    `正解は1番目。講義資料の太陽系化学組成図および原子の起源周期表では、r過程（R-process）による超重元素（$\\text{Au}$, $\\text{Pt}$, $\\text{U}$ 等）の主要起源として「中性子星の合体」が示されています（大質量星爆発の一部も含め研究されていますが、重r過程では中性子星合体が鍵となります）。`),
+  makeQ(`Q051`, 3,
+    `太陽系の化学組成図（Wanajo et al.）における存在度の傾向として、正しい記述はどれか。`,
+    [
+      `水素・ヘリウムが圧倒的に多く、原子番号が増えるにつれて存在度は大局的に減少するが、$\\text{Li}, \\text{Be}, \\text{B}$ に深い谷があり、鉄（$\\text{Fe}$）付近に顕著なピーク（鉄族の極大）が見られる。`,
+      `原子番号が大きいウランや鉛ほど存在度が指数関数的に高く、水素とヘリウムは太陽系内で最も希少な元素である。`,
+      `偶数番元素よりも奇数番元素の方が原子核として安定であるため、鋸歯状のパターンにおいて常に奇数番元素が極大値をとる。`,
+      `炭素・酸素・鉄の質量存在比はすべてビッグバン元素合成のみで決定されており、恒星内での合成寄与はゼロである。`
+    ], 0,
+    `正解は1番目。太陽系元素組成（オッド・ハーキンスの法則等も含む）は $\\text{H}, \\text{He}$ が突出し、$\\text{Li}, \\text{Be}, \\text{B}$ が核融合で燃えやすいため極端に少なく、$\\text{C}, \\text{O}$ が多く、$\\text{Fe}$ で局所的ピークを作ったのち重元素へ向かって減少します。`),
+  makeQ(`Q052`, 3,
+    `第3回資料の「生命に必要な元素（生命必須元素）」に関する整理として正しいものはどれか。`,
+    [
+      `生命を構成する主要元素（$\\text{H}, \\text{C}, \\text{N}, \\text{O}, \\text{P}, \\text{S}$ や主要なイオン等）と微量元素（$\\text{Fe}, \\text{Zn}, \\text{Cu}$ 等の金属元素など）があり、その多くが星内部の核融合や超新星爆発で生成された。`,
+      `生命必須元素のすべてはビッグバン開始3分以内に生成された $\\text{H}, \\text{He}, \\text{Li}$ の3元素のみで構成されており、炭素や酸素は不要である。`,
+      `生命に必要な主要元素は中性子星の合体でのみ作られるウランやプラチナであり、超新星爆発で生じる元素は生命にとって猛毒でしかない。`,
+      `リン（$\\text{P}$）や硫黄（$\\text{S}$）などの生命必須元素は地球の火山内部の核反応で初めて人工的に生成されたものである。`
+    ], 0,
+    `正解は1番目。生命必須元素は主要元素（CHNOPSやNa, Mg, K, Ca, Cl等）と微量元素（遷移金属など）に分類され、水素以外はすべて宇宙の星々の進化（核融合・超新星・質量放出等）によって作られた元素から成っています。`),
+  makeQ(`Q053`, 3,
+    `恒星が誕生して「主系列星」として輝くために中心核が達しなければならない物理的状態として正しいものはどれか。`,
+    [
+      `重力収縮によって中心温度が約1,000万 $\\text{K}$ 以上に達し、水素の核融合反応（4個の陽子からヘリウムを合成）が始まって重力と圧力勾配が釣り合うこと。`,
+      `中心核が絶対零度（$0\\text{ K}$）付近まで冷却され、水素分子が結晶化して固体コアを形成すること。`,
+      `原始星の質量が地球質量以下であり、核融合ではなく化学燃焼（水素の酸化反応）が安定的に継続すること。`,
+      `中心核で鉄の核融合が始まり、中性子星としての密度に達して放射圧を失うこと。`
+    ], 0,
+    `正解は1番目。分子雲が自己重力で収縮すると重力エネルギーが熱に変わり、中心温度が約1,000万 $\\text{K}$ に達すると水素核融合（ppチェイン等）が点火し、星は収縮を止めて主系列星として安定します。`),
+  makeQ(`Q054`, 3,
+    `恒星が赤色巨星へと進化する際の内部構造と表面変化に関する記述として正しいものはどれか。`,
+    [
+      `中心核の水素が枯渇してヘリウムコアが収縮し高温になる一方、その外側の殻で水素燃焼が起こることで外層が大きく膨張し、表面温度が下がって赤く巨大な星になる。`,
+      `中心核のすべての水素が鉄に変わった瞬間に外層が収縮し、表面温度が100万 $\\text{K}$ まで上昇して青白く輝く極小の星になる。`,
+      `赤色巨星とは星間分子雲がまだ温度を上げる前の原始星段階の別称であり、核融合はまだ開始されていない。`,
+      `赤色巨星の段階では星の総質量が100倍に増加するため、中心部での重力崩壊が永久に停止する。`
+    ], 0,
+    `正解は1番目。主系列段階を終えて中心の水素を使い果たすと、ヘリウム中心核が収縮し、その周囲の水素殻燃焼によって外層が膨張・冷却して赤色巨星となります。`),
+  makeQ(`Q055`, 3,
+    `恒星中心部での核融合が進むとき、ヘリウムの次に合成される主要な元素の組み合わせと反応（トリプルアルファ反応等）として正しいものはどれか。`,
+    [
+      `3個のヘリウム原子核（\${}^{4}\\text{He}$）から炭素（\${}^{12}\\text{C}$）が合成され、さらにヘリウムを捕獲して酸素（\${}^{16}\\text{O}$）などが作られる。`,
+      `2個のヘリウム原子核（\${}^{4}\\text{He}$）が直接安定なベリリウム（\${}^{8}\\text{Be}$）を形成し、そのままウランまで核分裂を起こす。`,
+      `ヘリウムは化学的に不活性な希ガスであるため、宇宙のいかなる恒星内部の温度・圧力でも核融合反応を起こすことはない。`,
+      `ヘリウム中心核からはまず金（$\\text{Au}$）と白金（$\\text{Pt}$）が合成され、その後に炭素と酸素へ崩壊する。`
+    ], 0,
+    `正解は1番目。\${}^{8}\\text{Be}$ は極めて短寿命ですが、高温高密度の赤色巨星中心部では \${}^{8}\\text{Be}$ が崩壊する前に3つ目の \${}^{4}\\text{He}$ と衝突して \${}^{12}\\text{C}$ が合成され（トリプルアルファ反応）、続いて \${}^{16}\\text{O}$ などが作られます。`),
+  makeQ(`Q056`, 3,
+    `太陽のような星と、大質量星（8太陽質量以上）を比べたとき、宇宙の元素進化（化学進化）において両者が果たす役割の違いはどれか。`,
+    [
+      `大質量星は短寿命のため宇宙初期から速やかに超新星爆発を起こして酸素やマグネシウム等の $\\alpha$ 元素を撒き散らし、小〜中質量星は長い寿命を経て炭素・窒素やs過程元素を緩やかに供給する。`,
+      `大質量星は寿命が1兆年と長いため現在の宇宙にはまだ1つも爆発しておらず、すべての重元素は太陽型星のみが供給してきた。`,
+      `小〜中質量星は寿命の終わりに鉄をすべてブラックホールに閉じ込めるため、宇宙の元素増加には一切寄与しない。`,
+      `大質量星も小質量星も100%完全に消滅するため、星間ガス中の重元素量は宇宙誕生以来減少を続けている。`
+    ], 0,
+    `正解は1番目。大質量星は寿命が数百万〜数千万年と短く早期に超新星で重元素を放出し、小〜中質量星（数億〜百億年）はAGB星での質量放出（C, N, s過程元素）や連星系でのIa型超新星（鉄族元素）で遅れて寄与します。`),
+  makeQ(`Q057`, 3,
+    `太陽と同じ質量（$1\\,M_\\odot$）の恒星が主系列星として安定に輝き続けられる概算寿命と、現在の太陽の年齢の組み合わせとして最も適切なものはどれか。`,
+    [
+      `主系列星としての寿命は約100億年であり、太陽系の誕生から現在まで約46億年が経過している（寿命の約半分）。`,
+      `主系列星としての寿命は約10億年であり、現在の太陽はすでに白色矮星へ移行する直前の段階にある。`,
+      `主系列星としての寿命は約1,000億年であり、現在の太陽は誕生からわずか4,600万年しか経過していない。`,
+      `主系列星としての寿命は約1,000万年であり、太陽はすでに数回の超新星爆発を経験している。`
+    ], 0,
+    `正解は1番目。太陽の年齢は約46億年（地球・太陽系と同年代）、主系列星としての全寿命は約100億年であるため、現在はおよそ折り返し地点にあります。`),
+  makeQ(`Q058`, 3,
+    `白色矮星・中性子星・ブラックホールという3種類の高密度天体（星の終末残骸）を支える機構または特徴の正しい対応はどれか。`,
+    [
+      `白色矮星は電子の縮退圧で支えられ、中性子星は中性子の縮退圧で支えられており、さらに重い鉄コアが重力崩壊するとブラックホールとなる。`,
+      `白色矮星は中心核での水素核融合の熱圧で支えられ、中性子星は化学的共有結合の反発力で支えられている。`,
+      `白色矮星は太陽質量の30倍以上の星から必ず形成され、ブラックホールは太陽より軽い星が冷え固まったものである。`,
+      `中性子星は地球と同じ岩石と鉄の層構造を持ち、表面に液体の海が存在する天体である。`
+    ], 0,
+    `正解は1番目。小〜中質量星が残す白色矮星は電子の縮退圧で支えられ（上限＝チャンドラセカール限界約1.4太陽質量）、それより重い大質量星の重力崩壊では陽子と電子が結合して中性子となり中性子縮退圧で支えられる中性子星や、さらなる重力崩壊によるブラックホールが形成されます。`),
+  makeQ(`Q059`, 3,
+    `小質量星の末期における「質量放出」が地球や生命の誕生にとって持つ意味として、最も適切なものはどれか。`,
+    [
+      `星内部の核融合やS過程で合成された炭素・窒素や重い元素、さらに微細なダスト（塵）を星間空間へ還元し、次世代の星や惑星・生命の材料を供給すること。`,
+      `宇宙空間の重元素をすべてブラックホールに回収し、次世代の星が純粋な水素だけで誕生するように環境を浄化すること。`,
+      `太陽の質量を毎年半分ずつ減少させることで、地球の公転軌道を水星よりも太陽に近づけること。`,
+      `星間ガスを加熱して1億 $\\text{K}$ に保つことで、新たな分子雲や惑星が二度と誕生しないように抑制すること。`
+    ], 0,
+    `正解は1番目。星の質量放出や超新星爆発によって重元素やダストが星間空間に戻されることで、それを材料とした次世代の恒星・惑星系（太陽系など）や生命が誕生できるようになります。`),
+  makeQ(`Q060`, 3,
+    `宇宙誕生直後の「第1世代の星（初代星）」と、太陽のような「後の世代の星」の化学組成と特徴の違いとして正しいものはどれか。`,
+    [
+      `初代星はビッグバンで作られた水素とヘリウムのみ（重元素ゼロ）から誕生したため惑星系を作れなかったと考えられるのに対し、太陽は過去の星々が作った重元素を含むガスから誕生したため岩石惑星が形成できた。`,
+      `初代星は純粋な鉄とウランのみから誕生したため極めて小型であり、世代が進むにつれて宇宙から鉄が失われて水素が増えた。`,
+      `初代星も太陽もまったく同じ約 $2\\%$ の重元素を含んで誕生しており、世代による化学組成の変化は観測されていない。`,
+      `太陽はビッグバン直後に誕生した宇宙最古の初代星であり、地球はビッグバン元素合成で直接作られた岩石塊である。`
+    ], 0,
+    `正解は1番目。ビッグバンでは重元素が作られなかったため、初代星はHとHeのみで形成され、岩石惑星の材料がありませんでした。地球のような岩石惑星ができるには、前世代の星による重元素の供給が必要でした。`),
+
+  // ===== 第4回（61〜80） =====
+  makeQ(`Q061`, 4,
+    `低温・高密度の分子雲コアが自己重力で収縮して太陽（原始星）が誕生する際、周囲に「原始惑星系円盤（回転ガス・ダスト円盤）」が形成される物理的理由はどれか。`,
+    [
+      `分子雲コアがわずかに持っていた角運動量が保存されるため、回転軸に垂直な方向には遠心力が働いて収縮が妨げられ、回転軸方向のみにガスが落ち込んで平らな円盤になる。`,
+      `原始星が放出した強力な磁場がすべてのガスを太陽の赤道面から45度傾いた方向へ弾き飛ばすため、垂直なリングが形成される。`,
+      `近くの銀河からの潮汐力が分子雲を常に一方向から引き伸ばすため、重力とは無関係に円盤状へと変形する。`,
+      `ガスに含まれる鉄や岩石成分だけが電気的反発力を受けて円盤になり、水素とヘリウムは円盤に一切入らず宇宙空間へ逃げる。`
+    ], 0,
+    `正解は1番目。星間雲は完全に静止しておらずわずかな回転（角運動量）を持ちます。収縮により回転が速くなり（角運動量保存則）、遠心力が回転面に働くため、ガスとダストは平らな円盤（原始惑星系円盤）を形成します。`),
+  makeQ(`Q062`, 4,
+    `第5回資料にも引用されている、ALMA望遠鏡が撮影した「おうし座HL星（HL Tau）」の原始惑星系円盤の画像に見られる「同心円状の暗い隙間（ギャップ）」が示唆する最も重要な現象はどれか。`,
+    [
+      `誕生して間もない原始星の周囲の円盤において、すでに形成されつつある惑星（または微惑星の成長）が周囲のダストを掃き集めている（惑星形成が極めて早期に進行している）可能性。`,
+      `中心星が超新星爆発を起こした直後の衝撃波によって、円盤内のガスが完全に蒸発して消失した痕跡。`,
+      `暗黒物質（ダークマター）が太陽系と同じサイズの同心円リングを形成し、光を吸収して黒く見えている現象。`,
+      `円盤内の氷がすべて溶けて液体の海になったため、電波が海面に反射して暗く映っている現象。`
+    ], 0,
+    `正解は1番目。ALMAによるおうし座HL星の観測では、非常に若い原始星の周りの円盤に複数の明瞭な同心円状の溝（ギャップ）が発見され、円盤内で惑星形成が驚くほど早く始まっていることを示唆しました。`),
+  makeQ(`Q063`, 4,
+    `原始惑星系円盤における「スノーライン（雪線・凍結線）」の定義と、太陽系形成における決定的な役割として正しいものはどれか。`,
+    [
+      `星雲の温度が約 $150\\text{–}170\\text{ K}$ 以下に下がり水（$\\text{H}_2\\text{O}$）などの氷が固体として凝縮できる境界であり、その外側では氷の固体材料が豊富に存在するため巨大惑星コアが素早く成長できた。`,
+      `太陽のコロナから放出される紫外線が届かなくなる境界であり、その内側では水しか凝縮できず、外側では金属鉄とケイ酸塩岩石のみが凝縮する境界である。`,
+      `太陽系外縁部の海王星軌道の外側に引かれた境界であり、その内側では惑星が1つも形成されず小惑星帯だけができる境界である。`,
+      `中心星の光圧によってガスが完全に吹き飛ばされる境界であり、その外側には水素も氷も一切存在できない領域を示す線である。`
+    ], 0,
+    `正解は1番目。スノーラインは水蒸気が氷として凝縮できる温度境界（現在の火星〜木星軌道付近）です。内側では岩石と金属しか固体になれませんが、外側では宇宙に豊富な酸素と水素からなる「水の氷」が固体に加わるため、固体面密度が大きく増大して巨大惑星のコアが急成長できました。`),
+  makeQ(`Q064`, 4,
+    `原始惑星系円盤のダスト（微粒子）から惑星が形成される標準的な段階的プロセス（京都モデル／コア集積モデル）として正しい順序はどれか。`,
+    [
+      `ミクロンサイズのダストの沈殿・合体 $\\rightarrow$ kmサイズの「微惑星」の形成 $\\rightarrow$ 重力散乱を伴う「暴走成長・寡占成長」による「原始惑星（惑星胚）」の形成 $\\rightarrow$ 巨大衝突やガス捕獲による現在の惑星完成`,
+      `水素原子の核融合による巨大ガス塊の瞬間形成 $\\rightarrow$ ガスが冷却固化して微惑星へ分裂 $\\rightarrow$ 太陽の引力によるダストへの粉砕`,
+      `太陽内部から黒点爆発で噴き出した溶岩塊が冷えて惑星胚になり $\\rightarrow$ それらが互いに分裂を繰り返してミクロンサイズのダストになる過程`,
+      `オールトの雲で誕生した氷惑星が太陽に落ち込む途中で融解し $\\rightarrow$ 内側で水星や地球へと分割されていく下降形成プロセス`
+    ], 0,
+    `正解は1番目。ミクロン級のダストが赤道面に沈殿し合体成長してkmサイズの微惑星となり、さらに重力集積（暴走成長・寡占成長）で月〜火星サイズの原始惑星へ成長し、内側では巨大衝突で地球型惑星へ、外側では大質量コアが円盤ガスを捕獲して巨大ガス惑星へ成長します。`),
+  makeQ(`Q065`, 4,
+    `「巨大ガス惑星（木星・土星）」と「巨大氷惑星（天王星・海王星）」の内部組成や形成過程における違いの説明として、正しいものはどれか。`,
+    [
+      `木星・土星はコアが臨界質量（地球質量の約10倍程度）に円盤ガス散逸前に達したため大量の水素・ヘリウムを捕獲したのに対し、天王星・海王星は軌道周期が長く成長が遅れたためガス散逸前に十分捕獲できず氷や岩石主体の惑星になった。`,
+      `木星・土星はスノーラインの内側で形成されたため氷を含まず岩石だけで構成され、天王星・海王星はスノーラインの外側で水素・ヘリウムのみから形成された。`,
+      `木星・土星は誕生直後に中心で核融合を起こした恒星であり、天王星・海王星は木星の衛星が軌道から弾き出されて惑星化したものである。`,
+      `天王星と海王星は地球と同じく金属鉄の中心核とケイ酸塩マントルが質量の99%を占めており、氷やガスは表面に薄く存在するに過ぎない。`
+    ], 0,
+    `正解は1番目。外側ほど物質密度が低く公転速度も遅いため、コア成長に時間がかかります。木星・土星はガス円盤が存在する間に十分な水素・ヘリウムをまとって巨大ガス惑星となり、より遠い天王星・海王星はガス捕獲が限定的で氷（水・メタン・アンモニア）が主体となりました。`),
+  makeQ(`Q066`, 4,
+    `原始太陽系において、太陽系の惑星や小天体の質量のうち99%以上（太陽本体を除く惑星系の質量配分）を占める組み合わせとして、第5回講義資料にも示されているものはどれか。`,
+    [
+      `木星・土星（太陽系惑星の総質量の99%以上、正確には太陽を除く惑星質量の約92%強・木星土星中心の巨大惑星が圧倒的多数を占め、資料では「太陽系の99%以上（星雲から見た太陽含め、あるいは惑星の中では木星・土星が圧倒的）」として木星・土星が挙げられる）`,
+      `地球・金星・火星・水星（太陽系惑星の総質量の99%以上が岩石と金属の地球型惑星で占められている）`,
+      `セレス・冥王星・エリス・ハウメア・マケマケ（太陽系の質量の99%以上が5つの準惑星に集中している）`,
+      `天王星・海王星（太陽系の総質量の99%以上が巨大氷惑星であり、木星や太陽はその1%未満である）`
+    ], 0,
+    `正解は1番目。第5回資料の円グラフ/解説図では「太陽系の99%以上：木星・土星（水素・ヘリウム）」および太陽を除いた惑星系の大部分が木星・土星で占められ、地球型岩石惑星はごくわずかな質量割合であることが強調されています。`),
+  makeQ(`Q067`, 4,
+    `地球型惑星（水・金・地・火）の形成最終段階における「巨大衝突（ジャイアントインパクト）」と月形成に関する記述として、最も適切なものはどれか。`,
+    [
+      `原始地球に火星サイズの原始惑星（テイア）が斜め衝突し、飛び散った主にマントル由来の物質が地球周回軌道で再集積して月が形成されたと考えられている。`,
+      `太陽から放出された巨大プロミネンスが冷却固化したものが地球の重力に捕獲されて月になったため、月の岩石組成は太陽の光球と全く同じである。`,
+      `木星の軌道から弾き出された氷衛星が地球に無傷のまま捕獲されたのが月であり、月の内部はすべて純粋な水の氷で満たされている。`,
+      `月は地球よりも前に独立して太陽を公転していた微小恒星であり、核融合が止まって冷えた後に地球の衛星となった。`
+    ], 0,
+    `正解は1番目。地球と月の酸素同位体比の酷似や、月の平均密度の低さ（金属鉄コアが地球に比べ非常に小さいこと）、地球—月系の大きな角運動量を説明する最有力説がジャイアントインパクト説です。`),
+  makeQ(`Q068`, 4,
+    `原始惑星系円盤の中で微惑星が集積する際に見られる「暴走成長（Runaway growth）」の物理的メカニズムとして正しいものはどれか。`,
+    [
+      `他の微惑星よりわずかに大きくなった微惑星は重力集束（グラビテーショナル・フォーカシング）によって実効的な衝突断面積が幾何学的断面積より大きくなり、加速度的に周囲の微惑星を取り込んで一人勝ちのように急成長する。`,
+      `太陽の放射圧が小さい微惑星だけを吹き飛ばすため、大きな微惑星は衝突を一切起こさずに孤立して静止成長する。`,
+      `微惑星の軌道が完全に円形を保つため衝突確率がゼロになり、太陽風を直接吸収して100年で木星サイズになる。`,
+      `小さな微惑星ほど重力が強くなる反比例則により、最も小さい微惑星が一斉に巨大惑星へ成長する現象を指す。`
+    ], 0,
+    `正解は1番目。周囲の微惑星の相対速度が小さいとき、大きな微惑星ほど自身の重力で周囲の微惑星を引き曲げて衝突断面積を増大させる（重力集束）ため、大きなものほどさらに速く大きくなる暴走成長が起こります。`),
+  makeQ(`Q069`, 4,
+    `系外惑星の主要な検出手法である「ドップラー法（視線速度法）」の測定原理として正しいものはどれか。`,
+    [
+      `惑星と中心星が共通重心の周りを公転することに伴う中心星のわずかなふらつき（視線方向の速度変化）を、恒星スペクトル吸収線の波長シフト（ドップラー効果）から検出する。`,
+      `惑星が中心星の手前を通過する際に、惑星の直径に応じて中心星の明るさが周期的にわずかに暗くなる現象を観測する。`,
+      `中心星の光が周囲のブラックホールによって曲げられる重力マイクロレンズ増光の継続時間から惑星の温度を測定する。`,
+      `惑星の表面から放射されるX線レーザーを地上の電波望遠鏡で直接受信し、惑星の公転軌道を幾何学的に描画する。`
+    ], 0,
+    `正解は1番目。ドップラー法（視線速度法）は中心星の周期的な揺れによるスペクトル線のドップラーシフトを測定します（惑星の下限質量 $M\\sin i$ が求まる）。2番目はトランジット法（惑星半径が求まる）の説明です。`),
+  makeQ(`Q070`, 4,
+    `系外惑星の「トランジット法」で測定できる物理量と、「ドップラー法」を組み合わせることで初めて算出可能になる重要な物理量の組み合わせはどれか。`,
+    [
+      `トランジット法で「惑星半径」が、ドップラー法で「惑星質量（および軌道傾斜角の制約）」が求まるため、両者の併用によって惑星の「平均密度（岩石主体かガス主体か）」を推定できる。`,
+      `トランジット法で「惑星の年齢」が、ドップラー法で「惑星表面の生物種数」が求まるため、両者の併用で宇宙人との交信が可能になる。`,
+      `トランジット法では「惑星の質量のみ」が測定され、ドップラー法では「惑星の表面温度のみ」が測定される。`,
+      `両手法を併用すると中心星までの距離がゼロになるため、惑星の岩石を直接地球へ持ち帰るサンプルリターンが可能になる。`
+    ], 0,
+    `正解は1番目。トランジットの減光率 $\\Delta F/F = (R_p/R_*)^2$ から惑星半径 $R_p$ が求まり、視線速度法から質量 $M_p$ が求まるため、体積と質量から平均密度 $\\rho$ が計算でき、地球型岩石惑星かガス惑星かを判別できます。`),
+  makeQ(`Q071`, 4,
+    `最初の太陽系外惑星（ペガスス座51番星bなど）の発見を機に多数見つかった「ホットジュピター」が、従来の太陽系形成論に突きつけた最大の謎と、その解決策（惑星移動理論）として正しいものはどれか。`,
+    [
+      `木星級の巨大ガス惑星はガスや氷が豊富なスノーラインの外側でしか作れないはずなのに、中心星直近の高温軌道（数日周期）で発見されたため、外側で形成された後に円盤ガスとの重力相互作用（タイプI・II移動など）で内側へ移動したと考えられた。`,
+      `ホットジュピターは太陽系内では海王星の外側にある天体であり、中心星から1,000 au 離れているにもかかわらず温度が1万 $\\text{K}$ を超えている点が謎とされた。`,
+      `ホットジュピターは純粋な金属鉄のみでできているため、中心星のすぐ近くでも溶けずに形成可能であることが分かり、移動理論は完全に否定された。`,
+      `ホットジュピターは太陽の内部から噴出した惑星であり、やがて中心星から離れてオールトの雲へ移動していくことが観測で確認されている。`
+    ], 0,
+    `正解は1番目。スノーライン内側ではガス惑星の材料となる固体氷がなく高温でガスも保持しにくいため、外側で誕生後に原始惑星系円盤のガスとの角運動量交換や惑星間散乱によって中心星近傍へ移動（マイグレーション）したと説明されます。`),
+  makeQ(`Q072`, 4,
+    `「小惑星帯（アステロイドベルト）」が火星と木星の間に存在し、1つの大きな惑星にまとまらなかった主な理由として正しいものはどれか。`,
+    [
+      `近接する巨大な木星の強い重力摂動（軌道共鳴など）によって微惑星同士の相対速度が上げられ、合体成長よりも破壊的な衝突が卓越するようになったため。`,
+      `小惑星帯はかつて存在した巨大な第5岩石惑星が内部の原子力発電の暴走によって自爆した残骸であるため。`,
+      `火星と木星の間の領域はスノーラインより温度が高すぎて、あらゆる鉱物や岩石がすべて気化して消滅したため。`,
+      `小惑星帯の天体はすべて太陽系の外から最近飛来した彗星であり、あと100万年待てば自然に1つの巨大ガス惑星へ合体する途中段階であるため。`
+    ], 0,
+    `正解は1番目。木星という巨大惑星の重力擾乱により微惑星の軌道離心率が大きくなり、衝突速度が速すぎて合体できずに破壊が進んだため、惑星になれず小惑星帯として残りました（セレス等の少数の天体を除く）。`),
+  makeQ(`Q073`, 4,
+    `地球型惑星が原始惑星系円盤の中で獲得した「一次大気（主に水素・ヘリウム）」を失い、現在の「二次大気」へ入れ替わった理由として正しいものはどれか。`,
+    [
+      `地球型惑星は質量が小さく重力が弱いため水素・ヘリウムのような軽い分子を保持できず、初期太陽の強い紫外線・太陽風や巨大衝突等によって一次大気が散逸し、その後に微惑星の脱ガスや火山活動で二次大気（$\\text{H}_2\\text{O}, \\text{CO}_2, \\text{N}_2$ 等）が供給された。`,
+      `一次大気の水素とヘリウムはすべて地球のマントル深部に沈み込んでブリッジマナイトに変化し、地表には酸素だけが残った。`,
+      `一次大気は現在も地球大気の99%を占めており、窒素や酸素は近年の産業革命によって初めて作られた。`,
+      `巨大ガス惑星である木星が地球の水素・ヘリウムを重力で吸い取ったため、地球には水蒸気と窒素だけが残された。`
+    ], 0,
+    `正解は1番目。地球は木星のように巨大な重力を持たないため、原始星雲由来の軽い一次大気（$\\text{H}_2, \\text{He}$）は初期太陽の強い極紫外線加熱や太陽風で散逸しました。現在の海洋や大気は惑星集積時の脱ガス・火山活動（二次大気）や彗星・小惑星による供給に由来します。`),
+  makeQ(`Q074`, 4,
+    `原始惑星系円盤の寿命（円盤内のガスが散逸してなくなるまでの典型的な時間スケール）として、現代の赤外線・電波観測から得られている目安はどれか。`,
+    [
+      `数百万年（おおよそ $10^6\\text{–}10^7$ 年）程度であり、巨大ガス惑星はこのガスが残っている短い期間内にコア形成とガス捕獲を完了する必要がある。`,
+      `約100億年であり、現在の太陽系の周囲にも誕生当時と同じ密度の水素ガス円盤がそのまま残存している。`,
+      `わずか約100年であり、太陽が誕生した翌世紀には地球型惑星も木星型惑星もすべて完成していた。`,
+      `約1兆年であり、宇宙の現在の年齢（138億年）ではまだどの恒星の周りにもガス円盤しか存在しない。`
+    ], 0,
+    `正解は1番目。原始惑星系円盤のガスは中心星からの光蒸発や降着により数百万年（数Myr〜1,000万年以内）で散逸します。したがって木星型惑星はそのタイムリミット内に形成されなければなりません。`),
+  makeQ(`Q075`, 4,
+    `ハビタブルゾーン（生命居住可能領域）の定義として、惑星科学で一般的に用いられる基準はどれか。`,
+    [
+      `中心星からの放射エネルギーにより、適切な大気圧を持つ地球型惑星の表面に「液体の水」が安定して存在できる軌道距離の範囲。`,
+      `中心星から放射されるX線やガンマ線が最も強く、惑星表面の岩石が常に溶融したマグマオーシャンとして維持される範囲。`,
+      `巨大ガス惑星の木星が必ず2個以上存在できる領域であり、岩石惑星は重力不安定により排除される範囲。`,
+      `中心星からの距離がちょうど $1\\text{ au}$ の位置のみを指し、太陽よりも暗い星や明るい星でも軌道半径は変化しない。`
+    ], 0,
+    `正解は1番目。ハビタブルゾーンは「惑星表面に液体の水が存在できる領域」と定義され、中心星の光度によって位置が変わります（TRAPPIST-1のような暗い赤色矮星では中心星の極めて近くに位置します）。`),
+  makeQ(`Q076`, 4,
+    `太陽系の「オールトの雲」と「エッジワース・カイパーベルト」の比較として、正しいものはどれか。`,
+    [
+      `カイパーベルトは海王星軌道の外側に広がる円盤状の氷小天体群（冥王星や短周期彗星の故郷）であるのに対し、オールトの雲は数万 $\\text{au}$ に広がる球殻状の領域で長周期彗星の故郷と考えられている。`,
+      `カイパーベルトは水星の内側に位置する岩石の帯であり、オールトの雲は地球と月の間にある人工衛星の帯を指す。`,
+      `オールトの雲は木星と土星の間を円盤状に公転しており、カイパーベルトは他の恒星の周りにのみ存在する構造である。`,
+      `カイパーベルト天体はすべて純粋な金属鉄であり、オールトの雲は高温の電離水素ガスで構成されている。`
+    ], 0,
+    `正解は1番目。カイパーベルト（海王星以遠、約30〜50 $\\text{au}$ 付近の円盤状領域）には冥王星などの準惑星や短周期彗星源があり、さらに遠く数千〜数万 $\\text{au}$ には巨大惑星により散乱された微惑星がつくる球殻状のオールトの雲（長周期彗星の源）があります。`),
+  makeQ(`Q077`, 4,
+    `「コンドリュール」を含み、誕生時の太陽系の平均的な元素組成（揮発性元素を除く）を最もよく保持している「始原的隕石（コンドライト）」が惑星科学で重要視される理由はどれか。`,
+    [
+      `溶融・分化（金属核とマントルの分離）を経験していない母天体に由来するため、太陽系誕生時の原材料の化学組成や形成年代（約45.6億年前）を直接読み取る化石となるため。`,
+      `地球のマントル最深部であるD''層から火山噴火によって打ち上げられ、宇宙空間を周回後に地球へ落下してきた地球内部の直接標本であるため。`,
+      `月の海を構成する玄武岩のみから成っており、地球のプレートテクトニクスがいつ始まったかを直接示すため。`,
+      `他の銀河から光速で飛来した物質であり、ダークマターの化学組成を実験室で直接測定できる唯一の試料であるため。`
+    ], 0,
+    `正解は1番目。始原的隕石（特にCIコンドライト等）は溶融による化学分化を経験していないため、揮発性元素を除くと太陽光球の元素組成と極めてよく一致し、地球・惑星の原材料（出発物質）の指標となります（第5回資料にも登場）。`),
+  makeQ(`Q078`, 4,
+    `太陽系の8つの惑星の公転軌道と自転に関する特徴の記述として、誤っているものはどれか。`,
+    [
+      `太陽系のすべての惑星は自転軸が公転面に対して完全に垂直（傾き $0^{\\circ}$）であり、どの惑星にも季節変化は一切存在しない。`,
+      `すべての惑星は太陽の北極側から見て同じ向き（反時計回り）に公転しており、しかもほぼ同一平面（黄道面）内を回っている。`,
+      `水星・金星・地球・火星は内側にあり半径が小さく高密度（約 $4\\text{–}5.5\\text{ g/cm}^3$）で、木星以遠の4惑星は大きく低密度（約 $0.7\\text{–}1.6\\text{ g/cm}^3$）である。`,
+      `天王星の自転軸は公転面に対して約 $98^{\\circ}$ ほぼ横倒しになっており、金星は他の多くの惑星とは逆向きにゆっくり自転している。`
+    ], 0,
+    `誤っているのは1番目（これが正解）。惑星は原始惑星系円盤の角運動量を引き継いで同一方向に同一平面で公転していますが、地球（約 $23.4^{\\circ}$）、火星（約 $25^{\\circ}$）、天王星（約 $98^{\\circ}$）、金星（約 $177^{\\circ}$＝逆向き自転）など自転軸は傾いており、巨大衝突等の影響が考えられています。`),
+  makeQ(`Q079`, 4,
+    `太陽系形成初期に原始惑星がマグマの海で覆われる「マグマオーシャン」が形成された主な熱源として、最も適切な組み合わせはどれか。`,
+    [
+      `微惑星の連続的な衝突エネルギー（重力エネルギーの解放）、短寿命放射性同位体（\${}^{26}\\text{Al}$ 等）の崩壊熱、および原始大気による強い断熱・温室効果`,
+      `太陽が赤色巨星化して地球を飲み込んだことによる熱伝導、および現在の地球大気中のオゾン層による紫外線吸収`,
+      `地球の海水の電気分解による化学発熱、およびプレート沈み込み帯での摩擦熱のみ`,
+      `月の潮汐力によって地球の氷が溶けた際の融解熱、および銀河中心ブラックホールからの赤外線照射`
+    ], 0,
+    `正解は1番目。微惑星・原始惑星の集積（衝突エネルギー）、短寿命放射性元素（特に $^{26}\\text{Al}$）の崩壊熱、厚い原始水蒸気大気等による保温（ブランケット効果）により地球表層は深く溶融してマグマオーシャンを形成し、金属核の分離（分化）が進みました。`),
+  makeQ(`Q080`, 4,
+    `太陽系外惑星の観測によって、これまで数千個以上の系外惑星が発見された結果明らかになった現代惑星科学の知見として最も適切なものはどれか。`,
+    [
+      `スーパーアース（地球と海王星の中間サイズ）やホットジュピターなど太陽系には存在しないタイプの惑星が極めて普遍的に存在し、惑星系の姿は極めて多様である。`,
+      `太陽系と完全に同一の8個の惑星配置を持つ系しか宇宙には存在せず、惑星移動や軌道散乱は一切起こらないことが証明された。`,
+      `系外惑星はすべて太陽の10倍以上の質量を持つ恒星の周りにしか見つかっておらず、太陽のようなG型星や赤色矮星には惑星は存在しない。`,
+      `これまで発見された系外惑星の99%以上が地球と同じ組成と1気圧の酸素大気を持っており、生命の存在がすべて確認されている。`
+    ], 0,
+    `正解は1番目。系外惑星探査（ケプラー衛星・TESS等）により、太陽系にはないスーパーアースやミニネプチューン、ホットジュピターなど多種多様な惑星系が銀河中にありふれていることが判明しました。`),
+
+  // ===== 第5回（81〜100） =====
+  makeQ(`Q081`, 5,
+    `第5回講義資料において、太陽系および惑星の原材料となる化学組成を推定する3つの主要な観測・分析手段として挙げられている組み合わせはどれか。`,
+    [
+      `太陽光球のスペクトル・太陽風の組成・始原的隕石の分析`,
+      `地球深部の直接ボーリング（深さ $6,400\\text{ km}$）・木星中心核の採掘・月震の観測`,
+      `宇宙マイクロ波背景放射の偏光・地球の海水塩分濃度・南極氷床コアの気泡分析`,
+      `プレート境界のGNSS測量・ハッブルの法則の傾き・太陽黒点数のカウント`
+    ], 0,
+    `正解は1番目。第5回資料に「・太陽光球のスペクトル ・太陽風の組成 ・始原的隕石の分析 などから推定したもの」と明記されています。`),
+  makeQ(`Q082`, 5,
+    `原始惑星系星雲内での元素の「化学分別過程（凝縮温度による分類）」において、「難揮発性元素（refractory）」「中揮発性元素（moderate refractory）」「揮発性元素（volatile）」の組み合わせとして正しいものはどれか。`,
+    [
+      `難揮発性：$\\text{Al}, \\text{Ca}, \\text{Ti}, \\text{Pt}, \\text{Ir}$ 等 ／ 中揮発性：$\\text{Fe}, \\text{Mg}, \\text{Si}, \\text{Na}, \\text{K}, \\text{S}$ 等 ／ 揮発性：希ガス($\\text{He}, \\text{Ar}$), $\\text{C}, \\text{N}, \\text{Cl}, \\text{Pb}$ 等`,
+      `難揮発性：$\\text{He}, \\text{Ne}, \\text{Ar}$ 等の希ガス ／ 中揮発性：$\\text{H}_2\\text{O}, \\text{CO}_2$ ／ 揮発性：$\\text{Al}, \\text{Ca}, \\text{Fe}, \\text{Pt}$ 等の金属・酸化物`,
+      `難揮発性：$\\text{Na}, \\text{K}, \\text{Cl}$ ／ 中揮発性：$\\text{Re}, \\text{Os}, \\text{Ir}$ ／ 揮発性：$\\text{Mg}, \\text{Si}, \\text{Ca}, \\text{Al}$`,
+      `難揮発性・中揮発性・揮発性の凝縮温度はすべて $100\\text{ K}$ 以下であり、地球型惑星はすべて気体のみから直接形成された。`
+    ], 0,
+    `正解は1番目。第5回資料の通り、星雲が冷える際に最初に凝縮するのが難揮発性元素（$\\text{Re}, \\text{Os}, \\text{Ir}, \\text{Pt}, \\text{La}, \\text{Ca}, \\text{Al}$ 等）、続いて中揮発性・主要造岩元素（$\\text{Fe}, \\text{Ni}, \\text{Mg}, \\text{Si}$ や $\\text{Na}, \\text{K}, \\text{S}, \\text{Cu}, \\text{Zn}$ 等）、最も低い温度まで気体として残るのが揮発性元素（希ガス, $\\text{C}, \\text{Cl}, \\text{Pb}$ 等）です。`),
+  makeQ(`Q083`, 5,
+    `惑星形成後の分化過程（地球型惑星の核・マントル・地殻・大気への元素分配＝ゴールドシュミット分類）に関する記述として正しいものはどれか。`,
+    [
+      `親鉄元素（siderophile：$\\text{Fe}, \\text{Ni}, \\text{Co}, \\text{Au}$ や白金族 $\\text{Pt}, \\text{Os}, \\text{Ir}$ 等）は金属鉄と親和性が高いため中心核に集まりやすく、親石元素（lithophile）はケイ酸塩マントル・地殻に残りやすい。`,
+      `親鉄元素（$\\text{Au}, \\text{Pt}, \\text{Fe}$ 等）はケイ酸塩と強く結合するため地殻の最表面に濃集し、酸素やシリコンからなる親石元素が地球の中心核を形成している。`,
+      `親銅元素（chalcophile：$\\text{S}$ と結びつきやすい元素）は希ガスと同一の性質を持ち、大気圏の最上層にのみ濃集している。`,
+      `親気元素（atmophile：$\\text{N}$, 希ガス等）は極めて高い圧力で鉄と合金を作るため、ほぼすべてが地球の内核に閉じ込められている。`
+    ], 0,
+    `正解は1番目。第5回資料の通り、金属鉄と親和性の高い親鉄元素（$\\text{Mn}, \\text{Fe}, \\text{Co}, \\text{Ni}, \\text{Mo}, \\text{Au}$, 白金族など）は中心核（コア）に集まりやすく、親銅元素は硫化物鉱床・融点/沸点が低い、親石元素はマントル・地殻、親気元素は大気・海洋へと分化しました。`),
+  makeQ(`Q084`, 5,
+    `地球の化学組成（全体・バルク地球）と地球表層（地殻）の化学組成を比較した際、最も顕著に見られる特徴はどれか。`,
+    [
+      `地球全体（バルク）では鉄（$\\text{Fe}$）・酸素（$\\text{O}$）・マグネシウム（$\\text{Mg}$）・ケイ素（$\\text{Si}$）が大部分を占めるが、地殻では重い鉄やマグネシウムの割合が減り、酸素・ケイ素・アルミニウム（$\\text{Al}$）・アルカリ元素などが相対的に濃集している。`,
+      `地球全体では水素とヘリウムが質量の90%を占めるため、地球の中心核は高圧の固体水素で構成されている。`,
+      `地球の表層（地殻）から中心核（内核）の端に至るまで、物質の化学組成は完全に均一であり、分化は一切起きていない。`,
+      `地球の地殻はほぼ100%純粋な金属鉄とニッケルでできており、中心核は花崗岩や玄武岩などのケイ酸塩岩石でできている。`
+    ], 0,
+    `正解は1番目。地球はマグマオーシャン等の分化を経て、重い金属鉄（$\\text{Fe}$-$\\text{Ni}$）が中心核へ沈み、$\\text{Mg}$・$\\text{Fe}$ ケイ酸塩がマントルへ、より軽い $\\text{Si}$・$\\text{Al}$・$\\text{K}$・$\\text{Na}$・$\\text{Ca}$ 等に富む成分が地殻へと分かれました。`),
+  makeQ(`Q085`, 5,
+    `地球内部構造の化学的区分（地殻・マントル・外核・内核）に関する深さと物性の正しい組み合わせはどれか。`,
+    [
+      `地殻（深さ数 $\\text{km}$〜数十 $\\text{km}$）$\\rightarrow$ マントル（深さ約 $2,900\\text{ km}$ まで、固体のケイ酸塩岩石）$\\rightarrow$ 外核（深さ約 $2,900\\text{–}5,100\\text{ km}$、液体の鉄合金）$\\rightarrow$ 内核（約 $5,100\\text{–}6,400\\text{ km}$、固体の鉄合金）`,
+      `地殻（深さ約 $2,900\\text{ km}$ まで）$\\rightarrow$ マントル（深さ約 $2,900\\text{–}5,100\\text{ km}$、液体のマグマ）$\\rightarrow$ 核（約 $5,100\\text{–}6,400\\text{ km}$、固体のケイ酸塩岩石）`,
+      `地殻（深さ約 $410\\text{ km}$ まで）$\\rightarrow$ 遷移層（液体の鉄）$\\rightarrow$ 外核（固体のカンラン岩）$\\rightarrow$ 内核（超高圧の氷）`,
+      `マントル全体が常に完全に溶融した液体マグマであり、その上を薄い固体の地殻だけが浮かび、外核と内核は気体の水素で構成されている。`
+    ], 0,
+    `正解は1番目。マントルは深さ約2,900 kmまで「固体」のケイ酸塩鉱物（長期タイムスケールでは流動する）、外核（2,900〜5,100 km）は「液体」の溶融鉄合金、内核（5,100〜6,371 km）は超高圧により「固体」となった鉄合金です。`),
+  makeQ(`Q086`, 5,
+    `地球の「外核が液体である」ことを決定的に証明する地震波の観測事実として、正しいものはどれか。`,
+    [
+      `縦波であるP波は外核を通過して大きく屈折する（シャドーゾーンを生じる）のに対し、剛性率ゼロの液体中を伝播できない横波であるS波が深さ $2,900\\text{ km}$ のコア・マントル境界で遮断され地球の裏側へ直接届かないこと。`,
+      `地震発生時、横波であるS波は外核の内部で音速の100倍に加速し、P波は深さ $2,900\\text{ km}$ で完全に消滅するため。`,
+      `地表面の火山から噴出する溶岩の成分がすべて外核から直接上昇してきた液体金属鉄であることが確認されているため。`,
+      `地球の自転速度が毎日2倍と半分を往復しているため、内部の100%が液体でなければならないことが力学的に導かれるため。`
+    ], 0,
+    `正解は1番目。横波（S波）はせん断変形に対する復元力（剛性率）がない液体や気体を伝わることができません。深さ2,900 km以深にS波が直接伝わらない（S波の影＝シャドーゾーン）ことが、外核が液体である直接的証拠です。`),
+  makeQ(`Q087`, 5,
+    `マントル深部における鉱物の「高圧相転移」の一般原則として、第5回講義資料で示されている結晶構造の変化はどれか。`,
+    [
+      `圧力の増加によって原子間の距離が縮むと同時に、陽イオン（$\\text{Si}$ や $\\text{Mg}$ 等）を取り囲む酸素の「配位数が増加」し、より高密度な結晶構造（ペロブスカイト構造など）へ転移する。`,
+      `圧力が増加すると原子が反発してイオン間の隙間が広がり、配位数が4から2へ減少して密度が低下する相転移が起こる。`,
+      `高圧下ではすべてのケイ酸塩鉱物が結合を切って単原子の気体に変化するため、下部マントルほど体積が膨張して低密度になる。`,
+      `圧力が増えても結晶構造（原子配列や配位数）は一切変化せず、温度だけで鉄と酸素に核分裂する。`
+    ], 0,
+    `正解は1番目。第5回資料に「マントル深部の物質は圧力で縮み、配位数が増加する（高圧相転移）」と明記されています。たとえば $\\text{Si}$ の酸素配位数は4配位（四面体）から高圧下で6配位（八面体：ペロブスカイト構造等）へ増加し、高密度化します。`),
+  makeQ(`Q088`, 5,
+    `地球マントル最上部から深さ $660\\text{ km}$ までの「かんらん石（$(\\text{Mg},\\text{Fe})_2\\text{SiO}_4$）」の高圧相転移系列として、深さが増す順に正しく並んでいるものはどれか。`,
+    [
+      `かんらん石（オリビン）$\\rightarrow$ ウォズレアイト（変型スピネル相、深さ約 $410\\text{ km}$）$\\rightarrow$ リングウッダイト（スピネル相、約 $520\\text{ km}$）$\\rightarrow$ ブリッジマナイト（ペロブスカイト相）＋ $(\\text{Mg},\\text{Fe})\\text{O}$（約 $660\\text{ km}$）`,
+      `ブリッジマナイト $\\rightarrow$ リングウッダイト（約 $410\\text{ km}$）$\\rightarrow$ ウォズレアイト（約 $520\\text{ km}$）$\\rightarrow$ かんらん石（約 $660\\text{ km}$）`,
+      `かんらん石 $\\rightarrow$ 石英（$\\text{SiO}_2$）$\\rightarrow$ 花崗岩（約 $410\\text{ km}$）$\\rightarrow$ 液体の純鉄（約 $660\\text{ km}$）`,
+      `リングウッダイト $\\rightarrow$ ポストペロブスカイト（約 $410\\text{ km}$）$\\rightarrow$ ざくろ石（約 $520\\text{ km}$）$\\rightarrow$ かんらん石（約 $660\\text{ km}$）`
+    ], 0,
+    `正解は1番目。第5回資料の通り、かんらん石は410 km不連続面でウォズレアイト（変型スピネル相）、約520 kmでリングウッダイト（スピネル相）、そして660 km不連続面でブリッジマナイト（$\\text{Mg}$-ペロブスカイト）＋マグネシオウスタイト $(\\text{Mg},\\text{Fe})\\text{O}$ に分解・相転移します。`),
+  makeQ(`Q089`, 5,
+    `地球の下部マントル（深さ $660\\text{–}2,900\\text{ km}$）の大部分を構成し、地球上で最も体積・質量割合が大きい鉱物（ペロブスカイト構造の鉱物）の名称と化学式はどれか。`,
+    [
+      `ブリッジマナイト（Bridgmanite）：$(\\text{Mg},\\text{Fe})\\text{SiO}_3$（少量の $\\text{Al}$ を含むペロブスカイト構造）`,
+      `ダイヤモンド（Diamond）：$\\text{C}$（共有結合結晶）`,
+      `ウォズレアイト（Wadsleyite）：$(\\text{Mg},\\text{Fe})_2\\text{SiO}_4$（変型スピネル構造）`,
+      `カンラン石（Olivine）：$(\\text{Mg},\\text{Fe})_2\\text{SiO}_4$（ネソケイ酸塩構造）`
+    ], 0,
+    `正解は1番目。第5回資料に「下部マントルの大部分が、ペロブスカイト構造の鉱物からなる」「ブリッジマナイト（Bridgmanite）」とあり、高圧物理学の礎を築いた Percy W. Bridgman にちなんで命名された $(\\text{Mg},\\text{Fe})\\text{SiO}_3$ ペロブスカイト相です。`),
+  makeQ(`Q090`, 5,
+    `地球マントル最下部（核との境界直上の深さ約 $2,700\\text{–}2,900\\text{ km}$ に位置する「$\\text{D}''$層」）において、ブリッジマナイトがさらなる超高圧（約 $125\\text{ GPa}$ 超）下で転移する高圧相はどれか。`,
+    [
+      `ポストペロブスカイト相（$\\text{CaIrO}_3$型構造）`,
+      `低圧石英相（$\\alpha$-クォーツ構造）`,
+      `氷 VII 相（高圧水氷構造）`,
+      `オリビン相（かんらん石構造）`
+    ], 0,
+    `正解は1番目。第5回資料の地球マントル構成鉱物図の $\\text{D}''$層に「$\\text{CaIrO}_3$型（ポストペロブスカイト構造）」が示されています。日本の研究グループによって発見された超高圧相です。`),
+  makeQ(`Q091`, 5,
+    `地球内部の地震波速度構造に見られる「深さ $410\\text{ km}$ 不連続面」および「深さ $660\\text{ km}$ 不連続面」（これらに挟まれた領域がマントル遷移層）の成因として正しいものはどれか。`,
+    [
+      `化学組成の変化ではなく、圧力の増大に伴うマントル主要鉱物（かんらん石など）の結晶構造の高圧相転移によって密度と地震波速度が急変するため。`,
+      `深さ $410\\text{ km}$ で固体のケイ酸塩から液体の海へ変化し、深さ $660\\text{ km}$ で液体の鉄へ化学組成が完全に切り替わるため。`,
+      `地球が形成された後に隕石が深さ $410\\text{ km}$ と $660\\text{ km}$ に層状に堆積した地層境界であるため。`,
+      `深さ $410\\text{ km}$ 以深では温度が $0\\text{ K}$ 以下に急冷されて岩石が氷結するため。`
+    ], 0,
+    `正解は1番目。上部マントル〜遷移層〜下部マントルの境界（410 km, 660 km）は、化学組成が大きく変わるのではなく、同じマントル物質が圧力上昇で高密度の鉱物相へ転移するために生じる相転移境界です。`),
+  makeQ(`Q092`, 5,
+    `地球中心部（内核と外核の境界〜地球中心）に達する圧力のおよそのオーダーとして、第5回資料の数値と一致するものはどれか。`,
+    [
+      `地球中心での圧力は約 $360\\text{ GPa}$（約360万気圧）に達する。`,
+      `地球中心での圧力は約 $3.6\\text{ GPa}$（約3.6万気圧）であり、深海底の約3倍に過ぎない。`,
+      `地球中心での圧力は $0\\text{ GPa}$ であり、あらゆる方向からの重力が相殺して無圧力状態になる。`,
+      `地球中心での圧力は約 $360\\text{ TPa}$（約36億気圧）であり、太陽中心核より高い。`
+    ], 0,
+    `正解は1番目。第5回資料に「$= 360\\text{ GPa}$」と記されている通り、地球中心圧力は約 $360\\text{ GPa}$（1 $\\text{GPa} \\approx 1\\text{ 万気圧}$ なので約360万気圧）です。なおコア・マントル境界（CMB）が約 $136\\text{ GPa}$ です。`),
+  makeQ(`Q093`, 5,
+    `地球の平均密度（約 $5.5\\text{ g/cm}^3$）と、地殻・マントルを構成する典型的な岩石の密度（約 $2.7\\text{–}3.3\\text{ g/cm}^3$）を比較することから直接導かれる推論はどれか。`,
+    [
+      `地表付近の岩石より遥かに高密度な物質（主に鉄・ニッケルなどの重い金属）が地球の深部・中心核に大量に存在しているに違いない。`,
+      `地球の内部は完全に空洞になっているか、あるいは岩石よりも軽い液体水素で満たされている。`,
+      `地表の岩石は空気を大量に含んでいるため軽く見えているだけで、地球全体は同じ花崗岩だけでできている。`,
+      `地球の平均密度 $5.5\\text{ g/cm}^3$ は測定誤差であり、実際の地球の平均密度は木星と同じ約 $1.3\\text{ g/cm}^3$ である。`
+    ], 0,
+    `正解は1番目。地殻岩石は約 $2.7\\text{–}3.0\\text{ g/cm}^3$、上部マントルは約 $3.3\\text{ g/cm}^3$ ですが、地球全体の平均密度は $5.5\\text{ g/cm}^3$ と非常に高いため、中心部に高密度の金属鉄コア（$\\sim 10\\text{–}13\\text{ g/cm}^3$）が存在することが分かります。`),
+  makeQ(`Q094`, 5,
+    `大陸地殻と海洋地殻の主要な構成岩石と厚さの違いに関する記述として、正しいものはどれか。`,
+    [
+      `大陸地殻は比較的軽く（約 $2.7\\text{ g/cm}^3$）花崗岩質（安山岩〜花崗岩、$\\text{SiO}_2$ に富む）で厚さが約 $30\\text{–}70\\text{ km}$ あるのに対し、海洋地殻はやや重く（約 $2.9\\text{–}3.0\\text{ g/cm}^3$）玄武岩質で厚さは約 $5\\text{–}10\\text{ km}$ と薄い。`,
+      `大陸地殻は厚さ約 $5\\text{ km}$ の極めて薄い玄武岩層であり、海洋地殻は厚さ約 $100\\text{ km}$ の花崗岩層であるため海面下に沈んでいる。`,
+      `大陸地殻も海洋地殻もともに純粋なカンラン岩（マントル岩石）で構成されており、両者の密度や厚さに違いはない。`,
+      `海洋地殻は氷でできており、夏になると融解してマントルが海底に直接露出する。`
+    ], 0,
+    `正解は1番目。大陸地殻は厚く軽い花崗岩質（平均密度約 $2.7\\text{ g/cm}^3$）、海洋地殻は薄く重い玄武岩質（約 $2.9\\text{–}3.0\\text{ g/cm}^3$）です。この密度差がプレート沈み込みの方向やアイソスタシー（海と陸の高度差）を決めます。`),
+  makeQ(`Q095`, 5,
+    `地球の外核（液体鉄合金）に純粋な鉄・ニッケルだけでなく、約 $10\\%$ 程度の「軽元素（$\\text{S}, \\text{Si}, \\text{O}, \\text{C}, \\text{H}$ 等）」が含まれていると推定される根拠はどれか。`,
+    [
+      `純鉄・ニッケル合金の高圧実験から求められる密度よりも、地震波観測（PREM等）で求められる外核の実際の密度が約 $10\\%$ ほど小さいため。`,
+      `外核はケイ酸塩岩石であるマントルと常に同じ密度を持つように調整されており、鉄が含まれている割合は全体の $1\\%$ 未満であるため。`,
+      `火山の噴火口から外核の液体鉄が直接噴き出しており、その化学分析で水銀と水素が $50\\%$ ずつ検出されたため。`,
+      `純鉄は深さ $2,900\\text{ km}$ の圧力では絶対に液体になれず、軽元素を混ぜないと外核が気化してしまうため。`
+    ], 0,
+    `正解は1番目。高温高圧下における純鉄・ニッケルの状態方程式から予測される密度に比べ、地震波から求められる地球外核の密度は約10%小さい（コアの密度欠損）ため、軽い元素が溶け込んでいることが分かっています。`),
+  makeQ(`Q096`, 5,
+    `地球の内核が外核よりも高温であるにもかかわらず「固体」として存在する物理的理由として、正しいものはどれか。`,
+    [
+      `深くなるほど温度も上昇するが、それ以上に圧力による鉄合金の融点（溶ける温度）の上昇が地球内部の実際の温度を上回るため、約 $5,100\\text{ km}$ 以深では固体が安定になる。`,
+      `内核には太陽の重力によって氷が閉じ込められているため、温度が氷点下 $200^{\\circ}\\text{C}$ に保たれている。`,
+      `内核は鉄ではなく融点が数万度のダイヤモンドとタングステンだけで構成されているため。`,
+      `外核が液体のため熱が内核へ一切伝わらず、内核は地球誕生時の絶対零度のまま保たれている。`
+    ], 0,
+    `正解は1番目。一般に物質（鉄など）は圧力が高くなると融点が上がります。外核では温度が鉄合金の融点を超えているため液体ですが、深さ約5,100 kmの内核境界で圧力上昇による融点が実温度を上回り、再び固体（内核）になります。`),
+  makeQ(`Q097`, 5,
+    `原始太陽系星雲内での凝縮過程において、地球型惑星が水星・金星・地球・火星でそれぞれ金属鉄や揮発性物質の割合に差を持つ理由の一般的な説明はどれか。`,
+    [
+      `中心の太陽に近いほど星雲の温度が高く、凝縮温度の高い鉄や難揮発性元素が先に固体として残り、遠い場所ほどケイ酸塩や水・揮発性成分が凝縮して材料に取り込まれやすいため。`,
+      `水星は木星の内部から引きちぎられた氷の塊であり、火星は太陽の核融合で最後に作られた純鉄の星であるため。`,
+      `星雲内の温度は太陽のすぐ近くから海王星まで完全に均一であり、金属と氷はランダムなサイコロ振りによって分配された。`,
+      `太陽の重力が軽い酸素やシリコンだけを外側へ反発させるため、内側にはウランと白金しか残らなかった。`
+    ], 0,
+    `正解は1番目。原始太陽系星雲には太陽からの距離に応じた温度勾配があり、凝縮温度の違い（化学分別過程）が惑星の金属比や揮発性成分の差に影響を与えました（水星は鉄コア割合が極めて大きい等、さらに衝突による剥ぎ取りも議論されます）。`),
+  makeQ(`Q098`, 5,
+    `地球のマントル構成鉱物として、上部マントル（最上部）に最も多く含まれる岩石名（かんらん岩）の主要構成鉱物3種の組み合わせとして、第5回資料にも描かれているものはどれか。`,
+    [
+      `かんらん石（オリビン）・輝石（ピロキシン）・ざくろ石（ガーネット）`,
+      `石英（クォーツ）・長石（フェルドスパー）・黒雲母（バイオタイト）`,
+      `方解石（カルサイト）・石膏（ジプサム）・岩塩（ハライト）`,
+      `ブリッジマナイト・ポストペロブスカイト・液体鉄`
+    ], 0,
+    `正解は1番目。第5回資料「地球マントルの主要構成鉱物」図の上部マントル側には、かんらん石 $((\\text{Mg},\\text{Fe})_2\\text{SiO}_4)$、輝石 $((\\text{Mg},\\text{Fe})\\text{SiO}_3)$、ざくろ石 $((\\text{Mg},\\text{Fe},\\text{Ca})_3\\text{Al}_2\\text{Si}_3\\text{O}_{12})$ が描かれています。石英や長石は地殻の主要鉱物です。`),
+  makeQ(`Q099`, 5,
+    `金属鉄を豊富に含む鉄隕石と、ケイ酸塩鉱物を主体とする石質隕石（分化したエイコンドライトなど）の存在が、惑星科学において証明している事実はどれか。`,
+    [
+      `小天体（微惑星・原始惑星）の段階でも内部が溶融して金属鉄コアと岩石マントルへの分化が起こり、その後の天体同士の衝突破壊によって内部のコアやマントルの破片が隕石として飛来していること。`,
+      `宇宙空間には鉄だけを作る恒星と岩石だけを作る恒星が別々に存在し、それぞれが別々に壊れて地球へ落ちていること。`,
+      `鉄隕石は地球上の製鉄所から大気圏外へ打ち上げられた金属片が数日後に落下してきたものであること。`,
+      `石質隕石は太陽の光球から、鉄隕石は木星のガス雲から直接凝縮して落下してくるため、どの小天体も一切分化していないこと。`
+    ], 0,
+    `正解は1番目。分化した隕石（鉄隕石＝母天体のコア、石鉄隕石＝コア・マントル境界、エイコンドライト＝マントル・地殻）は、太陽系初期の微惑星サイズでも $^{26}\\text{Al}$ 等の熱で溶融・分化が起きた証拠です。`),
+  makeQ(`Q100`, 5,
+    `マントル遷移層（深さ $410\\text{–}660\\text{ km}$）の主要鉱物であるウォズレアイトやリングウッダイトが地球内部の水循環において極めて注目される理由はどれか。`,
+    [
+      `これらの高圧相鉱物は結晶構造中に水酸基（$\\text{OH}$）として最大数重量\\%もの「水」を蓄える高い含水能力を持ち、マントル遷移層が地球表層の海に匹敵する巨大な水貯蔵庫になりうるため。`,
+      `遷移層はすべて液体の塩水で満たされており、そこを太平洋や大西洋の海水が毎秒1回転して循環しているため。`,
+      `ウォズレアイトは水に溶けると核融合を起こして酸素を発生する唯一の鉱物であるため。`,
+      `リングウッダイトは深さ $520\\text{ km}$ で氷の結晶に転移するため、地震波速度が $0\\text{ km/s}$ に低下するため。`
+    ], 0,
+    `正解は1番目。上部マントルのかんらん石や下部マントルのブリッジマナイトはほとんど水を含めませんが、遷移層のウォズレアイトとリングウッダイトは結晶構造中に多量の $\\text{H}_2\\text{O}$（$\\text{OH}$基）を取り込めるため、地球内部の巨大な「水タンク」として注目されています。`),
+
+  // ===== 第6回（101〜120） =====
+  makeQ(`Q101`, 6,
+    `地球表層の構造区分における「地殻・マントル」という分類と、「リソスフィア・アセノスフィア」という分類の本質的な違いとして正しいものはどれか。`,
+    [
+      `地殻・マントルは「化学組成（物質の種類）」に基づく区分であるのに対し、リソスフィア・アセノスフィアは「力学的性質（硬さ・変形しやすさ、すなわち温度依存の粘性）」に基づく区分である。`,
+      `地殻・マントルは海洋底にのみ適用される区分であり、リソスフィア・アセノスフィアは大陸上にのみ適用される区分である。`,
+      `リソスフィアは液体のマグマ層を指し、アセノスフィアはその上に浮かぶ固体の花崗岩プレートを指す。`,
+      `両者は完全に同一の境界（モホロビチッチ不連続面）で仕切られており、リソスフィアの底は常に地殻の底と一致する。`
+    ], 0,
+    `正解は1番目。非常に重要な頻出対比です。「地殻・マントル」は化学組成による分け方（モホ面が境界）、一方「リソスフィア（プレート）＝地殻＋マントル最上部の硬い部分」と「アセノスフィア＝その下の柔らかく流動しやすいマントル部分」は力学的・レオロジー的性質による分け方です。`),
+  makeQ(`Q102`, 6,
+    `ウェゲナーの大陸移動説から発展した「プレートテクトニクス」を決定的に裏付けた地球物理学・測地学的証拠の組み合わせとして、最も適切なものはどれか。`,
+    [
+      `海底の古地磁気異常の対称的な縞模様（海底拡大説）、海嶺から離れるほど厚く古くなる海底堆積物、地震・火山の帯状分布、および現代のGNSS（GPS）等によるプレート移動速度の実測。`,
+      `地球の自転方向が100年ごとに逆転している観測事実と、月表面のクレーターの年齢分布。`,
+      `すべての大陸の海岸線が完全に直線である事実と、南極大陸で現在も熱帯サンゴが生きている事実。`,
+      `深さ $2,900\\text{ km}$ の外核からプレートが直接吹き上がっている可視光カメラ映像。`
+    ], 0,
+    `正解は1番目。第6回資料「プレートテクトニクスの考え方と証拠」「衛星測位システム(GNSS)などによる実際の測量」にある通り、古地磁気縞模様による海洋底拡大、地震・火山分布、GNSSによる年間数 cm オーダーの直接測量などがプレート運動の動かぬ証拠です。`),
+  makeQ(`Q103`, 6,
+    `「発散境界」「収束境界」「トランスフォーム境界」という3種類のプレート境界と、そこで起こる特徴的な現象の正しい対応はどれか。`,
+    [
+      `発散境界：海嶺やリフト帯で新プレートが生まれ正断層型の浅発地震や玄武岩質マグマ活動が起こる ／ 収束境界：海溝や造山帯で沈み込み・衝突により逆断層型巨大地震や深発地震・島弧火山が生じる ／ トランスフォーム境界：プレートが水平にすれ違い横ずれ地震が起こる（火山活動はほぼない）。`,
+      `発散境界：プレートが沈み込んで深さ $660\\text{ km}$ の深発地震が起こる ／ 収束境界：新しい海洋底が湧き出して海嶺ができる ／ トランスフォーム境界：巨大盾状火山が連続的に噴火する。`,
+      `すべてのプレート境界でプレートは同じ向きに平行移動しているため、断層の種類や地震の深さに違いは一切生じない。`,
+      `トランスフォーム境界では地球内部の液体外核が直接地表に噴出し、巨大な金属鉄の海嶺が形成される。`
+    ], 0,
+    `正解は1番目。発散境界（海嶺）は張力場で正断層・浅発地震、収束境界（海溝）は圧縮場で逆断層・浅発〜深発地震（和達-ベニオフ帯）および沈み込むプレートからの脱水による島弧火山、トランスフォーム断層は横ずれ運動で主に浅発地震を起こし火山はほぼ伴いません。`),
+  makeQ(`Q104`, 6,
+    `プレートを動かす主要な駆動力のうち、現代の地球ダイナミクスで最も支配的（最大）と評価されている力はどれか。`,
+    [
+      `冷えて重くなった海洋プレートがマントル深部へ沈み込む際にプレート全体を引っぱる力（スラブプル：slab pull）`,
+      `地表を吹く偏西風と貿易風が大陸を押し流す風圧`,
+      `月の潮汐力が大陸の西側だけを引っ張り続ける重力トルク`,
+      `海嶺の火山噴火による水蒸気爆発の反動推進力のみ`
+    ], 0,
+    `正解は1番目。プレートの駆動力には海嶺からの押し（リッジプッシュ）、マントル対流の引きずり、そして沈み込む冷たく高密度なスラブが引っ張る力（スラブプル）があり、とくに沈み込み帯を持つプレート（太平洋プレート等）ではスラブプルが最大の駆動力としてプレートを速く動かします。`),
+  makeQ(`Q105`, 6,
+    `「地震波トモグラフィー」によって描き出された地球マントル内部の3次元構造と、プレートの行方に関する記述として正しいものはどれか。`,
+    [
+      `周囲より冷たくて地震波速度が速い沈み込んだスラブ（コールドプルーム）が深さ $660\\text{ km}$ に一時停滞（スタグナントスラブ）したり下部マントルへ崩落する姿や、周囲より高温で地震波速度が遅い上昇流（ホットプルーム）が可視化されている。`,
+      `地震波トモグラフィーとは人工衛星の光学カメラで地表の山脈を撮影する技術であり、深さ $10\\text{ km}$ より深い領域は一切見えない。`,
+      `マントル深部には周囲より高温で地震波速度が無限大になる領域だけが存在し、沈み込んだプレートは深さ $50\\text{ km}$ で完全に消滅する。`,
+      `沈み込んだ海洋プレートは660 kmより深くへは絶対に落下できず、すべてそのまま反転して海嶺へ戻っていくことが判明した。`
+    ], 0,
+    `正解は1番目。地震波トモグラフィーは医療用CTスキャンのように地震波速度の速い（冷たい）領域と遅い（熱い）領域を3次元画像化し、660 kmに横たわるスタグナントスラブやコア・マントル境界まで落ちるスラブ、およびスーパープルームの存在を捉えています。`),
+  makeQ(`Q106`, 6,
+    `日本列島のような「沈み込み帯（島弧）の火山」でマグマが発生するメカニズムと、「中央海嶺」および「ホットスポット（ハワイ等）」でのマグマ発生メカニズムの違いとして正しいものはどれか。`,
+    [
+      `海嶺ではアセノスフィア上昇に伴う「減圧融解」、沈み込み帯では沈み込むプレートからの「脱水によるマントルの融点降下」、ホットスポットでは深部から上昇する高温の「マントルプルーム（ホットプルーム）」が主な原因である。`,
+      `すべての火山は地球の外核（液体鉄）が圧力に耐えきれず地表まで噴き出したものであり、マントルはマグマ発生に関与しない。`,
+      `沈み込み帯の火山は海洋プレートが摩擦熱だけで1万度に達して完全に溶融したものであり、水はマグマ発生を妨げる働きをする。`,
+      `ホットスポットは常にプレート境界の上にしか存在せず、プレートが動いても火山の位置は海嶺と一致したまま動かない。`
+    ], 0,
+    `正解は1番目。マントル岩石が溶ける3大要因（温度上昇・圧力低下・水などの揮発成分添加）に対応します。海嶺＝減圧融解、沈み込み帯＝沈み込むスラブから放出された水による融点降下、ホットスポット＝高温プルーム上昇（プレート内部でも起こりプレート運動の軌跡＝海山列を作る）。`),
+  makeQ(`Q107`, 6,
+    `第6回講義資料で扱われる「熱機関としての地球」において、地球内部の熱輸送を担う3つの過程と、マントルや外核で最も支配的な熱輸送方式の組み合わせとして正しいものはどれか。`,
+    [
+      `熱輸送の3過程は「熱伝導・対流・熱放射」であり、固体のリソスフィア（地殻・プレート）では「熱伝導」、流動できるマントルや液体の外核では「対流」が支配的である。`,
+      `地球内部の熱はすべて宇宙空間からの太陽光放射のみであり、マントル内部では「熱放射」が99%の熱を運んでいる。`,
+      `マントルは固体であるためいかなる時間スケールでも絶対に対流せず、地球中心から地表までの熱は100%「熱伝導」のみで運ばれる。`,
+      `外核は液体であるが粘性が無限大に高いため対流が起こらず、地球磁場は地殻の「熱放射」のみによって生成されている。`
+    ], 0,
+    `正解は1番目。地球は内部の熱を外へ逃がす「熱機関」です。硬いリソスフィア（熱的境界層）や内核では熱伝導が主ですが、巨大なマントル（長期的には固体でも粘性流動する＝マントル対流）や液体の外核では対流が熱を効率よく運びます。`),
+  makeQ(`Q108`, 6,
+    `現在の地球内部から地表へ放出されている熱エネルギー（地殻熱流量の総和）の「2大熱源」として正しいものはどれか。`,
+    [
+      `放射性元素（ウラン \${}^{238}\\text{U}, {}^{235}\\text{U}$、トリウム \${}^{232}\\text{Th}$、カリウム \${}^{40}\\text{K}$ など）の壊変熱と、地球形成時の初期熱（衝突エネルギーや核分離の解放熱・冷却熱）`,
+      `太陽光線の赤外線吸収熱と、地球表層での化石燃料の燃焼熱`,
+      `地球中心核で起こっている太陽と同じ水素の連続的核融合反応熱と、月の反射光`,
+      `大気中の雷放電による加熱と、海底での潮汐摩擦による発熱のみ`
+    ], 0,
+    `正解は1番目。地球の熱源は大きく「長寿命放射性同位体（U, Th, K）の崩壊熱」と「地球誕生時の集積・分化による初期熱（および内核の結晶化潜熱等）」の2つであり、それぞれおおよそ半分程度ずつ寄与しています。`),
+  makeQ(`Q109`, 6,
+    `「和達-ベニオフ帯（深発地震面）」の発見が地球科学にもたらした最も重要な知見はどれか。`,
+    [
+      `海溝から斜め下向きに深さ約 $660\\text{ km}$ に至るまで地震が連続的に分布していることから、冷たくて脆い海洋プレート（リソスフィア）がマントル内部へ沈み込んでいる直接的な証拠となった。`,
+      `地球の中心核の中で地震が発生していることが判明し、内核が気体であることの証拠となった。`,
+      `すべての地震は地下 $1\\text{ km}$ 以浅の火山活動だけで発生していることが証明された。`,
+      `海嶺の真下にはプレートが無限の深さまで上昇してくる縦穴が存在することが確認された。`
+    ], 0,
+    `正解は1番目。通常、マントルは高温で延性的に変形するため地震を起こしませんが、冷たい海洋プレートが沈み込むと深部でも温度が低く脆性破壊（あるいは高圧相転移に伴う破壊）を起こせるため、海溝から斜めに分布する地震帯（和達-ベニオフ帯）が観測されます。`),
+  makeQ(`Q110`, 6,
+    `地球の固有磁場（地磁気）を生成・維持している「地球ダイナモ（ジオダイナモ）」が発生している場所と必要な条件として、正しいものはどれか。`,
+    [
+      `電気伝導性の高い「液体の金属鉄」からなる外核において、地球の「自転（コリオリ力）」と熱・組成「対流」が組み合わさることで電流が誘導され磁場が維持されている。`,
+      `地殻の岩石に含まれる永久磁石（磁鉄鉱）が46億年前の磁化をそのまま保っているだけであり、外核の流動は関係ない。`,
+      `大気中の電離層を吹くジェット気流の静電気摩擦だけで地球の主磁場の100%が生成されている。`,
+      `固体のケイ酸塩からなる上部マントルが1日に100回高速回転することで磁場を生み出している。`
+    ], 0,
+    `正解は1番目。地磁気の維持には、電気を通す流体（液体鉄の外核）、その対流を駆動するエネルギー（冷却と内核成長に伴う軽元素の浮力）、および流れを組織化する惑星の自転が必要です。`),
+  makeQ(`Q111`, 6,
+    `GNSS（GPS等の衛星測位システム）を用いた日本列島や地球上のプレート運動の計測から実際に観測されている典型的なプレート移動速度のオーダーはどれか。`,
+    [
+      `年間数 $\\text{cm}$（およそ $1\\text{–}10\\text{ cm/年}$）程度であり、1億年スケールでは数千 $\\text{km}$ の移動（大陸配置の劇的変化）をもたらす。`,
+      `年間数千 $\\text{km}$ 程度であり、数年のうちに日本列島とアメリカ大陸が衝突と分離を繰り返している。`,
+      `年間 $0.001\\text{ mm}$ 未満であり、GNSSの精度では現在まで一度もプレートの移動は検出できていない。`,
+      `1秒間に約 $30\\text{ km}$ であり、地球の公転速度と常に等しい速さで動いている。`
+    ], 0,
+    `正解は1番目。人間の爪が伸びる速さと同じくらいの「年間数 cm」（たとえば太平洋プレートは約8〜10 cm/年）ですが、地質学的時間（数千万〜数億年）が経つと数千 km に達し、超大陸の離合集散を引き起こします。`),
+  makeQ(`Q112`, 6,
+    `海洋プレートが海嶺で誕生してから時間を経て古くなるにつれて、その厚さ・密度・水深がどのように変化するか。`,
+    [
+      `海嶺から遠ざかって古くなるほど冷却によりリソスフィアが厚くなり、熱収縮して密度が増すため、海底の水深は次第に深くなる（沈み込みやすくなる）。`,
+      `海嶺から離れるほど太陽熱で暖められて膨張し密度が下がるため、海溝付近の海底が海嶺よりも浅く盛り上がる。`,
+      `海洋プレートの厚さと密度は誕生時の $0\\text{ km}$ から移動中も完全に一定であり、年齢によって水深は一切変化しない。`,
+      `古い海洋プレートほど花崗岩が蓄積して軽くなるため、海溝に到達しても絶対にマントルへ沈み込むことができない。`
+    ], 0,
+    `正解は1番目。海嶺でできた熱い海洋プレートは、移動しながら表面から冷やされて（熱伝導冷却）厚くなり、高密度になるため、水深は年齢の平方根にほぼ比例して深くなります。十分に冷えて重くなるとアセノスフィアより密度が高くなり、自重で沈み込めるようになります。`),
+  makeQ(`Q113`, 6,
+    `「地殻・マントル・核の相互作用」として、第6回講義のまとめにも挙げられている地球システム全体の物質・熱循環に関する記述として、最も適切なものはどれか。`,
+    [
+      `沈み込む冷たいプレート（地殻・リソスフィア）がコア・マントル境界まで達して外核からの熱輸送（熱流束）や地磁気活動に影響を与え、そこから生じるホットプルームが再び地表の巨大火山活動を引き起こすという全地球的循環が存在する。`,
+      `地殻とマントルと外核は互いに一切物質や熱をやり取りしない完全に独立した3つの容器であり、プレート運動は外核の冷却速度とは無関係である。`,
+      `地殻の岩石が外核の中心（内核）まで落下すると完全に金属鉄へ核変換するため、地球の総質量が毎年減少している。`,
+      `核の熱はすべて大気圏外への光放射によって瞬時に失われるため、マントルや地殻は太陽熱だけで温められている。`
+    ], 0,
+    `正解は1番目。冷たいスラブがCMB付近（D''層）に達すると外核からの抜熱を促進して対流・地磁気に影響を与え、またCMBの熱境界層から高温のプルームが上昇して地表に大規模火成岩岩石区（LIPs）等を作るなど、表層・マントル・核は密接に相互作用しています。`),
+  makeQ(`Q114`, 6,
+    `太平洋を取り囲む「環太平洋火山帯（リング・オブ・ファイア）」や世界の主要地震帯の分布が示す法則性として正しいものはどれか。`,
+    [
+      `世界の大部分の地震活動と火山活動はプレート内部の一様な場所ではなく、プレート境界（海溝・海嶺・造山帯など）に沿って帯状に集中している。`,
+      `地震と火山は赤道から北緯30度までの熱帯地域にのみ発生し、高緯度地域ではプレート境界であっても絶対に起こらない。`,
+      `地震は大陸の中央部にだけ集中し、火山は海底の最も深い海溝の底だけにしか存在しない。`,
+      `環太平洋火山帯は地球の自転遠心力によってマグマが赤道方向へ引き寄せられるために生じており、プレート境界とは無関係である。`
+    ], 0,
+    `正解は1番目。地球上の地震と火山はプレート境界（特に沈み込み帯や海嶺）に沿って顕著に集中しており、その帯状の分布がプレートの輪郭を浮かび上がらせています（一部例外としてハワイなどのホットスポットがある）。`),
+  makeQ(`Q115`, 6,
+    `地球型惑星の中で、現在「地球型のプレートテクトニクス」が活発に機能していることが確認されている惑星はどれか。`,
+    [
+      `現在の太陽系の地球型惑星の中で明確にプレートテクトニクスが働いているのは地球だけであり、水星・火星・月などは単一プレート（リッド型）で覆われ、金星も地球型の連続的なプレート運動は確認されていない。`,
+      `水星・金星・地球・火星のすべてで地球と全く同じ速度のプレートテクトニクスと海嶺拡大が現在も観測されている。`,
+      `地球ではすでに40億年前にプレートテクトニクスが停止しており、現在は火星だけで活発なプレート沈み込みが起きている。`,
+      `木星と土星の表面の縞模様が岩石プレートテクトニクスの実例であり、地球のプレート運動はその模倣現象である。`
+    ], 0,
+    `正解は1番目。地球では適度なサイズと表面の「液体の海（水）」の存在（岩石を柔らかくし潤滑・断層形成を助ける）等が寄与してプレートテクトニクスが維持されていますが、金星や火星など他の岩石惑星では単一プレート（stagnant lid）等となっており、これが地球の独自性とハビタビリティに直結します。`),
+  makeQ(`Q116`, 6,
+    `地震波のうち、P波（縦波）とS波（横波）の性質および速度の比較として正しいものはどれか。`,
+    [
+      `P波は進行方向に平行に振動する縦波（疎密波）で固体・液体・気体を伝わり速度が速いのに対し、S波は進行方向に垂直に振動する横波（せん断波）で固体のみを伝わりP波より遅い。`,
+      `S波は縦波でP波よりも約2倍速く伝わるため、地震発生時には常にS波が最初に到達した後にP波による大きな揺れが来る。`,
+      `P波もS波も真空中を光速で伝わることができる電磁波の一種であり、媒質の密度には全く依存しない。`,
+      `S波は液体中では速度が無限大になるが、固体のマントル中では一切伝播することができない。`
+    ], 0,
+    `正解は1番目。P波（Primary wave：縦波・疎密波）は体積弾性率と剛性率の両方が効くため必ずS波（Secondary wave：横波・せん断波）より速く到達し、また液体中では剛性率 $\\mu = 0$ のためS波は伝播できません。`),
+  makeQ(`Q117`, 6,
+    `地球型地震発生メカニズムとしてプレート境界（沈み込み帯）で「海溝型巨大地震」が周期的に繰り返される仕組みはどれか。`,
+    [
+      `沈み込む海洋プレートが陸側プレートを引きずり込むことで境界に弾性ひずみエネルギーが数十年〜数百年かけて蓄積し、限界に達した瞬間に陸側プレートが跳ね上がって逆断層運動を起こす。`,
+      `海溝に蓄積した海底の泥が太陽熱で自然発火し、メタンガスが一斉に爆発することで周期的な地震が発生する。`,
+      `陸側の花崗岩プレートが海側プレートの下へ潜り込むことで、海嶺から押し出されたマグマが地下で凍結膨張するため。`,
+      `外核の鉄の対流が100年ごとに逆回転し、地殻全体が逆向きにジャンプするため。`
+    ], 0,
+    `正解は1番目。東北地方太平洋沖地震や南海トラフ地震などの海溝型巨大地震は、プレート収束境界での固着と引きずり込みによるひずみ蓄積、そして急激な反発（弾性反発説・逆断層型破壊）で生じます。`),
+  makeQ(`Q118`, 6,
+    `ハワイ諸島から天皇海山列へと連なる火山島・海山列が途中で「くの字」に折れ曲がって並んでいる現象が証明する地球ダイナミクスの事実はどれか。`,
+    [
+      `マントル深部にほぼ固定された高温のホットスポット（上昇プルーム）の上を太平洋プレートが移動しており、約4,700万年前頃にプレートの運動方向が大きく変化した（あるいはホットスポットとプレートの相対運動が記録された）こと。`,
+      `太平洋プレートは一切静止しており、ハワイの地下のマグマ溜まりだけが毎年海面上を自走して島を移動していること。`,
+      `天皇海山列はかつての海嶺そのものであり、現在もその中心線から両側へ新しい太平洋プレートが生産されていること。`,
+      `地球の赤道面が4,700万年前に90度急転倒したため、すべての火山が北西方向へ流されたこと。`
+    ], 0,
+    `正解は1番目。現在活動中のハワイ島から北西に向かって古い火山島・海山が年齢順に並んでおり、ホットスポット上をプレートが移動してきた軌跡（プレート運動の絶対方向・速度変化の記録）となっています。`),
+  makeQ(`Q119`, 6,
+    `熱対流が発生するかどうかの目安（無次元数であるレイリー数など）を考えたとき、地球のマントルが「固体であるにもかかわらず対流できる」根本的な理由として正しいものはどれか。`,
+    [
+      `地震波のような短い時間スケール（数秒）では剛体（弾性固体）として振る舞うが、数百万年〜数億年という極めて長い地質学的時間スケールかつ高温高圧下では粘性流体のようにゆっくりと塑性流動（クリープ変形）できるため。`,
+      `マントルの実質的な温度は常に10万 $\\text{K}$ を超えているため、物理的には固体ではなく高温のプラズマ気体と同じ状態であるため。`,
+      `マントルの内部には深さ $100\\text{ km}$ ごとに巨大なベアリング状の空洞があり、岩石塊がその上を摩擦ゼロで転がっているため。`,
+      `マントル対流とは物質が移動する現象ではなく、熱エネルギーだけが物質を動かさずに光速で伝わる純粋な熱伝導の別名であるため。`
+    ], 0,
+    `正解は1番目。物質の応答は時間スケールに依存します（粘弾性体）。短い地震波には固体としてP波・S波を伝えますが、長い時間スケールでは高温の岩石（融点近く）が結晶欠陥の移動等により粘性流動し、マントル対流を起こします。`),
+  makeQ(`Q120`, 6,
+    `ヒマラヤ山脈やチベット高原のような極めて厚い地殻と標高の高い大規模山脈が形成されたプレートテクトニクス上の要因はどれか。`,
+    [
+      `インド大陸（軽い大陸地殻）とユーラシア大陸（軽い大陸地殻）という大陸プレート同士が収束・衝突したため、どちらもマントル深部へ容易に沈み込めず、地殻が押し縮められて厚く隆起した（大陸衝突帯）。`,
+      `大西洋中央海嶺から噴出した玄武岩溶岩がインド洋を通り越してヒマラヤに一直線に積み上がったため。`,
+      `ホットスポットの上をインド大陸が100万年かけて静止したまま通過し、巨大盾状火山を1つ形成したため。`,
+      `トランスフォーム境界において二つの海洋プレートが互いに引き離され、海底が陥没した周囲が相対的に高く残ったため。`
+    ], 0,
+    `正解は1番目。重い海洋プレートはマントルへ沈み込みますが、密度の小さい大陸地殻同士が衝突する収束境界（アルプス・ヒマラヤ造山帯）では沈み込みが起きにくく、褶曲・逆断層による地殻の肥厚と大隆起が生じます。`),
+
+  // ===== 第7回（121〜140） =====
+  makeQ(`Q121`, 7,
+    `約40億年前の地球史初期において提起される「暗い太陽のパラドックス（Faint Young Sun Paradox）」の内容として正しいものはどれか。`,
+    [
+      `恒星進化理論によれば初期の太陽の光度は現在より約 $25\\text{–}30\\%$ 暗かったため、現在と同じ大気組成なら地球全体が凍結していたはずだが、地質学的証拠は当時すでに液体の海が存在したことを示しているという矛盾（高濃度の温室効果ガス等で説明される）。`,
+      `40億年前の太陽は現在の10倍の明るさを持っていたのに、地球の表面が厚い氷河に覆われていたという観測上の矛盾。`,
+      `太古の地球では太陽がまったく光らず真っ暗だったにもかかわらず、植物が光合成を行ってオゾン層を作ったという生物学上の矛盾。`,
+      `太陽の光度が46億年間完全に一定であったのに、地球だけが数億年周期で太陽から離れたり近づいたりしたという軌道力学上の矛盾。`
+    ], 0,
+    `正解は1番目。主系列星である太陽は中心核で水素がヘリウムに変わるにつれて密度が上がり、徐々に明るくなってきました。約40億年前は現在より約25〜30%暗かったにもかかわらず、海が存在した（ジルコンや堆積岩の証拠）ため、当時の地球には $\\text{CO}_2$ や $\\text{CH}_4$ などの強い温室効果があったと考えられています。`),
+  makeQ(`Q122`, 7,
+    `地球史初期の原始大気（二次大気）に大量に含まれていたと推定される二酸化炭素（$\\text{CO}_2$）が、現在の地球大気（約 $0.04\\%$）レベルまで大幅に減少した最大の固定メカニズムはどれか。`,
+    [
+      `海の誕生後、$\\text{CO}_2$ が海水に溶け込み、大陸風化で供給されたカルシウムイオン（$\\text{Ca}^{2+}$）等と結合して炭酸塩岩石（石灰岩 $\\text{CaCO}_3$ 等）として海底に固定されたこと、および後の光合成生物による有機炭素固定。`,
+      `地球の重力があまりに弱いために、重い $\\text{CO}_2$ 分子がすべて宇宙空間へ熱的散逸して失われたこと。`,
+      `大気中の $\\text{CO}_2$ がすべて地球の外核へ沈み込んで金属鉄と合金化し、中心核の軽元素になったこと。`,
+      `原始地球の火山活動が $\\text{CO}_2$ を逆吸収する吸熱反応を起こし、すべての炭素がウランに変換されたこと。`
+    ], 0,
+    `正解は1番目。金星では海が維持できず $\\text{CO}_2$ が約90気圧の大気として残りましたが、地球では液体の海が存在したことで $\\text{CO}_2$ が水に溶け、ケイ酸塩岩石の化学風化で生じた $\\text{Ca}^{2+}$ と反応して莫大な量の炭酸塩岩（石灰岩）として地殻に固定されました。`),
+  makeQ(`Q123`, 7,
+    `地球の大気中の酸素濃度が約24〜22億年前に急上昇した「大酸化イベント（GOE：Great Oxidation Event）」を引き起こした主因と、その背景にある地質学的シンクの飽和について正しい記述はどれか。`,
+    [
+      `シアノバクテリア等による酸素発生型光合成が開始された後、当初は海中の還元的な鉄イオン（$\\text{Fe}^{2+}$）や還元性火山ガスの酸化に酸素が消費されていたが、それらが使い果たされて（飽和して）大気中に酸素が蓄積し始めた。`,
+      `24億年前に地球のマントルから純粋な酸素ガスが大量に噴出したため、植物や細菌の活動とは無関係に大気組成が21%へ変化した。`,
+      `オゾン層が大気中の窒素を光分解して酸素を作った後に、海中の鉄イオンをすべて還元して元の金属鉄に戻した。`,
+      `酸素発生型光合成はカンブリア爆発（約5.4億年前）の直前に初めて出現し、それ以前の地層には酸化鉄は一切存在しない。`
+    ], 0,
+    `正解は1番目。酸素発生型光合成はGOEより前から始まっていたと考えられていますが、初期の海には大量の二価鉄イオン（$\\text{Fe}^{2+}$）や還元物質が存在したため、生じた $\\text{O}_2$ は鉄の酸化に使われました。鉄などのシンクが減少し、大気中に自由な酸素が蓄積し始めたのが約24億年前のGOEです。`),
+  makeQ(`Q124`, 7,
+    `約25〜19億年前の先カンブリア時代に最も多く形成され、現在人類が利用する鉄鉱石資源の大部分を占める「縞状鉄鉱床（BIF）」の形成プロセスとして正しいものはどれか。`,
+    [
+      `無酸素状態の太古の海には鉄が二価鉄イオン（$\\text{Fe}^{2+}$）として大量に溶存しており、光合成で発生した酸素と結びついて不溶性の酸化鉄（$\\text{Fe}_2\\text{O}_3$ 等）となって海底へ沈殿し、シリカ（チャート）層と交互に縞状に堆積した。`,
+      `地球の中心核から噴き出した溶融金属鉄が、海底の氷床の上で冷え固まって1メートル厚の鉄板となったものである。`,
+      `大気中の酸素濃度が現在と同じ21%に達した後に、空から鉄隕石の雨が周期的に降り注いで海底に積もったものである。`,
+      `陸上の恐竜の血液に含まれる鉄分が河川を通じて海に流れ込み、炭酸カルシウムと反応してできた中生代の地層である。`
+    ], 0,
+    `正解は1番目。無酸素海洋では鉄が水溶性の $\\text{Fe}^{2+}$ として存在できましたが、光合成生物が出す $\\text{O}_2$ によって酸化され水不溶性の $\\text{Fe}^{3+}$ 酸化物となって海底へ沈殿しました。これが季節的・周期的な変動などでシリカ層と互層になり、縞状鉄鉱床（BIF）を形成しました。`),
+  makeQ(`Q125`, 7,
+    `「全球凍結（スノーボールアース）」イベントの進行と、そこからの劇的な脱出メカニズム（負・正のフィードバック）として正しいものはどれか。`,
+    [
+      `氷床が広がると太陽光の反射率（アルベド）が上昇してさらに寒冷化する「アイス・アルベド・フィードバック（正のフィードバック）」により赤道まで凍結するが、凍結中も火山から放出され続けた $\\text{CO}_2$ が海洋風化で消費されず大気に極端に蓄積し、強力な温室効果で一気に融解した。`,
+      `太陽が約1,000万年間だけ完全に核融合を停止して消灯したために地球全体が凍結し、太陽が再点火したことで融解した。`,
+      `全球凍結が起こると地球の内部対流も完全に停止するため火山活動はゼロになり、地球は宇宙からの隕石衝突の熱だけでしか融解できなかった。`,
+      `氷床が広がるほど太陽光が吸収されて温暖化が進むため、地球は凍結する直前に自動的に元の気候へ押し戻されて一度も赤道が凍ったことはない。`
+    ], 0,
+    `正解は1番目。氷が増えるとアルベドが上がりさらに冷える暴走的な正のフィードバックで全球凍結に至りますが、海が氷に覆われると化学風化・海洋への $\\text{CO}_2$ 固定が止まる一方、火山からの $\\text{CO}_2$ 供給は続くため、数百万〜数千万年後に超高濃度 $\\text{CO}_2$ による極端な温室効果で一気に脱出します。`),
+  makeQ(`Q126`, 7,
+    `地球表層の長期的な気候安定化機構である「炭素・ケイ酸塩循環（炭酸塩・ケイ酸塩サイクル）」による負のフィードバックの仕組みとして正しいものはどれか。`,
+    [
+      `気温が上がると降水と化学風化が活発化して大気中の $\\text{CO}_2$ が炭酸塩岩としてより多く固定されるため寒冷化へ向かい、逆に気温が下がると風化が弱まり火山性 $\\text{CO}_2$ が溜まって温暖化へ向かうことで気候を安定化させる。`,
+      `気温が上がると火山噴火が自動的に増加して $\\text{CO}_2$ をさらに増やし、地球が金星と同じ460度になるまで止まらない正のフィードバックである。`,
+      `気温が下がると海水中の炭酸カルシウムが一斉に気化して大気中の酸素を押し出すため、氷河期ほど酸素濃度が高くなる機構である。`,
+      `地球の長期的な気温は植物の呼吸のみによって1時間単位で完全に固定されており、火山活動や岩石の風化は関与しない。`
+    ], 0,
+    `正解は1番目。数百万年スケールの長期気候安定装置として、温度上昇 $\\rightarrow$ 降水量増 $\\rightarrow$ ケイ酸塩岩石の風化促進 $\\rightarrow$ $\\text{CO}_2$ 消費・石灰岩堆積 $\\rightarrow$ 温室効果弱まり気温低下、という負のフィードバックが機能しています（金星には海がないためこれが働かず暴走温室状態になりました）。`),
+  makeQ(`Q127`, 7,
+    `大気中の「オゾン層（$\\text{O}_3$）」の形成と、生物の進化史における決定的な意義として正しいものはどれか。`,
+    [
+      `大気中の酸素濃度が一定以上（現在の数%〜10%程度以上）に高まったことで成層圏にオゾン層が形成され、DNAを破壊する有害な太陽紫外線（UV-B, UV-C）が遮蔽された結果、生物の陸上進出が可能になった。`,
+      `オゾン層は火山から噴き出した二酸化硫黄が海面に積もってできた層であり、陸上の植物が海へ逃げ込むきっかけを作った。`,
+      `オゾン層は宇宙誕生直後のビッグバン時に地球周辺に作られており、地球上で最初の単細胞生物が誕生する以前から陸上は動物で満たされていた。`,
+      `オゾン層は太陽からの可視光と赤外線をすべて遮断するため、形成後は地球全体が氷点下となりすべての生物が深海へ退避した。`
+    ], 0,
+    `正解は1番目。酸素の増加に伴い上空で紫外線による光化学反応でオゾン（$\\text{O}_3$）層が形成されました。それまで生物は紫外線を遮る水中でしか生きられませんでしたが、オゾン層の紫外線バリアにより古生代（オルドビス紀〜シルル紀〜デボン紀頃）に陸上進出が可能になりました。`),
+  makeQ(`Q128`, 7,
+    `約5億4,100万年前（顕生代の始まり）に起こった「カンブリア爆発」の特徴として、最も適切なものはどれか。`,
+    [
+      `それ以前の先カンブリア時代には軟体性の生物（エディアカラ生物群等）が主だったのに対し、硬い骨格や殻（ミネラリゼーション）や眼・捕食器官を備えた現在の動物門の基本デザインが一気に出揃う急速な多様化が起こった。`,
+      `地球上のほぼすべての大型小惑星がカンブリア紀に一斉に落下し、地球上の全生物が99%絶滅して細菌だけが残った事件である。`,
+      `陸上に巨大な森林と恐竜・哺乳類が一斉に出現し、鳥類が初めて空を飛んだ時代である。`,
+      `地球の酸素濃度がゼロに低下したことで、すべての動物が光合成を行える植物へと変化した事件である。`
+    ], 0,
+    `正解は1番目。スノーボールアース後の酸素濃度上昇や環境変動などを背景に、カンブリア紀初頭に眼・外骨格・筋肉等を持つ多様な多細胞動物（三葉虫、アノマロカリス等）が短期間に出現しました（カンブリア爆発）。`),
+  makeQ(`Q129`, 7,
+    `顕生代における「ビッグファイブ（5大大量絶滅）」の中で史上最大規模（海生生物種の約90〜96%が絶滅）とされる「P-T境界（古生代ペルム紀／中生代三畳紀境界、約2億5,200万年前）」の主な原因として有力視されているものはどれか。`,
+    [
+      `超大陸パンゲア形成期におけるシベリア・トラップ（大規模洪水玄武岩）の巨大火山活動に伴う大量の温室効果ガス放出・急激な温暖化・海洋無酸素事変（スーパーアノキシア）および海洋酸性化。`,
+      `ユカタン半島への巨大隕石（直径約 $10\\text{ km}$）衝突による恐竜の絶滅。`,
+      `シアノバクテリアの初出現による最初の大酸化イベント（GOE）と鉄イオンの欠乏。`,
+      `太陽が赤色巨星化して海水がすべて蒸発したイベント。`
+    ], 0,
+    `正解は1番目。P-T境界は史上最大の大量絶滅で、シベリアでの超大規模火山噴火（シベリア・トラップ）に伴う温暖化・海洋無酸素状態（深海〜浅海の貧酸素化・硫化水素発生）・酸性化等が主因とされています。2番目はK-Pg境界（約6,600万年前）の説明です。`),
+  makeQ(`Q130`, 7,
+    `約6,600万年前の「K-Pg境界（旧K-T境界：白亜紀／古第三紀境界）」における大量絶滅（鳥類以外の恐竜やアンモナイト等の絶滅）を決定づけた地質学的証拠の組み合わせはどれか。`,
+    [
+      `世界各国の境界粘土層に見られる地球表層では極めて稀な親鉄元素「イリジウム（$\\text{Ir}$）の異常濃集」、衝撃石英、スフェルール、およびメキシコ・ユカタン半島のチクシュルーブ・クレーターの発見。`,
+      `境界層から発見されたシベリア・トラップ由来の純粋な氷河礫と、南極のオゾンホールの化石。`,
+      `P-T境界と同じシベリアでの縞状鉄鉱床の大量形成と、超大陸パンゲアの形成開始。`,
+      `太陽黒点の記録が100年間途絶えたという古代の天文観測記録と、海底堆積物中のプラスチック微粒子。`
+    ], 0,
+    `正解は1番目。地球の地殻では中心核に濃集したため極めて乏しい「イリジウム（親鉄元素）」が、始原的隕石には豊富に含まれることから、K-Pg境界層のIr異常や衝撃石英・チクシュルーブクレーターが小惑星衝突の決定的証拠となりました。`),
+  makeQ(`Q131`, 7,
+    `中生代（特に白亜紀など）に発生した「海洋無酸素事変（OAE：Oceanic Anoxic Event）」の特徴と、現代の地球資源との関わりとして正しいものはどれか。`,
+    [
+      `大規模火山活動に伴う温暖化等で海洋の鉛直循環が弱まり、海水中の溶存酸素が広範に枯渇した結果、海底に大量の有機物が分解されずに黒色頁岩（ブラックシェール）として堆積し、後の石油・天然ガスの主要な根源岩となった。`,
+      `海洋中の酸素濃度が現在の10倍に急増したため、すべての海洋生物が酸素中毒で化石化し、世界の石灰岩山脈を形成した。`,
+      `海洋が赤道まで完全に凍結して無酸素状態になり、海底に鉄鉱石（縞状鉄鉱床）のみが大量に堆積した事件である。`,
+      `海水の塩分がすべて蒸発して岩塩層だけが残り、中生代の海洋には水が1滴も存在しなかった期間を指す。`
+    ], 0,
+    `正解は1番目。温暖な白亜紀などでは極域と赤道域の温度差が小さく深層循環が滞りやすく、さらに火山栄養塩による一次生産増加もあって海洋が貧酸素化（OAE）し、膨大な有機物が分解されず堆積して石油根源岩（ブラックシェール）となりました。`),
+  makeQ(`Q132`, 7,
+    `現存する地球上の最古の岩石や鉱物（ジルコン）の年代から推定される「地球上の液体の海」の出現時期と、生命の痕跡（炭素同位体比やストロマトライト等）のおよその年代として最も適切なものはどれか。`,
+    [
+      `地球誕生（約45.6〜45億年前）からそれほど遅くない約44〜40億年前にはすでに液体の海が存在した可能性が示され、生命の痕跡は約38〜35億年前（遅くとも35億年前には明確なストロマトライトや微化石）まで遡る。`,
+      `地球は誕生後約30億年間は完全にマグマオーシャンで、液体の海と最初の生命はともに約5億年前のカンブリア紀に初めて出現した。`,
+      `海は2億年前のジュラ紀に恐竜の進化と同時に誕生し、それ以前の地球は完全に乾燥した砂漠だった。`,
+      `生命は宇宙誕生と同時にビッグバンから38万年後に地球上で誕生したため、地球（約46億年）よりも生命の歴史（138億年）の方が古い。`
+    ], 0,
+    `正解は1番目。オーストラリア・ジャックヒルズの約44億年前のジルコン結晶の酸素同位体比などから、40億年以上前にすでに液体の水（海）が存在した可能性が強く示唆され、約38〜35億年前の地層には生命活動の証拠が見つかっています。`),
+  makeQ(`Q133`, 7,
+    `地球と隣の惑星である金星・火星の現在の表層環境（大気圧・主成分・表面温度）の比較として正しいものはどれか。`,
+    [
+      `金星は約 $90\\text{ 気圧}$ の濃厚な $\\text{CO}_2$ 大気で表面温度約 $460^{\\circ}\\text{C}$ の暴走温室状態、火星は約 $0.006\\text{ 気圧}$ の希薄な $\\text{CO}_2$ 大気で寒冷（平均約 $-60^{\\circ}\\text{C}$）、地球は $1\\text{ 気圧}$ の $\\text{N}_2$・$\\text{O}_2$ 大気で平均約 $15^{\\circ}\\text{C}$ であり液体の水を維持している。`,
+      `金星も火星も地球と同じ $1\\text{ 気圧}$ の窒素・酸素大気を持っており、単に太陽からの距離の違いだけで温度が $10^{\\circ}\\text{C}$ ほど異なるに過ぎない。`,
+      `火星は約 $90\\text{ 気圧}$ のメタン大気を持つため表面温度が $500^{\\circ}\\text{C}$ に達しており、金星は厚い氷河に覆われた極寒の惑星である。`,
+      `地球の大気の $95\\%$ 以上は二酸化炭素であり、金星と火星の大気は $78\\%$ の窒素と $21\\%$ の酸素で構成されている。`
+    ], 0,
+    `正解は1番目。地球型3惑星の大気組成比（金星・火星は $\\text{CO}_2$ が95%以上だが気圧が極端に異なる：金星約90気圧・約460℃、火星約0.006気圧・約-60℃、地球1気圧 $\\text{N}_2$ 78%・$\\text{O}_2$ 21%・約15℃）は第7回の重要な比較ポイントです。`),
+  makeQ(`Q134`, 7,
+    `火星にかつて「液体の水（川や湖・海）」が存在したことを示す地形的・鉱物学的証拠と、その後火星が寒冷・乾燥化した主な理由の組み合わせとして正しいものはどれか。`,
+    [
+      `蛇行した河川跡（バレーネットワーク）・三角州地形や粘土鉱物・硫酸塩鉱物の存在からかつての液体の水の存在が示されており、火星は地球より質量が小さく内部が早く冷えて固有磁場を失った結果、太陽風によって大気が剥ぎ取られて希薄化したため。`,
+      `火星の現在の極冠はすべて液体の水銀であり、かつて太陽が現在の100倍暗かったために海が沸騰して蒸発した。`,
+      `火星は現在も全面が深さ $10\\text{ km}$ の液体の海で覆われており、宇宙望遠鏡からは赤色の藻類が見えているに過ぎない。`,
+      `火星の重力は地球の10倍強いため、水分子がすべて岩石の隙間に押し潰されて金属鉄に核変換した。`
+    ], 0,
+    `正解は1番目。火星は質量が地球の約1/10と小さいため内部熱を早く失い、コアダイナモ（固有磁場）が停止して太陽風による大気散逸が進み、現在のような極薄の $\\text{CO}_2$ 大気と寒冷環境になったと考えられています。`),
+  makeQ(`Q135`, 7,
+    `金星に液体の海が存在せず、暴走温室効果によって超高温（約 $460^{\\circ}\\text{C}$）になった理由として最も適切なものはどれか。`,
+    [
+      `太陽に地球より近いため初期の水蒸気が凝縮して海を作れず（あるいは海が早期に蒸発し）、強い温室効果気体である水蒸気が大気上層で紫外線分解されて水素が宇宙へ逃げ去り、$\\text{CO}_2$ を岩石へ固定する海を失ったため。`,
+      `金星には元々酸素と水素が1原子も存在しなかったため、純粋なウランの核分裂熱のみで表面が $460^{\\circ}\\text{C}$ に加熱された。`,
+      `金星の自転速度が1時間に100回転と極端に速いため、大気との空気摩擦熱だけで表面温度が上昇した。`,
+      `金星では木星と同じく水素とヘリウムが質量の99%を占めているため、中心部のガス圧縮熱で表面が輝いている。`
+    ], 0,
+    `正解は1番目。金星は太陽に近すぎて水蒸気が安定な海として保たれず、水蒸気による暴走温室効果が起き、大気上層まで達した $\\text{H}_2\\text{O}$ が紫外線で光解離されて軽い $\\text{H}$ が散逸しました。海がないため $\\text{CO}_2$ の炭酸塩固定ができず、90気圧もの $\\text{CO}_2$ 大気が残りました。`),
+  makeQ(`Q136`, 7,
+    `太陽系内において地球以外に液体の水（地下海・内部海）が存在し、生命居住可能性（ハビタビリティ）の観点から探査が進められている有力な氷衛星の組み合わせはどれか。`,
+    [
+      `木星の衛星「エウロパ」や土星の衛星「エンケラドス」（およびガニメデ・タイタンなど）`,
+      `火星の衛星「フォボス」と「ダイモス」`,
+      `地球の衛星「月」と冥王星の衛星「カロン」の表面の海`,
+      `海王星の周囲を回る金属鉄小惑星「プシケ」の溶岩海`
+    ], 0,
+    `正解は1番目。木星や土星からの「潮汐加熱」によって、分厚い氷殻の下に液体の内部海（地下海）を維持しているエウロパや、南極から水柱（プルーム）を噴き出しているエンケラドスなどが地球外生命探査の最有力天体です。`),
+  makeQ(`Q137`, 7,
+    `原始地球における最初の生命誕生環境として有力視されている「深海熱水噴出孔（ブラック・ホワイトスモーカー周辺）」が注目される理由はどれか。`,
+    [
+      `紫外線や隕石重爆撃から海面下で守られるとともに、マントル岩石と海水の反応（蛇紋岩化など）による継続的な化学エネルギー（酸化還元勾配・水素・メタン等）と金属触媒が供給される場であるため。`,
+      `深海は常に絶対零度で水が凍っているため、化学反応が一切進まず原始細胞が冷凍保存されやすいため。`,
+      `深海熱水噴出孔では太陽の可視光が地上より100倍強く届くため、最初の高等植物やサンゴが光合成を行いやすかったため。`,
+      `深海の水圧によって窒素ガスが自動的にDNA二重らせん結晶へ変化する物理法則が確認されているため。`
+    ], 0,
+    `正解は1番目。初期地球は紫外線（オゾン層なし）や後期重爆撃など表層環境が過酷でしたが、深海熱水噴出孔（特にアルカリ性熱水噴出孔等）は遮蔽されつつ継続的な化学不平衡エネルギーと金属イオンが供給される場として注目されています。`),
+  makeQ(`Q138`, 7,
+    `地球表層の「生物圏・大気圏・水圏・地圏」の共進化（互いに影響し合いながら進化してきた歴史）を示す具体例として、最も適切なものはどれか。`,
+    [
+      `生物（光合成細菌）の活動が大気酸素を増やしてオゾン層や鉄鉱床（BIF）と酸化鉱物種の大増加を生み、その酸素・オゾン層がさらなる大型動物や陸上生物（森林）の進化を促し、森林の根が岩石風化を加速させて $\\text{CO}_2$ と気候を変化させた。`,
+      `生物は地球の地質や大気の進化にただ一方的に従うだけであり、大気組成や岩石形成に生物活動が影響を与えたことは地球史上一度もない。`,
+      `地圏（プレート運動や火山活動）は生物が誕生した瞬間に完全に停止し、現在の地球の火山活動はすべて地中の微生物の呼吸だけで起きている。`,
+      `大気中の窒素の78%はすべて人類の農業によって作り出されたものであり、生物誕生前の地球には窒素ガスは存在しなかった。`
+    ], 0,
+    `正解は1番目。地球と生命は一方通行ではなく「共進化」しています。光合成による酸素増加 $\\rightarrow$ BIF形成・新鉱物出現・オゾン層形成 $\\rightarrow$ 動物大型化・陸上進出 $\\rightarrow$ 植物による風化促進・気候変化といった密接な相互作用があります。`),
+  makeQ(`Q139`, 7,
+    `地球の大気中の酸素濃度が古生代石炭紀〜ペルム紀にかけて現在（約 $21\\%$）よりも高い約 $30\\%$ 近くまで上昇したとされる時期に見られた特徴的な現象はどれか。`,
+    [
+      `陸上植物の大繁栄（リグニンを含む大森林の形成と石炭層の大量堆積）に伴って有機炭素が大量に埋没した結果として酸素濃度が上昇し、巨大昆虫（体長数十 cm のトンボ等）の出現や大規模な森林火災の頻発を招いた。`,
+      `酸素濃度の上昇によって海面がすべて凍結し、地球全体で1億年間続くスノーボールアースが発生した。`,
+      `高濃度の酸素によって地球のすべての金属鉄の地殻が燃え尽き、大陸が消滅して完全な水惑星になった。`,
+      `酸素濃度30%下では脊椎動物は呼吸できなくなるため、魚類と両生類がこの時期に一度すべて絶滅した。`
+    ], 0,
+    `正解は1番目。石炭紀に陸上植物が大量の有機物（石炭の元）を地中に埋没させたことで対になる酸素が大量に残留し、大気酸素濃度が上昇して気門呼吸を行う節足動物の大型化等を可能にしました。`),
+  makeQ(`Q140`, 7,
+    `宇宙地球科学Ⅰ（第1回〜第7回）全体を貫く視点として、「宇宙の誕生から生命を育む地球表層環境に至るまで」の因果関係を一貫して説明している記述はどれか。`,
+    [
+      `ビッグバンで軽元素が生まれ、恒星と超新星・中性子星合体で重元素が作られて太陽系材料が揃い、原始惑星系円盤の化学分別と集積で層構造と熱機関（プレートテクトニクス・磁場）を持つ地球が形成され、そのダイナミクスと太陽距離・海・生物の共進化が現在まで生命居住可能な環境を維持している。`,
+      `宇宙誕生時にすでに現在の地球の地形と人類の文明までが完成しており、恒星の進化やプレート運動は地球の歴史とは全く切り離された無関係な現象である。`,
+      `地球の内部構造や大気組成は偶然の産物ではなく、地球中心核で進行している水素核融合反応が太陽の代わりにすべての生命エネルギーと重元素を生産し続けている結果である。`,
+      `太陽系内のすべての惑星には同じ時期に同じ生命が誕生することが物理法則で保証されており、地球と金星と火星の表層環境の違いは存在しない。`
+    ], 0,
+    `正解は1番目。第1回の宇宙のスケール、第2回のビッグバンと宇宙進化、第3回の星と元素合成、第4回の惑星系誕生、第5回の物質と内部構造、第6回のプレートテクトニクスと熱機関、第7回の表層環境と生命共進化が1本の壮大なストーリーとしてつながっています。`)
+];
+
+let appState = {
+  theme: `dark`,
+  stats: {},       // { Q001: { attempts, correct, wrongTag } }
+  bookmarks: {},   // { Q001: true }
+  examHistory: []  // [{ date, score, total, scope }]
+};
+
+let quizSession = null;
+let redSheetOn = false;
+let revealedInBank = {};
+
+function showToast(msg) {
+  const el = document.getElementById('global-toast');
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.remove('hidden');
+  clearTimeout(showToast._timer);
+  showToast._timer = setTimeout(() => {
+    el.classList.add('hidden');
+  }, 3500);
+}
+
+function renderMathIn(el) {
+  if (!el || typeof renderMathInElement !== 'function') return;
+  try {
+    renderMathInElement(el, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ],
+      throwOnError: false
+    });
+  } catch (e) {}
+}
+
+async function saveState() {
+  if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+    try {
+      await window.notebookAppApi.setAppState(appState);
+    } catch (e) {}
+  }
+}
+
+async function loadState() {
+  if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+    try {
+      const saved = await window.notebookAppApi.getAppState();
+      if (saved && typeof saved === 'object') {
+        appState = {
+          theme: saved.theme === 'light' ? 'light' : 'dark',
+          stats: saved.stats && typeof saved.stats === 'object' ? saved.stats : {},
+          bookmarks: saved.bookmarks && typeof saved.bookmarks === 'object' ? saved.bookmarks : {},
+          examHistory: Array.isArray(saved.examHistory) ? saved.examHistory : []
+        };
+      }
+    } catch (e) {}
+  }
+  applyTheme(appState.theme);
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
+  const btn = document.getElementById('theme-toggle-btn');
+  if (btn) {
+    btn.textContent = theme === 'light' ? 'ダーク表示に切替' : 'ライト表示に切替';
+  }
+}
+
+function toggleTheme() {
+  appState.theme = appState.theme === 'light' ? 'dark' : 'light';
+  applyTheme(appState.theme);
+  saveState();
+}
+
+function switchView(viewName) {
+  const views = ['dashboard', 'quiz', 'bank', 'backup'];
+  views.forEach(v => {
+    const sec = document.getElementById('view-' + v);
+    if (sec) sec.classList.toggle('hidden', v !== viewName);
+  });
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.view === viewName);
+  });
+  if (viewName === 'dashboard') updateDashboard();
+  if (viewName === 'quiz') renderQuizView();
+  if (viewName === 'bank') renderBank();
+}
+
+function getFilteredPool() {
+  const part = (document.getElementById('filter-part') || {}).value || 'all';
+  const lec = (document.getElementById('filter-lecture') || {}).value || 'all';
+  const status = (document.getElementById('filter-status') || {}).value || 'all';
+
+  return QUESTIONS.filter(q => {
+    if (part !== 'all' && q.part !== part) return false;
+    if (lec !== 'all' && String(q.lec) !== lec) return false;
+    const st = appState.stats[q.id];
+    if (status === 'wrong' && !(st && st.wrongTag)) return false;
+    if (status === 'bookmarked' && !appState.bookmarks[q.id]) return false;
+    if (status === 'unanswered' && st && st.attempts > 0) return false;
+    return true;
+  });
+}
+
+function onFilterChange() {
+  const pool = getFilteredPool();
+  const el = document.getElementById('matched-count');
+  if (el) el.textContent = String(pool.length);
+}
+
+function updateDashboard() {
+  let answeredUnique = 0;
+  let totalAttempts = 0;
+  let totalCorrect = 0;
+  let wrongCount = 0;
+  const lecStats = {};
+  for (let i = 1; i <= 7; i++) {
+    lecStats[i] = { total: 0, answered: 0, attempts: 0, correct: 0, wrong: 0 };
+  }
+
+  QUESTIONS.forEach(q => {
+    lecStats[q.lec].total++;
+    const st = appState.stats[q.id];
+    if (st && st.attempts > 0) {
+      answeredUnique++;
+      totalAttempts += st.attempts;
+      totalCorrect += st.correct;
+      lecStats[q.lec].answered++;
+      lecStats[q.lec].attempts += st.attempts;
+      lecStats[q.lec].correct += st.correct;
+    }
+    if (st && st.wrongTag) {
+      wrongCount++;
+      lecStats[q.lec].wrong++;
+    }
+  });
+
+  const bmCount = Object.keys(appState.bookmarks).filter(k => appState.bookmarks[k]).length;
+
+  const kAns = document.getElementById('kpi-answered');
+  const kCov = document.getElementById('kpi-coverage');
+  const kAcc = document.getElementById('kpi-accuracy');
+  const kCnt = document.getElementById('kpi-correct-count');
+  const kWrg = document.getElementById('kpi-wrong');
+  const kBm = document.getElementById('kpi-bookmarks');
+
+  if (kAns) kAns.textContent = `${answeredUnique} / ${QUESTIONS.length}`;
+  if (kCov) kCov.textContent = `網羅率 ${((answeredUnique / QUESTIONS.length) * 100).toFixed(1)}%`;
+  if (kAcc) kAcc.textContent = totalAttempts > 0 ? `${((totalCorrect / totalAttempts) * 100).toFixed(1)}%` : '—';
+  if (kCnt) kCnt.textContent = `累計 ${totalCorrect} 問正解 / ${totalAttempts} 回解答`;
+  if (kWrg) kWrg.textContent = `${wrongCount} 問`;
+  if (kBm) kBm.textContent = `${bmCount} 問`;
+
+  const weakBtn = document.getElementById('quick-weak-btn');
+  if (weakBtn) {
+    weakBtn.textContent = `苦手問題のみ一括演習 (${wrongCount}問)`;
+    weakBtn.disabled = wrongCount === 0;
+  }
+
+  const barsEl = document.getElementById('lecture-bars');
+  if (barsEl) {
+    barsEl.innerHTML = '';
+    for (let i = 1; i <= 7; i++) {
+      const ls = lecStats[i];
+      const rate = ls.attempts > 0 ? Math.round((ls.correct / ls.attempts) * 100) : 0;
+      const color = ls.attempts === 0 ? 'var(--data-context)' : rate >= 80 ? 'var(--positive)' : rate >= 55 ? 'var(--data-1)' : 'var(--error)';
+      const row = document.createElement('div');
+      row.className = 'bar-row';
+      row.innerHTML = `
+        <div style="font-size:0.875rem; font-weight:500;">${LECTURE_META[i].title}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${ls.attempts > 0 ? rate : 0}%; background:${color};"></div></div>
+        <div class="bar-stat">${ls.attempts > 0 ? rate + '%' : '未解答'} (${ls.answered}/${ls.total})</div>
+      `;
+      barsEl.appendChild(row);
+    }
+  }
+
+  const histEl = document.getElementById('exam-history-list');
+  if (histEl) {
+    if (appState.examHistory.length === 0) {
+      histEl.innerHTML = `<div class="observation-well" style="color:var(--on-surface-variant); font-size:0.875rem;">まだ本番テスト履歴がありません。「本番テストモード」を採点するとここに記録されます。</div>`;
+    } else {
+      histEl.innerHTML = appState.examHistory.slice(0, 5).map(h => `
+        <div class="observation-well" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--space-sm);">
+          <span>${h.date} ／ ${h.scope}</span>
+          <strong style="color:var(--primary);">${h.score} / ${h.total} 問正解 (${Math.round((h.score / h.total) * 100)}%)</strong>
+        </div>
+      `).join('');
+    }
+  }
+
+  onFilterChange();
+}
+
+function shuffleArray(arr) {
+  const copy = arr.slice();
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = copy[i];
+    copy[i] = copy[j];
+    copy[j] = tmp;
+  }
+  return copy;
+}
+
+function buildSessionItems(questions, doShuffleOpts) {
+  return questions.map(q => {
+    const indices = [0, 1, 2, 3];
+    const order = doShuffleOpts ? shuffleArray(indices) : indices;
+    const opts = order.map(idx => q.opts[idx]);
+    const correctIdx = order.indexOf(q.ans);
+    return { q, opts, correctIdx, userChoice: null, checked: false };
+  });
+}
+
+function startQuiz(mode) {
+  const pool = getFilteredPool();
+  if (pool.length === 0) {
+    showToast('条件に一致する問題がありません。フィルタを変更してください。');
+    return;
+  }
+  const shuffleOpts = ((document.getElementById('opt-shuffle') || {}).value || 'on') === 'on';
+  const picked = mode === 'exam' ? shuffleArray(pool).slice(0, Math.min(20, pool.length)) : shuffleArray(pool);
+  const partLabel = document.getElementById('filter-part').selectedOptions[0].textContent;
+  quizSession = {
+    mode,
+    scopeLabel: partLabel,
+    items: buildSessionItems(picked, shuffleOpts),
+    idx: 0,
+    graded: false
+  };
+  switchView('quiz');
+}
+
+function startWeakQuick() {
+  const weakPool = QUESTIONS.filter(q => appState.stats[q.id] && appState.stats[q.id].wrongTag);
+  if (weakPool.length === 0) {
+    showToast('要復習にタグ付けされた問題はありません。');
+    return;
+  }
+  const shuffleOpts = ((document.getElementById('opt-shuffle') || {}).value || 'on') === 'on';
+  quizSession = {
+    mode: 'drill',
+    scopeLabel: '苦手問題リベンジ',
+    items: buildSessionItems(shuffleArray(weakPool), shuffleOpts),
+    idx: 0,
+    graded: false
+  };
+  switchView('quiz');
+}
+
+function recordAnswer(qId, isCorrect) {
+  if (!appState.stats[qId]) {
+    appState.stats[qId] = { attempts: 0, correct: 0, wrongTag: false };
+  }
+  appState.stats[qId].attempts++;
+  if (isCorrect) {
+    appState.stats[qId].correct++;
+    appState.stats[qId].wrongTag = false;
+  } else {
+    appState.stats[qId].wrongTag = true;
+  }
+}
+
+function selectChoice(choiceIdx) {
+  if (!quizSession) return;
+  const item = quizSession.items[quizSession.idx];
+  if (quizSession.mode === 'drill' && item.checked) return;
+  if (quizSession.mode === 'exam' && quizSession.graded) return;
+
+  item.userChoice = choiceIdx;
+  if (quizSession.mode === 'drill') {
+    item.checked = true;
+    recordAnswer(item.q.id, choiceIdx === item.correctIdx);
+    saveState();
+  }
+  renderQuizView();
+}
+
+function moveQuestion(delta) {
+  if (!quizSession) return;
+  const next = quizSession.idx + delta;
+  if (next >= 0 && next < quizSession.items.length) {
+    quizSession.idx = next;
+    renderQuizView();
+  }
+}
+
+function jumpQuestion(i) {
+  if (!quizSession || i < 0 || i >= quizSession.items.length) return;
+  quizSession.idx = i;
+  renderQuizView();
+}
+
+function toggleCurrentBookmark() {
+  if (!quizSession) return;
+  const qId = quizSession.items[quizSession.idx].q.id;
+  appState.bookmarks[qId] = !appState.bookmarks[qId];
+  saveState();
+  renderQuizView();
+}
+
+function gradeExam() {
+  if (!quizSession || quizSession.mode !== 'exam' || quizSession.graded) return;
+  quizSession.graded = true;
+  let score = 0;
+  quizSession.items.forEach(item => {
+    item.checked = true;
+    const ok = item.userChoice === item.correctIdx;
+    if (ok) score++;
+    recordAnswer(item.q.id, ok);
+  });
+  const now = new Date();
+  const stamp = `${now.getMonth() + 1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  appState.examHistory.unshift({
+    date: stamp,
+    score,
+    total: quizSession.items.length,
+    scope: quizSession.scopeLabel.replace(/（.*?）/g, '')
+  });
+  appState.examHistory = appState.examHistory.slice(0, 20);
+  saveState();
+  renderQuizView();
+}
+
+function retrySessionWrong() {
+  if (!quizSession) return;
+  const wrongs = quizSession.items.filter(it => it.checked && it.userChoice !== it.correctIdx).map(it => it.q);
+  if (wrongs.length === 0) return;
+  const shuffleOpts = ((document.getElementById('opt-shuffle') || {}).value || 'on') === 'on';
+  quizSession = {
+    mode: 'drill',
+    scopeLabel: '直前の誤答復習',
+    items: buildSessionItems(wrongs, shuffleOpts),
+    idx: 0,
+    graded: false
+  };
+  renderQuizView();
+}
+
+function renderQuizView() {
+  const emptyEl = document.getElementById('quiz-empty-state');
+  const activeEl = document.getElementById('quiz-active-box');
+  const summaryEl = document.getElementById('exam-result-summary');
+  if (!emptyEl || !activeEl || !summaryEl) return;
+
+  if (!quizSession) {
+    emptyEl.classList.remove('hidden');
+    activeEl.classList.add('hidden');
+    summaryEl.classList.add('hidden');
+    return;
+  }
+
+  emptyEl.classList.add('hidden');
+  activeEl.classList.remove('hidden');
+
+  const item = quizSession.items[quizSession.idx];
+  const q = item.q;
+  const st = appState.stats[q.id];
+  const isBm = !!appState.bookmarks[q.id];
+
+  document.getElementById('q-mode-badge').textContent = quizSession.mode === 'exam' ? '本番テストモード' : '一問一答モード';
+  document.getElementById('q-lecture-badge').textContent = `第${q.lec}回`;
+  document.getElementById('q-id-badge').textContent = q.id;
+  document.getElementById('q-wrong-badge').classList.toggle('hidden', !(st && st.wrongTag));
+  document.getElementById('q-progress-text').textContent = `${quizSession.idx + 1} / ${quizSession.items.length}`;
+
+  const bmBtn = document.getElementById('q-bookmark-btn');
+  bmBtn.textContent = isBm ? '★ ブックマーク中' : '☆ ブックマーク';
+  bmBtn.classList.toggle('btn-primary', isBm);
+
+  const dotsEl = document.getElementById('q-nav-dots');
+  dotsEl.innerHTML = quizSession.items.map((it, idx) => {
+    let cls = 'q-dot';
+    if (idx === quizSession.idx) cls += ' current';
+    if (it.checked) {
+      cls += it.userChoice === it.correctIdx ? ' dot-ok' : ' dot-ng';
+    } else if (it.userChoice !== null) {
+      cls += ' answered';
+    }
+    return `<button type="button" class="${cls}" onclick="jumpQuestion(${idx})">${idx + 1}</button>`;
+  }).join('');
+
+  const stemEl = document.getElementById('q-stem');
+  stemEl.textContent = q.q;
+
+  const choicesEl = document.getElementById('q-choices');
+  const labels = ['A', 'B', 'C', 'D'];
+  choicesEl.innerHTML = item.opts.map((optText, i) => {
+    let cls = 'choice-btn';
+    if (item.checked) {
+      if (i === item.correctIdx) cls += ' correct';
+      else if (i === item.userChoice) cls += ' wrong';
+    } else if (i === item.userChoice) {
+      cls += ' selected';
+    }
+    const disabled = (quizSession.mode === 'drill' && item.checked) || (quizSession.mode === 'exam' && quizSession.graded) ? 'disabled' : '';
+    return `<button type="button" class="${cls}" ${disabled} onclick="selectChoice(${i})"><span class="choice-key">${labels[i]}</span><span>${optText}</span></button>`;
+  }).join('');
+
+  const expEl = document.getElementById('q-explanation');
+  if (item.checked) {
+    const isOk = item.userChoice === item.correctIdx;
+    expEl.className = `explanation-box ${isOk ? 'is-correct' : 'is-wrong'}`;
+    expEl.innerHTML = `
+      <div style="font-family:var(--font-label); font-weight:600; color:${isOk ? 'var(--positive)' : 'var(--error)'};">
+        ${isOk ? '正解！' : `不正解（正解は選択肢 ${labels[item.correctIdx]}）`}
+      </div>
+      <div>${q.exp}</div>
+    `;
+    expEl.classList.remove('hidden');
+  } else {
+    expEl.classList.add('hidden');
+  }
+
+  document.getElementById('q-prev-btn').disabled = quizSession.idx === 0;
+  document.getElementById('q-next-btn').disabled = quizSession.idx === quizSession.items.length - 1;
+
+  const gradeBtn = document.getElementById('q-grade-btn');
+  gradeBtn.classList.toggle('hidden', !(quizSession.mode === 'exam' && !quizSession.graded));
+
+  const wrongInSession = quizSession.items.filter(it => it.checked && it.userChoice !== it.correctIdx).length;
+  const retryBtn = document.getElementById('q-retry-wrong-btn');
+  retryBtn.classList.toggle('hidden', !(wrongInSession > 0 && (quizSession.mode === 'exam' && quizSession.graded)));
+
+  if (quizSession.mode === 'exam' && quizSession.graded) {
+    const score = quizSession.items.filter(it => it.userChoice === it.correctIdx).length;
+    const pct = Math.round((score / quizSession.items.length) * 100);
+    summaryEl.classList.remove('hidden');
+    summaryEl.innerHTML = `
+      <p class="coord-label">EXAMINATION RESULT</p>
+      <h2 style="font-family:var(--font-headline); margin:0;">採点結果：${score} / ${quizSession.items.length} 問正解（${pct}%）</h2>
+      <p style="margin:0; color:var(--on-surface-variant);">上の問題番号ボタン（緑＝正解・赤＝誤答）をタップして各問題の詳しい解説を確認できます。間違えた問題には自動で「要復習」タグが付与されました。</p>
+    `;
+  } else {
+    summaryEl.classList.add('hidden');
+  }
+
+  renderMathIn(activeEl);
+}
+
+function toggleRedSheet() {
+  redSheetOn = !redSheetOn;
+  revealedInBank = {};
+  const btn = document.getElementById('red-sheet-btn');
+  if (btn) {
+    btn.textContent = redSheetOn ? '赤シート：ON（タップで表示）' : '赤シート：OFF（タップで正解・解説を隠す）';
+    btn.classList.toggle('btn-primary', redSheetOn);
+    btn.classList.toggle('btn-danger', !redSheetOn);
+  }
+  renderBank();
+}
+
+function revealBankItem(qId) {
+  if (!redSheetOn) return;
+  revealedInBank[qId] = !revealedInBank[qId];
+  renderBank();
+}
+
+function toggleBankBookmark(qId) {
+  appState.bookmarks[qId] = !appState.bookmarks[qId];
+  saveState();
+  renderBank();
+}
+
+function renderBank() {
+  const kw = ((document.getElementById('bank-search') || {}).value || '').trim().toLowerCase();
+  const lec = (document.getElementById('bank-lecture') || {}).value || 'all';
+  const stFilter = (document.getElementById('bank-status') || {}).value || 'all';
+
+  const filtered = QUESTIONS.filter(q => {
+    if (lec !== 'all' && String(q.lec) !== lec) return false;
+    const st = appState.stats[q.id];
+    if (stFilter === 'wrong' && !(st && st.wrongTag)) return false;
+    if (stFilter === 'bookmarked' && !appState.bookmarks[q.id]) return false;
+    if (kw) {
+      const hay = (q.q + ' ' + q.opts.join(' ') + ' ' + q.exp).toLowerCase();
+      if (!hay.includes(kw)) return false;
+    }
+    return true;
+  });
+
+  const countEl = document.getElementById('bank-count');
+  if (countEl) countEl.textContent = String(filtered.length);
+
+  const listEl = document.getElementById('bank-list');
+  if (!listEl) return;
+
+  if (filtered.length === 0) {
+    listEl.innerHTML = `<div class="panel">条件に一致する問題が見つかりませんでした。</div>`;
+    return;
+  }
+
+  listEl.innerHTML = filtered.map(q => {
+    const st = appState.stats[q.id];
+    const isBm = !!appState.bookmarks[q.id];
+    const masked = redSheetOn && !revealedInBank[q.id];
+    return `
+      <article class="bank-card">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-xs);">
+          <div style="display:flex; flex-wrap:wrap; gap:var(--space-xs); align-items:center;">
+            <span class="badge badge-brass">${q.id}</span>
+            <span class="badge">第${q.lec}回</span>
+            ${st && st.wrongTag ? '<span class="badge badge-err">要復習</span>' : ''}
+            ${st && st.attempts > 0 ? `<span class="badge badge-pos">正答 ${st.correct}/${st.attempts}</span>` : ''}
+          </div>
+          <button type="button" class="btn btn-sm ${isBm ? 'btn-primary' : ''}" onclick="toggleBankBookmark('${q.id}')">${isBm ? '★ 登録済' : '☆ ブックマーク'}</button>
+        </div>
+        <div style="font-weight:500;">${q.q}</div>
+        <ol style="margin:0; padding-left:1.25rem; display:grid; gap:4px; font-size:0.9rem; color:var(--on-surface-variant);">
+          ${q.opts.map((o, idx) => `<li class="${idx === q.ans && !masked ? '' : ''}" style="${idx === q.ans && !masked ? 'color:var(--positive); font-weight:600;' : ''}">${o}</li>`).join('')}
+        </ol>
+        <div class="observation-well ${masked ? 'red-sheet-masked' : ''}" onclick="revealBankItem('${q.id}')" title="${redSheetOn ? 'クリックで開閉' : ''}">
+          <div style="font-size:0.8125rem; color:var(--primary); margin-bottom:4px;">【正解・解説】</div>
+          <div style="font-size:0.9rem;">${q.exp}</div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  renderMathIn(listEl);
+}
+
+function exportBackupFile() {
+  const jsonStr = JSON.stringify(appState, null, 2);
+  if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
+    window.notebookAppApi.triggerFileDownload({
+      content: jsonStr,
+      contentType: 'text/plain',
+      encoding: 'UTF-8',
+      filename: 'space_earth_science_1_progress.json'
+    });
+    showToast('進捗データのJSONファイルを書き出しました。');
+  } else {
+    copyBackupJson();
+  }
+}
+
+function copyBackupJson() {
+  const ta = document.getElementById('json-text-area');
+  if (ta) {
+    ta.value = JSON.stringify(appState, null, 2);
+    ta.select();
+    showToast('JSONテキストを出力しました。コピーして別端末へ共有できます。');
+  }
+}
+
+function applyImportedJson(rawText) {
+  try {
+    const parsed = JSON.parse(rawText);
+    if (!parsed || typeof parsed !== 'object') throw new Error('Invalid');
+    appState = {
+      theme: parsed.theme === 'light' ? 'light' : 'dark',
+      stats: parsed.stats && typeof parsed.stats === 'object' ? parsed.stats : {},
+      bookmarks: parsed.bookmarks && typeof parsed.bookmarks === 'object' ? parsed.bookmarks : {},
+      examHistory: Array.isArray(parsed.examHistory) ? parsed.examHistory : []
+    };
+    applyTheme(appState.theme);
+    saveState();
+    updateDashboard();
+    showToast('学習進捗JSONデータをインポートしました！');
+  } catch (e) {
+    showToast('JSONの形式が正しくありません。内容を確認してください。');
+  }
+}
+
+function importFromFile(ev) {
+  const file = ev.target && ev.target.files && ev.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    applyImportedJson(String(e.target.result || ''));
+  };
+  reader.readAsText(file);
+}
+
+function importFromTextarea() {
+  const ta = document.getElementById('json-text-area');
+  if (!ta || !ta.value.trim()) {
+    showToast('インポートするJSONテキストを貼り付けてください。');
+    return;
+  }
+  applyImportedJson(ta.value.trim());
+}
+
+function resetAllProgress(btn) {
+  if (btn.dataset.armed !== 'true') {
+    btn.dataset.armed = 'true';
+    btn.textContent = '本当に初期化しますか？（もう一度クリック）';
+    setTimeout(() => {
+      if (btn.dataset.armed === 'true') {
+        btn.dataset.armed = 'false';
+        btn.textContent = '学習データを初期化';
+      }
+    }, 4500);
+    return;
+  }
+  btn.dataset.armed = 'false';
+  btn.textContent = '学習データを初期化';
+  appState.stats = {};
+  appState.bookmarks = {};
+  appState.examHistory = [];
+  quizSession = null;
+  saveState();
+  updateDashboard();
+  showToast('すべての学習進捗・履歴を初期化しました。');
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadState();
+  updateDashboard();
+  renderBank();
+  if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+    window.notebookAppApi.notifyAppReady();
+  }
+});
+</script>
+</body>
+</html>
